@@ -1,9 +1,9 @@
 {
-  "workshoptitle": "The Title of the Workshop is defined in the manifest",
+  "workshoptitle": "Oracle Site Guard-Quick Start",
   "help": "livelabs-help-**enterarea**_us@oracle.com",
   "tutorials": [
     {
-      "title": "Introduction",
+      "title": "Oracle Site Guard Fundamentals",
       "description": "The Introduction is always second for LiveLabs. The title and contents menu title match for the Introduction.",
       "filename": "../../introduction/introduction.md"
     },
@@ -23,12 +23,22 @@
       "filename": "../../provision/provision.md"
     },
     {
-      "title": "Lab 3: Load Data into an Instance",
+      "title": "Lab 3: Start Weblogic in dbserver",
       "description": "Loading the data",
       "filename": "../../data-load/data-load.md"
     },
     {
-      "title": "Lab 4: Query Data",
+      "title": "Lab 4: Switchover of Fullstack from dbserver to wlsdr",
+      "description": "Queyring the data",
+      "filename": "../../query/query.md"
+    },
+    {
+      "title": "Lab 5: Switchover of Fullstack from wlsdr to dbserver",
+      "description": "Queyring the data",
+      "filename": "../../query/query.md"
+    },
+    {
+      "title": "Lab 6: Stop Weblogic in dbserver",
       "description": "Queyring the data",
       "filename": "../../query/query.md"
     },

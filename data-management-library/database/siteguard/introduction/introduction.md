@@ -1,45 +1,76 @@
-# Introduction
+# Oracle Site Guard Fundamentals
 
-## About this Workshop
+## Introduction
 
-This introduction covers the complete "parent" workshop. Use this text to set up the story for the workshop. Be engaging - what will the learner get from spending their time on this workshop?
+Oracle Site Guard assures comprehensive business continuity by providing fully automated, end-to-end disaster recovery for the entire Oracle stack
 
-Estimated Workshop Time: -- hours -- minutes (This estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.)
+Oracle Site Guard assures comprehensive business continuity by providing fully automated, end-to-end, disaster recovery for the entire Oracle stack including web tier, application tier, databases, virtual infrastructure, and storage.Site Guard is ready out of the box to handle disaster recovery for Oracle Fusion Applications and Middleware, Oracle Databases, Oracle Virtual Machine, and Sun ZFS Storage.
 
-*You may add an option video, using this format: [](youtube:YouTube video id)*
+Site Guard is flexible and easily integrates with various platforms including Oracle Exadata, Oracle Exalogic, and Oracle Private Cloud Appliance (PCA). Site Guard capabilities can also be easily extended to protect non-Oracle applications and infrastructure.
 
-  [](youtube:zNKxJjkq0Pw)
+**Oracle Site Guard works on top of enterprise manager and its in built with Oracle Enterprise manager**.
 
-### Objectives
 
-*List objectives for the workshop*
+Using Site Guard you can:
 
-In this workshop, you will learn how to:
-* Provision
-* Setup
-* Load
-* Query
+•	Provide comprehensive protection for your entire Oracle stack
 
-### Prerequisites (Optional)
+•	Simplify disaster recovery operations and minimize recovery time (RTO)
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. **Do NOT list** each previous lab as a prerequisite.*
+•	Achieve a zero loss Recovery Point Objective (RPO) for Oracle Database recovery
 
-This lab assumes you have:
-* An Oracle account
-* All previous labs successfully completed
+•	Assure disaster recovery readiness using on-demand or scheduled DR drills
 
-*This is the "fold" - below items are collapsed by default*
+•	Create highly flexible and customized disaster recovery plans
 
-In general, the Introduction does not have Steps.
+•	Fully automate disaster recovery operations and launch them with a single click
 
-## Learn More
+•	Use a single pane of glass for monitoring DR readiness and for launching and monitoring DR workflows
 
-*(optional - include links to docs, white papers, blogs, etc)*
+•	Eliminate the need for domain specialists and dedicated administrators for disaster recovery
 
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+This workshop focuses on **testing out various Disaster recovery plans such as Start,Stop,Switchover site with Oracle Site guard using preconfigured VM which has Oracle DB,Oracle Weblogic Server and Oracle Enterprise manager**.
+
+![](./images/siteguard-architecture.png)
+
+
+Estimated Workshop Time: 3 Hours
+
+
+### Environment details:
+
+- Two VM's dbserver and wlsdr will be created
+- As per the architecture diagram dbserver is designated as Primary Site and wlsdr is designated as Disaster Recovery site
+- dbserver has Oracle Enterprise manager 13.5 (Site Guard),Oracle Database 19c with Data guard ( Primary DB), Oracle Weblogic 12c  (Application)
+- wlsdr has Oracle Database 19c with Dataguard ( Standby DB), Oracle Weblogic 12c(Application)
+- Various Site Guard configurations such as creating sites, credentials, plans are already pre-created. For additional information how to do that you can refer the Site guard documentation in the reference links section.
+
+
+### Workshop Objectives:
+
+- Using Start operation type to start Weblogic application in dbserver
+- Using Switchover operation type to switchover Full Stack of Weblogic App and Database from dbserver to wlsdr
+- Using Switchover operation type to switchover Full Stack of Weblogic App and Database from wlsdr to dbserver
+- Using Stop operation type to start Weblogic application in dbserver
+
+### Reference links:
+
+* [Oracle Enterprise manager](https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.5/emcon/enterprise-manager-cloud-control-architecture.html#GUID-C846F54D-5A14-47BB-869D-AC0265169FE3)
+
+* [Oracle Site Guard documentation](https://docs.oracle.com/en/enterprise-manager/cloud-control/enterprise-manager-cloud-control/13.4/guard/site-guard-administrators-guide.pdf)
+
+
+### Prerequisites:
+
+- An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
+
+*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
+
+## Disclaimer
+The following is intended to outline our general product direction. It is intended for information purposes only, and may not be incorporated into any contract. It is not a commitment to deliver any material, code, or functionality, and should not be relied upon in making purchasing decisions. The development, release, and timing of any features or functionality described for Oracle’s products remains at the sole discretion of Oracle.
+
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+
+- **Author** -  Suraj Ramesh, Principal Product Manager & Eugene Simos,Principal Domain Specialist Cloud Engineer
+- **Last Updated By/Date** -  Suraj Ramesh,April 2022
