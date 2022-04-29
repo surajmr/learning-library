@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab we will review and startup all components required to successfully run this workshop.
+In this lab we will review and startup all components required to successfully run this workshop in dbserver and wlsdr
 
 *Estimated Lab Time:* 30 Minutes.
 
@@ -18,135 +18,81 @@ This lab assumes you have:
 
 **NOTE:** *When doing Copy/Paste using the convenient* **Copy** *function used throughout the guide, you must hit the* **ENTER** *key after pasting. Otherwise the last line will remain in the buffer until you hit* **ENTER!**
 
-## Task 1: Validate That Required Processes are Up and Running.
+## Task 1: Validate That Required Processes are Up and Running in dbserver.
 
 1. Now with access to your remote desktop session, proceed as indicated below to validate your environment before you start executing the subsequent labs. The following Processes should be up and running:
 
     - Database Listeners
         - LISTENER (1521)
-        - LISTCDB2 (1522)
     - Database Server Instances
         - CDB1
-        - CDB2
+        - emcdb
 
-    You may test database connectivity clicking on the *+* sign next to the Database(s) as shown below in the *SQL Developer Oracle Connections* panel.
+2. Click the *Terminal* icon on the desktop to launch a session for dbserver, then run the following to validate that expected processes such as DB's,Oracle Enterprise manager processes are up and verify data guard synchornization.
 
-    ![](./images/19c_hol_landing.png " ")
-
-2. Click the *Terminal* icon on the desktop to launch a session, then run the following to validate that expected processes are up.
 
     ```
     <copy>
     ps -ef|grep LIST|grep -v grep
     ps -ef|grep ora_|grep pmon|grep -v grep
-    systemctl status oracle-database
-    systemctl status oracle-db-listener
     </copy>
     ```
-
-    ![](./images/check-pmon-up.png " ")
-    ![](./images/check-db-service-up.png " ")
-    ![](./images/check-dblistner-service-up.png " ")
-
-    If all expected processes are shown in your output as seen above, then your environment is ready for the next task.  
-
-3. If you see questionable output(s), failure or down component(s), restart the service accordingly
 
     ```
     <copy>
-    sudo systemctl restart oracle-database
-    sudo systemctl restart oracle-db-listener
+    cd /home/oracle/scripts
+    ./statusOMS.sh
     </copy>
     ```
-
-## Task 2: Initialize Database for Multitenant Use Cases
-
-1. From your remote desktop session as user *oracle*, run the block below to refresh labs artifacts
 
     ```
     <copy>
-    cd ~
-    wget -O labs-novnc.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/labs-novnc.zip
-    unzip -qo labs-novnc.zip
-    rm -f labs-novnc.zip
-    cd labs/multitenant
-    chmod +x *.sh
+    dgmgrl /
+    show configuration     
     </copy>
     ```
 
-    ![](./images/init-multitenant.png " ")
+    ![](./images/check-db-tns-prim.png " ")
+    ![](./images/status-oms-prim.png " ")
+    ![](./images/dg-status-prim.png " ")
+
+    If all expected processes and dgmgrl status (SUCCESS) are shown in your output as seen above, then your environment is ready for the next task.  
+
+## Task 2: Validate That Required Processes are Up and Running in wlsdr.
+
+1. Now with access to your remote desktop session, proceed as indicated below to validate your environment before you start executing the subsequent labs. The following Processes should be up and running:
+
+    - Database Listeners
+        - LISTENER (1521)
+    - Database Server Instances
+        - CDB1
+
+2. Click the *Terminal* icon on the desktop to launch a session for dbserver, then run the following to validate that expected processes such as DB's,Oracle Enterprise manager processes are up and verify data guard synchornization.
+
+
+    ```
+    <copy>
+    ps -ef|grep LIST|grep -v grep
+    ps -ef|grep ora_|grep pmon|grep -v grep
+    </copy>
+    ```
+
+    ```
+    <copy>
+    dgmgrl /
+    show configuration     
+    </copy>
+    ```
+
+    ![](./images/check-db-tns-dr.png " ")
+    ![](./images/dg-status-dr.png " ")
+
+    If all expected processes and dgmgrl status (SUCCESS)  are shown in your output as seen above, then your environment is ready for the next task.
+
 
 You may now [proceed to the next lab](#next).
 
-## Appendix 1: Managing Startup Services
-
-1. Database service (All databases and Standard Listener).
-
-    - Start
-
-    ```
-    <copy>
-    sudo systemctl start oracle-database
-    </copy>
-    ```
-    - Stop
-
-    ```
-    <copy>
-    sudo systemctl stop oracle-database
-    </copy>
-    ```
-
-    - Status
-
-    ```
-    <copy>
-    systemctl status oracle-database
-    </copy>
-    ```
-
-    - Restart
-
-    ```
-    <copy>
-    sudo systemctl restart oracle-database
-    </copy>
-    ```
-
-2. Database service (Non-Standard Listeners).
-
-    - Start
-
-    ```
-    <copy>
-    sudo systemctl start oracle-db-listener
-    </copy>
-    ```
-    - Stop
-
-    ```
-    <copy>
-    sudo systemctl stop oracle-db-listener
-    </copy>
-    ```
-
-    - Status
-
-    ```
-    <copy>
-    systemctl status oracle-db-listener
-    </copy>
-    ```
-
-    - Restart
-
-    ```
-    <copy>
-    sudo systemctl restart oracle-db-listener
-    </copy>
-    ```
 
 ## Acknowledgements
-* **Author** - Andy Rivenes, Sr. Principal Product Manager, Oracle Database In-Memory
-* **Contributors** - Kay Malcolm, Didi Han, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
+- **Author** -  Suraj Ramesh, Principal Product Manager & Eugene Simos,Principal Domain Specialist Cloud Engineer
+- **Last Updated By/Date** -  Suraj Ramesh,April 2022

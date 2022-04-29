@@ -48,10 +48,10 @@ Estimated Workshop Time: 3 Hours
 
 ### Workshop Objectives:
 
-- Using Start operation type to start Weblogic application in dbserver
-- Using Switchover operation type to switchover Full Stack of Weblogic App and Database from dbserver to wlsdr
-- Using Switchover operation type to switchover Full Stack of Weblogic App and Database from wlsdr to dbserver
-- Using Stop operation type to start Weblogic application in dbserver
+- By using Start operation type in Site Guard to start Weblogic application in dbserver
+- By using Switchover operation type in Site Guard to switchover Full Stack of Weblogic App and Database from dbserver to wlsdr
+- By using Switchover operation type in Site Guard  to switchover Full Stack of Weblogic App and Database from wlsdr to dbserver
+- By using Stop operation type in Site Guard to stop Weblogic application in dbserver
 
 ### Reference links:
 

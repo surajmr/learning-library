@@ -24,23 +24,23 @@
     },
     {
       "title": "Lab 3: Start Weblogic in dbserver",
-      "description": "Loading the data",
-      "filename": "../../data-load/data-load.md"
+      "description": "Start Weblogic app server in dbserver",
+      "filename": "../../startwls/startwls.md"
     },
     {
       "title": "Lab 4: Switchover of Fullstack from dbserver to wlsdr",
-      "description": "Queyring the data",
-      "filename": "../../query/query.md"
+      "description": "Switchover of DB and WLS from dbserver to wlsdr",
+      "filename": "../../switchover-primary-dr/switchover-primary-dr.md"
     },
     {
       "title": "Lab 5: Switchover of Fullstack from wlsdr to dbserver",
-      "description": "Queyring the data",
-      "filename": "../../query/query.md"
+      "description": "Switchover of DB and WLS from wlsdr to dbserver",
+      "filename": "../../switchover-dr-primary/switchover-dr-primary.md"
     },
     {
       "title": "Lab 6: Stop Weblogic in dbserver",
-      "description": "Queyring the data",
-      "filename": "../../query/query.md"
+      "description": "Stop Weblogic app server in dbserver",
+      "filename": "../../stopwls/stopwls.md"
     },
     {
       "title": "Need Help?",
