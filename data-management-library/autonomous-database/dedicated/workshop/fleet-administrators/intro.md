@@ -37,12 +37,12 @@ Lab 8: Autonomous Data Guard
 
 **Migration & Monitoring**
 
-Lab 9: Migrate with Data Pump  
-Lab 10: Oracle Goldengate Replication  
-Lab 11: OCI Notification Service  
-Lab 12: Deploy OEM and connect ADB to OEM  
-Lab 13: Download AWR report from OEM 
-Lab 14: Oracle Standard Tags 
+Lab 9: Migrate with Data Pump   
+Lab 10: Oracle Goldengate Replication   
+Lab 11: OCI Notification Service    
+Lab 12: Deploy OEM and connect ADB to OEM   
+Lab 13: Download AWR report from OEM    
+Lab 14: Oracle Standard Tags
 
 ### *See our second Autonomous Database Dedicated workshop, Introduction to Oracle Autonomous Database Dedicated for Developers and Database Users*
 A Developer is the owner of an Autonomous Database (ADB) and is responsible for provisioning ADBs on-demand. Developers may also be interested in the performance of their database application. The following developer / ADB user focused labs address provisioning, application development, monitoring, tuning of ADBs as well as recovery from user errors.
@@ -61,7 +61,6 @@ Lab 11: Zero Downtime Scaling
 Lab 12: Recover Errors Using Flashback Recovery  
 Lab 13: Oracle Analytics Cloud  
 Lab 14: Automatic Indexing  
-Lab 15: Move to ADB  
 
 ### *See our third Autonomous Database Dedicated workshop, Introduction to Oracle Autonomous Database Dedicated for Security Administrators*
 A database security administrator is responsible for ensuring database environments are built with the right set of security controls and stay within corporate compliance requirements throughout their life-cycle. This function may be combined with the Fleet Admin function in many cases. Autonomous Dedicated is built with security at the forefront and automates most of the database security functions customers adhere to on-premises. The following labs address various database security aspects ranging from encryption key management, DB user security, auditing, sensitive data masking and privileged user access controls.

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab we will enable the HeatWave cluster and accelerate your long running queries. The MySQL DB System and HeatWave cluster must use the same shape, the shape defines the number of CPU cores, the amount of RAM, and so on. The size of the HeatWave cluster needed depends on tables and columns required to load, and the compression achieved in memory for this data. By enabling HeatWave you will deploy a standalone DB System characterized by a HeatWave-compatible shape (MySQL.HeatWave.VM.Standard.E3) and 1TB of data storage that will accelerate processing of analytic queries. For more information, check HeatWave Documentation.
+In this lab, we will enable the HeatWave cluster and accelerate your long-running queries. The MySQL DB System and HeatWave cluster must use the same shape, the shape defines the number of CPU cores, the amount of RAM, and so on. The size of the HeatWave cluster needed depends on the tables and columns required to load, and the compression achieved in memory for this data. By enabling HeatWave you will deploy a standalone DB System characterized by a HeatWave-compatible shape (MySQL.HeatWave.VM.Standard.E3) and 1TB of data storage that will accelerate the processing of analytic queries. For more information, check HeatWave Documentation.
 
 Estimated Time: 15 minutes
 
@@ -28,19 +28,20 @@ This lab assumes you have:
 2. Select the **MDSInstance**
 	![MDS Details](images/mds-details.png)
 
-3. From the menu on the left bottom side select HeatWave, and click on the button Add HeatWave Cluster located on the right.
+3. From the menu on the bottom on the left, select HeatWave, and click on the button Add HeatWave Cluster located on the right.
 	![Add HeatWave](images/heatwave-add.png)
 
-4. Check that Shape looks as per picture below and that Node Count is set to 2, and then click the button Add HeatWave Cluster.
+4. Check that Shape looks as per the picture below and that Node Count is set to 2, and then click the button Add HeatWave Cluster.
 	![Review HeatWave](images/heatwave-review.png)
 
-5. You will be brought back to the main page where you can check for the creation status. After some seconds you should see the nodes in Creating status.
+5. You will be brought back to the main page where you can check for the creation status. You should see the nodes in **Creating** status after a few minutes.
+
 	![Create HeatWave](images/heatwave-create.png)
 
 6. You can check the HeatWave creation progress by selecting the **Work Request**
 	![HeatWave Progress](images/heatwave-progress.png)
 
-7. After completion, the node status will switch to Active status. The process will take some time to be completed. You can go to the next Task in the meantime.
+7. After completion, the node status will switch to Active status. The process will take some time to complete. You can go to the next Task in the meantime.
 
 ## Task 2: Accelerate long running queries on HeatWave
 
@@ -52,7 +53,7 @@ This lab assumes you have:
 	</copy>
 	```
 
-  We will use this AutoPilot feature, **heatwave_load** function to offload the data from MDS to HeatWave cluster
+  We will use this AutoPilot feature, **heatwave_load** function to offload the data from MDS to the HeatWave cluster
 
 	```
 	<copy>
@@ -76,7 +77,7 @@ This lab assumes you have:
 	```
 	![HeatWave Load Check](images/heatwave-load-check.png)
 
-3. By default, MySQL HeatWave will offload SELECT queries to HeatWave. There is a magic switch, **use&#95;secondary&#95;engine** that is enabled.
+3. By default, MySQL HeatWave will offload SELECT queries to HeatWave. There is a magic switch, **use&#95;secondary&#95;engine** set to enabled.
 
 	```
 	<copy>
@@ -112,17 +113,17 @@ This lab assumes you have:
 	</copy>
 	```
 
-  You will notice that this query will complete in less than 1s comparing to 10s earlier!
+  You will notice that this query will complete in less than 1s compared to 10s earlier!
 
   You may now **proceed to the next lab.**
 
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
+* **Last Updated By/Date** - Ryan Kuan, May 2022

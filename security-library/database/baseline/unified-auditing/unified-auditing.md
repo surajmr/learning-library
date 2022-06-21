@@ -6,17 +6,18 @@ This workshop introduces the functionality of Oracle Unified Auditing. It gives 
 *Estimated Lab Time:* 35 minutes
 
 *Version tested in this lab:* Oracle DB 19.13
-### Video Preview
-Watch a preview of "*Understanding Unified Auditing (February 2019)*" [](youtube:8spLhyj3iC0)
 
-**Note**:
-- Mixed mode auditing is the default auditing in a newly installed database. Mixed mode auditing enables both traditional (that is, the audit facility from releases earlier than release 12c) and the new audit facilities (unified auditing).
-- Mixed mode is intended to introduce unified auditing, so that you can have a feel of how it works and what its nuances and benefits are. Mixed mode enables you to migrate your existing applications and scripts to use unified auditing. Once you have decided to use pure unified auditing, you can relink the oracle binary with the unified audit option turned on and thereby enable it as the one and only audit facility the Oracle database runs. If you decide to revert back to mixed mode, you can.
-- In this environment, we have already migrated this Oracle Database to pure unified auditing mode.
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Unified Auditing (May 2022)*" [](youtube:bK26Y0TZANY)
 
 ### Objectives
 - Enable/Disable Unified Auditing on your database
 - See different auditing use cases
+
+    **Note**:
+    - Mixed mode auditing is the default auditing in a newly installed database. Mixed mode auditing enables both traditional (that is, the audit facility from releases earlier than release 12c) and the new audit facilities (unified auditing).
+    - Mixed mode is intended to introduce unified auditing, so that you can have a feel of how it works and what its nuances and benefits are. Mixed mode enables you to migrate your existing applications and scripts to use unified auditing. Once you have decided to use pure unified auditing, you can relink the oracle binary with the unified audit option turned on and thereby enable it as the one and only audit facility the Oracle database runs. If you decide to revert back to mixed mode, you can.
+    - In this environment, we have already migrated this Oracle Database to pure unified auditing mode.
 
 ### Prerequisites
 This lab assumes you have:
@@ -400,7 +401,7 @@ In this lab you will configure the Unified Audit Trail and review an audit of Or
 
     ![](./images/ua-031.png " ")
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -435,7 +436,10 @@ Technical Documentation:
 - [Introduction to Auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html)  
 - [Monitoring Database Activity with Auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/part_6.html)
 
+Video:
+- *Understanding Unified Auditing (February 2019)*[](youtube:8spLhyj3iC0)
+
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Angeline Dhanarani, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

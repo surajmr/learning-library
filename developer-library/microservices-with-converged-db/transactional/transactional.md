@@ -219,9 +219,6 @@ Watch the video below for a quick walk-through of the lab.
 18. Click the `Get Inventory` button and notice inventory has dropped to correct value of 8 as the order message was delivered exactly once..
    ![Get Inventory](images/getinventory8.png " ")
 
-
-You may now proceed to the next lab.
-
 ## Learn More
 
 * Ask for help and connect with developers on the [Oracle DB Microservices Slack Channel](https://bit.ly/oracle-database-microservices-slack)  

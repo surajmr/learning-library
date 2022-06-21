@@ -4,7 +4,7 @@
 
 This lab will show you how to deploy the microservices on your Kubernetes cluster, walk through the functionality and explain how it works.
 
-Estimated Time: 10 minutes
+Estimated Time: 20 minutes
 
 Quick walk through on how to deploy the microservices on your Kubernetes cluster.
 
@@ -201,7 +201,7 @@ Quick walk through on how to deploy the microservices on your Kubernetes cluster
     ```
     ![View Pods](images/foodandwinepairingandrestartedinventorypods.png " ")
 
-5. Add inventory if necessary and place another order.  You should see that there is now a wine suggesting for you food order.
+5. Add inventory if necessary and place another order.  You should see that there is now a wine suggestion for your food order.
 
     ![Food & Wine Pairing Order](images/orderwithfoodandwinepairing.png " ")
 
@@ -227,7 +227,7 @@ Quick walk through on how to deploy the microservices on your Kubernetes cluster
     ![Review Annotations](images/metrics-annotations.png " ")
 
 
-2. Click **Tracing, Metrics, and Health**
+2. Click **OpenAPI, Metrics, and Health**
 
     ![Navigate to Metrics Selection Screen](images/metrics-select.png " ")
 
@@ -238,7 +238,7 @@ Quick walk through on how to deploy the microservices on your Kubernetes cluster
 ## Task 7: Verify Health
 
 1. Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) provides health probes which check a given    container for its liveness (checking if the pod is up or down) and readiness (checking if the pod is ready to take
-requests or not). In this STEP you will see how the probes pick up the health that the Helidon microservice advertises. Click **Tracing, Metrics, and Health** and click **Show Health: Liveness**
+requests or not). In this STEP you will see how the probes pick up the health that the Helidon microservice advertises. Click **OpenAPI, Metrics, and Health** and click **Show Health: Liveness**
 
     ![Verify Health](images/health-liveness.png " ")
 
@@ -453,4 +453,4 @@ Search for and join the `oracle-db-microservices` channel.
 * **Adapted for Cloud by** - Nenad Jovicic, Enterprise Strategist, North America Technology Enterprise Architect Solution Engineering Team
 * **Documentation** - Lisa Jamen, User Assistance Developer - Helidon
 * **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
-* **Last Updated By/Date** - Irina Granat, March 2022
+* **Last Updated By/Date** - Kamryn Vinson, May 2022

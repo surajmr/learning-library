@@ -8,7 +8,7 @@ This workshop introduces the various features and functionality of Oracle Label 
 *Version tested in this lab:* Oracle DB 19.13
 
 ### Video Preview
-Watch a preview of "*Understanding Oracle Label Security (April 2020)*" [](youtube:o4-XpUQWfaM)
+Watch a preview of "*LiveLabs - Oracle Label Security (May 2022)*" [](youtube:7hBsg0ygZt4)
 
 ### Objectives
 The objective of this lab is to provide guidance on how Oracle Label Security could be used to help tracking consent and enforce restriction of processing under the General Data Protection Regulation requirements.
@@ -329,7 +329,7 @@ Different applications have different purposes:
     ![](./images/ols-023a.png " ")
     ![](./images/ols-023b.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -358,9 +358,13 @@ OLS provides several benefits for controlling row level management:
 - It integrates with Oracle Database Vault and Oracle Advanced Security Data Redaction, enabling security clearances to be use in both Database Vault command rules and Data Redaction policy definitions.
 
 ## Want to Learn More?
-Technical Documentation: [Oracle Label Security 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/olsag/part1.html)
+Technical Documentation:
+- [Oracle Label Security 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/olsag/part1.html)
+
+Video:
+- *Understanding Oracle Label Security (April 2020)*[](youtube:o4-XpUQWfaM)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Alan Williams, Rene Fontcha
-- **Last Updated By/Date** - Marion Smith, Technical Program Manager, April 2022
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

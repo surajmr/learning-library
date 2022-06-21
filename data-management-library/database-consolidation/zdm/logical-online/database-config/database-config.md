@@ -1,4 +1,4 @@
-# Connect to the Source Database and Create Migration Users
+# Connect to the source database and create migration users
 
 ## Introduction
 In this lab, you will connect to your source database as system database administrator, create the required database and GoldenGate users to complete the migration, bestow them with the necessary privileges, and create a sample table to track through the migration.

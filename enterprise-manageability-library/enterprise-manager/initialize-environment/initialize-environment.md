@@ -290,7 +290,7 @@ If for any reason you want to login from a location that is external to your rem
     Password: <copy>welcome1</copy>
     ```
     ```
-    URL: <copy>http://<Your Instance public_ip>:7803/em</copy>
+    URL: <copy>https://<Your Instance public_ip>:7803/em</copy>
     ```
 
     *Note:* You may see an error on the browser while accessing the Web Console - “*Your connection is not private*” as shown below. Ignore and add the exception to proceed.

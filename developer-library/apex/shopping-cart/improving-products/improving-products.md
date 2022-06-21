@@ -89,7 +89,7 @@ As you can see, it's hard to find the products and it would be beneficial to see
 ## Task 2: Reorder Facets
 Unit price is not a common search criteria, so you want to put this facet at the bottom.
 
-1. In the Rendering tree (left pane), under Search, within Facets, click and hold **P1\_UNIT\_PRICE** and drag it down until it is under **P1\_COLOR\_ID**, then release the mouse.
+1. In the Rendering tree (left pane), under Search, within Facets, click and hold **P1\_UNIT\_PRICE** and drag it down until it is under **P1\_COLOR\_ID**, then release the mouse. Reorder the facets to display as in this image.
 
     ![](./images/reorder-facet.png " ")
 
@@ -316,7 +316,7 @@ Once you have uploaded images of the products, your page will look like the foll
 
 You now know how to enhance faceted search and cards region. You may now **proceed to the next lab**. 
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Monica Godoy, Principal Product Manager
 - **Contributors** - Shakeeb Rahman, Architect

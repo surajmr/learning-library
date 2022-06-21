@@ -22,7 +22,7 @@ Before you start using OCI Data Labeling Service, your tenancy administrator sho
 
 1. Add IAM resources necessary for AI Vision usage.
 
-  a. Policy (e.g. named AIVisionPolicy) with the following statements:
+  a. Add policy (e.g. named AIVisionPolicy) with the following statements:
 
       ```
       <copy>Allow group ImageClassification_Group to manage ai-service-vision-family in tenancy</copy>
@@ -89,7 +89,9 @@ Before you start using OCI Data Labeling Service, your tenancy administrator sho
 1. Navigate to the Project Details page and click on the model just created.
 ![Select model that was just created](./images/project-detail-page.png)
 
-2. Click this [link] (https://objectstorage.us-ashburn-1.oraclecloud.com/p/N8RpDkD6PNFANaEUK5R44QvNAp72Ps1SIno1BAlnesTSQLIMi2GnOEIpVVVTaP3_/n/orasenatdpltintegration03/b/all-images-live-lab/o/biomedical-demo-test-images.zip) to download sample test images to your local machine.
+2. Mac Users: Click this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/N8RpDkD6PNFANaEUK5R44QvNAp72Ps1SIno1BAlnesTSQLIMi2GnOEIpVVVTaP3_/n/orasenatdpltintegration03/b/all-images-live-lab/o/biomedical-demo-test-images.zip) to download sample test images to your local machine.
+
+   Windows Users: Click this [link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/WdfDs88Gf4Os83tiITIh_4xQOX-_Cvwvv_TjSzjZ4YaDCkpRUXjcF9HN1NeCKGAF/n/orasenatdpltintegration03/b/all-images-live-lab/o/windows-biomedical-demo-test-images.zip) to download sample test images to your local machine.
 
 3. Upload one image from the test dataset on your local machine to test the newly created model.
 
@@ -114,4 +116,4 @@ Congratulations on completing this lab!
     * Gabrielle Prichard - Cloud Solution Engineer
 
 * **Last Updated By/Date**
-    * Gabrielle Prichard - Cloud Solution Engineer, March 2022
+    * Gabrielle Prichard - Cloud Solution Engineer, April 2022

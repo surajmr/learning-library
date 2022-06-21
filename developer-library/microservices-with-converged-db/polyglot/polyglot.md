@@ -10,7 +10,7 @@ For more information on microservices visit http://developer.oracle.com/microser
 
 In this workshop, you'll switch the Inventory microservice to a Python, Node.js, .NET, Go, Spring Boot or Java Helidon SE implementation while retaining the same application functionality.
 
-Estimated Time - 10 minutes
+Estimated Time: 10 minutes
 
 The following video provides a quick walk-through of how to switch the Inventory microservice to Python while retaining the same application functionality.
 

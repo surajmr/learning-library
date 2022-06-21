@@ -42,7 +42,7 @@ To access AutoML UI, you must sign into the Oracle Machine Learning User Interfa
 
 	Alternatively, you can click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the home page to open the left navigation menu. Click **AutoML**. This opens the AutoML Experiments page.
 
-	![home page](images/hamburger-automl.png)
+	![home page](images/hamburger-automl-homepage.png)
 
 ## Task 2: Create an Experiment
 
@@ -186,10 +186,8 @@ To deploy a model:
 	> **Note:** You can also deploy a model from the Models page. You can access the Models page from the home page and the left navigation menu.  
 
 3. In the Deploy Models dialog, enter the following details:
-
+4. In the **Name** field, the model name is displayed here by default. In this example, the name `NB_CUSTOMER360` is displayed. This is the name that you renamed in the previous step.
 	![Deploy Model dialog](images/deploy-model.png)
-
-4. In the **Name** field, the model name is displayed here by default. In this example, the name `NB_CUSTOMER360` is displayed. This is the name that you renamed in the previous step. Edit this name to change it to **NaiveBayes_CUST360**. The model name must be a unique alphanumeric name with a maximum of 50 characters.
 
 5. In the **URI** field, enter **nb_cust360**. The URI must be alphanumeric, and the length must be max 200 characters.
 
@@ -219,7 +217,7 @@ The deployed models are listed under **Deployments** on the Models page. To view
 
 	![Deployments](images/deployments-tab.png)
 
-2. The deployed model **NaiveBayes_CUST360** is listed along with the metadata - Shared, version, namespace, owner, deployed date and URI under **Deployments** on the Models page.
+2. The deployed model **NB_CUSTOMER360** is listed along with the metadata - Shared, version, namespace, owner, deployed date and URI under **Deployments** on the Models page.
 
 	![List of deployed models on the Deployments page](images/deployed-models.png)
 
@@ -253,7 +251,7 @@ You can create notebooks based on the top models produced in the experiment. Thi
 
 	![Create Notebook from model dialog](images/create-notebook-from-mod.png)
 
-4. Click **OK**. The message _Notebook NB Customer 360 (1) successfully created_ is displayed once the notebook is created successfully.
+4. Click **OK**. The message _Notebook Customers 360 NB (1) successfully created_ is displayed once the notebook is created successfully.
 
 	![Notebook creation message](images/nb-customer-message.png)
 
@@ -267,15 +265,15 @@ To view the generated notebook Customer 360:
 
 1. Click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. Click **Notebooks**.
 
-	![Notebooks](images/hamburger-notebooks.png)
+	![Notebooks](images/hamburger-notebooks1.png)
 
-2. The Notebooks page opens with all the notebooks listed in it. Click the **NB Customers 360** notebook to open it.
+2. The Notebooks page opens with all the notebooks listed in it. Click the **Customer 360 NB (1)** notebook to open it.
 
- 	<if type="workshops"> ![Generated Notebook](images/notebooks-listed-final.png) </if>
+ 	<if type="livelabs"> ![Generated Notebook](images/notebooks-listed-final.png) </if>
 
 	<if type="freetier"> ![Generated Notebook](images/notebooks-5.png) </if>
 
-3. The generated notebook _NB Customer 360_  opens in the notebook editor. Click the gear icon on the upper right corner of the notebook to view and set the interpreter binding order.
+3. The generated notebook _Customer 360 NB (1)_  opens in the notebook editor. Click the gear icon on the upper right corner of the notebook to view and set the interpreter binding order.
 
 	![gear icon](images/gear-icon.png)
 
@@ -324,4 +322,4 @@ This completes the task of creating a notebook based on a model and viewing the 
 
 * **Author** - Moitreyee Hazarika, Principal User Assistance Developer, Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia, Senior Principal Product Manager, Machine Learning; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date** - Moitreyee Hazarika, March 2022
+* **Last Updated By/Date** - Moitreyee Hazarika, June 2022

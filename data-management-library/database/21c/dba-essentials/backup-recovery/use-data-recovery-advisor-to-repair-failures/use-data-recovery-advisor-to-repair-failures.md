@@ -1,4 +1,4 @@
-# Use Data Recovery Advisor to Repair Failures
+# Use Data Recovery Advisor to repair failures
 
 ## Introduction
 This lab shows you how to repair failures using Data Recovery Advisor.
@@ -8,7 +8,7 @@ Estimated Time: 20 minutes
 ### About Data Recovery Advisor
 The Data Recovery Advisor is an Oracle Database feature that automatically diagnoses data failures, determines and presents appropriate repair options, and performs repairs if requested by the user. By providing a centralized tool for automated data repair, Data Recovery Advisor improves the manageability and reliability of an Oracle Database.
 
->Note: Data Recovery Advisor can only be used to diagnose and repair failures in multitenant container databases (CDBs). It is not supported for pluggable databases (PDBs).
+>**Note:** Data Recovery Advisor can only be used to diagnose and repair failures in multitenant container databases (CDBs). It is not supported for pluggable databases (PDBs).
 
 The Recovery Manager (RMAN) provides a command-line interface to the Data Recovery Advisor. You can use the following RMAN commands to diagnose and repair data failures for the Oracle Database, including for Oracle Real Application Clusters (RAC) Databases:
 
@@ -22,15 +22,16 @@ The Recovery Manager (RMAN) provides a command-line interface to the Data Recove
 - Perform Oracle advised recovery
 
 ### Prerequisites
-- Oracle Database 21c installed and a container database (CDB) with at least one pluggable database (PDB) created.
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 - You have completed:
-    - Lab: Prepare Setup (_Free-Tier_ and _Paid Tenants_ only)
-    - Lab: Configure Recovery Settings
-    - Lab: Configure Backup Settings
-    - Lab: Perform and Schedule Backups
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
+    - Lab: Configure recovery settings
+    - Lab: Configure backup settings
+    - Lab: Perform and schedule backups
 
 
-## Task 1: Perform Oracle Advised Recovery
+## Task 1: Perform Oracle advised recovery
 The recovery process begins when you either suspect or discover a failure. You can discover failures in many ways, including error messages, alerts, trace files, and health checks. You can then use Data Recovery Advisor to gain information and advice about failures and repair them automatically.
 
 In this task, you perform failure recovery using the following steps.
@@ -51,9 +52,9 @@ In this task, you perform failure recovery using the following steps.
     Version 21.3.0.0.0
     ```
 
-2. Use the following command to open the pluggable database. In this lab, `orclpdb` is the pluggable database.
+2. Use the following command to open the pluggable database. In this lab, `pdb1` is the pluggable database.
     ```
-    SQL> <copy>alter pluggable database orclpdb open;</copy>
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
     ```
     Output:
     ```
@@ -62,7 +63,7 @@ In this task, you perform failure recovery using the following steps.
 
 3. Use the following command to switch to the pluggable database container.
     ```
-    SQL> <copy>alter session set container = orclpdb;</copy>
+    SQL> <copy>alter session set container = pdb1;</copy>
     ```
     Output:
     ```
@@ -90,16 +91,16 @@ In this task, you perform failure recovery using the following steps.
     ```
     NAME
     --------------------------------------------------------------------------------
-    /u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf
-    /u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf
-    /u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf
-    /u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf
-    /u01/app/oracle/homes/OraDB21Home/dbs/octs.dbf
+    /opt/oracle/oradata/CDB1/pdb1/system01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/sysaux01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/undotbs01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/users01.dbf
+    /opt/oracle/homes/OraDB21Home1/dbs/octs.dbf
     ```
 
 6. Use the following command to close the pluggable database.
     ```
-    SQL> <copy>alter pluggable database orclpdb close;</copy>
+    SQL> <copy>alter pluggable database pdb1 close;</copy>
     ```
     Output:
     ```
@@ -113,7 +114,7 @@ In this task, you perform failure recovery using the following steps.
 
 8. Use the following Linux command to delete the data file belonging to `appuser``.`
     ```
-    $ <copy>rm /u01/app/oracle/homes/OraDB21Home/dbs/octs.dbf</copy>
+    $ <copy>rm /opt/oracle/homes/OraDB21Home1/dbs/octs.dbf</copy>
     ```
 
 9. Use the exit command to return to SQL\*Plus prompt.
@@ -125,16 +126,16 @@ In this task, you perform failure recovery using the following steps.
 
 10. Use the following command to open the pluggable database. You can see that the pluggable database cannot open because of a missing file. Perform the following steps to fix this failure and open the pluggable database.
     ```
-    SQL> <copy>alter pluggable database orclpdb open;</copy>
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
     ```
     Output:
     ```
-    alter pluggable database orclpdb open
+    alter pluggable database pdb1 open
     *
     ERROR at line 1:
     ORA-01157: cannot identify/lock data file 13 - see DBWR trace file
     ORA-01110: data file 13:
-    '/u01/app/oracle/homes/OraDB21Home/dbs/octs.dbf'
+    '/opt/oracle/homes/OraDB21Home1/dbs/octs.dbf'
     ```
 
 11. Exit the SQL\*Plus prompt.
@@ -160,7 +161,7 @@ In this task, you perform failure recovery using the following steps.
     ```
     Output:
     ```
-    connected to target database: ORCL (DBID=1016703368)
+    connected to target database: CDB1 (DBID=1016703368)
     ```
 
 14. Use the following command to list all the failures known to the Data Recovery Advisor. In the following output, you can see that one failure with failure id 342 is listed.
@@ -206,7 +207,7 @@ In this task, you perform failure recovery using the following steps.
 
     Optional Manual Actions
     =======================
-    1. If file /u01/app/oracle/homes/OraDB21Home/dbs/octs.dbf was unintentionally renamed or moved, restore it
+    1. If file /opt/oracle/homes/OraDB21Home1/dbs/octs.dbf was unintentionally renamed or moved, restore it
 
     Automated Repair Options
     ========================
@@ -214,7 +215,7 @@ In this task, you perform failure recovery using the following steps.
     ------ ------------------
     1      Restore and recover datafile 13  
       Strategy: The repair includes complete media recovery with no data loss
-      Repair script: /u01/app/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
+      Repair script: /opt/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
     ```
 
 16. Use the following command to correct the problems. In the following output, you can see that the failure is repaired and the datafile is recovered.
@@ -224,14 +225,14 @@ In this task, you perform failure recovery using the following steps.
     Output:
     ```
     Strategy: The repair includes complete media recovery with no data loss
-    Repair script: /u01/app/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
+    Repair script: /opt/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
 
     contents of repair script:
        # restore and recover datafile
-       sql 'ORCLPDB' 'alter database datafile 13 offline';
+       sql 'pdb1' 'alter database datafile 13 offline';
        restore ( datafile 13 );
        recover datafile 13;
-       sql 'ORCLPDB' 'alter database datafile 13 online';
+       sql 'pdb1' 'alter database datafile 13 online';
 
     Do you really want to execute the above repair (enter YES or NO)? YES
     executing repair script
@@ -243,9 +244,9 @@ In this task, you perform failure recovery using the following steps.
 
     channel ORA_DISK_1: starting datafile backup set restore
     channel ORA_DISK_1: specifying datafile(s) to restore from backup set
-    channel ORA_DISK_1: restoring datafile 00013 to /u01/app/oracle/homes/OraDB21Home/dbs/octs.dbf
-    channel ORA_DISK_1: reading from backup piece /u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp
-    channel ORA_DISK_1: piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp tag=TAG20211216T075421
+    channel ORA_DISK_1: restoring datafile 00013 to /opt/oracle/homes/OraDB21Home1/dbs/octs.dbf
+    channel ORA_DISK_1: reading from backup piece /opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp
+    channel ORA_DISK_1: piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp tag=TAG20211216T075421
     channel ORA_DISK_1: restored backup piece 1
     channel ORA_DISK_1: restore complete, elapsed time: 00:00:07
     Finished restore at 16-DEC-21
@@ -296,7 +297,7 @@ In this task, you perform failure recovery using the following steps.
 
 20. Use the following command to open the pluggable database. You can see that the pluggable database can open now as the failure is fixed.
     ```
-    SQL> <copy>alter pluggable database orclpdb open;</copy>
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
     ```
     Output:
     ```
@@ -305,7 +306,7 @@ In this task, you perform failure recovery using the following steps.
 
 21. Use the following command to switch to the pluggable database container.
     ```
-    SQL> <copy>alter session set container = orclpdb;</copy>
+    SQL> <copy>alter session set container = pdb1;</copy>
     ```
     Output:
     ```
@@ -336,4 +337,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 - **Author**: Suresh Mohan, Database User Assistance Development Team
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-- **Last Updated By & Date**: Suresh Mohan, February 2022
+- **Last Updated By & Date**: Suresh Mohan, June 2022

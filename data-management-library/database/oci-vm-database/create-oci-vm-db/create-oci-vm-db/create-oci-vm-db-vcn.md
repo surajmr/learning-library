@@ -98,7 +98,7 @@ Fortunately, Oracle Cloud Infrastructure provides a wizard that simplifies the c
 
 4. On the resources tab, click **Nodes** to gather your IP address. Note your Public IP Address
 
-  ![](images/vm-db-ip.png " ")
+  ![](images/vm-db.png " ")
 
 5. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
 

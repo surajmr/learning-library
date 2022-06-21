@@ -20,7 +20,7 @@ As with most React applications (https://reactjs.org/), this application uses re
 * Updating an existing todo item
 * Deleting a todo item
 
-The APIs are documented using Swagger at http://130.61.67.158:8780/swagger-ui/#/.
+The APIs are documented using Swagger. You can search for this address: https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/oracleonpremjava/b/todolist/o/swagger_APIs_definition.json in swagger's console
 
 The backend is implemented using the following Java classes (under ./backend/src/main/java/com/springboot...):
 
@@ -179,7 +179,7 @@ The setup script already creates an API gateway, but you still need to create th
 
       ![](images/route-1-new.png "route-1-new")
 
-  - /todolist/{id} for the remaining three APIs: (GET, PUT and DELETE)
+  - /todolist/{id} for the remaining three APIs: (GET, PUT and DELETE). Format should be: http://public_ip/${request.path[id]}
 
       ![](images/route-2-new.png "route-2-new")
 

@@ -36,7 +36,7 @@ MuShop 애플리케이션 배포 방식으로 Manual 배포(Docker, Kubernetes m
 
     ````shell
     <copy>
-    git clone https://github.com/oracle-quickstart/oci-cloudnative.git mushop
+    git clone https://github.com/TheKoguryo/oci-cloudnative.git mushop
     </copy>
     ````
 
@@ -188,7 +188,7 @@ MuShop 애플리케이션에서 제공하는 Helm Chart는 쿠버네티스 클�
 
 ## Task 3: Ingress IP 주소 확인
 
-1. mushop-utilities에 배포된 전체 애플리케이션 확인:
+1. mushop-utilities에 배포된 전체 애플리케이션 확인합니다. 모든 Pod가 READY가 될때까지 기다립니다.
 
     ````shell
     <copy>

@@ -7,7 +7,7 @@ This lab provides detailed instructions of connecting to Oracle Analytics Server
 
 ### Objectives
 - Validate that the environment has been initialized and is ready
-<if type="external">- Download and stage workshop artifacts</if>
+<if type="external">- Download and stage workshop artifacts (*Only needed if not using the remote desktop*)</if>
 
 ### Prerequisites
 This lab assumes you have:
@@ -54,7 +54,7 @@ This lab has been designed to be executed end-to-end with any modern browser on 
 
     ```
     URL: <copy>http://[your instance public-ip address]:9502/dv/ui</copy>
-    e.g: http://111.888.111.888:9502/dv/ui
+    e.g: http://xxx.xxx.xxx.xxx:9502/dv/ui
     ```
     </if>
 
@@ -100,10 +100,11 @@ This lab has been designed to be executed end-to-end with any modern browser on 
 
 <if type="external">
 
-## Task 2: Download and Stage Workshop Artifacts (not needed if using the remote desktop)
-In order to run this workshop, you will need a set of files that have been conveniently packaged and stage on the instance for you. If you are bypassing the remote desktop and  connecting directly to OAS UI from your local computer/workstation, proceed as indicated below.
+## Task 2: Download and Stage Workshop Artifacts (*not needed if using the remote desktop*)
+In order to run this workshop, you will need a set of files that have been conveniently packaged and stage on the instance for you. If you are bypassing the remote desktop and connecting directly to OAS UI from your local computer/workstation, proceed as indicated below.
 
-1. Download **Zip file is being created** and save to a staging area on your laptop or workstation.
+1. Download and save to a staging area on your laptop or workstation.
+    - [`OAS_Retail_LiveLabs_Content.zip`](https://objectstorage.us-ashburn-1.oraclecloud.com/p/aLrO2xRW8wG3CP1M0Lj3TTjXPoktlzmBsurAo7qESaJPLK3MkRKA4ch1Hox2NcfC/n/natdsecurity/b/labs-files/o/OAS_Retail_LiveLabs_Content.zip)
 
 2. Uncompress the ZIP archive
 </if>
@@ -171,4 +172,4 @@ Your workshop instance is configured to automatically start all processes needed
 ## Acknowledgements
 * **Authors** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, January 2021
 * **Contributors** - Killian Lynch, Solution Engineer Specialist Hub Team, NA Technology
-* **Last Updated By/Date** - Killian Lynch, Solution Engineer Specialist Hub Team, NA Technology, February 2022
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, May 2022

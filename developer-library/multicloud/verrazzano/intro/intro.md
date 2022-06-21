@@ -22,6 +22,8 @@ Verrazzano includes the following capabilities:
 - Integrated security
 - DevOps and GitOps enablement
 
+![Verrazzano](images/verrazzano.png)
+
 ### Objectives
 <if type="freetier">
 1. Set up an Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure.</if>
@@ -40,4 +42,4 @@ Verrazzano includes the following capabilities:
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, April 2022
+* **Last Updated By/Date** - Ankit Pandey, May 2022

@@ -10,6 +10,8 @@ Based on an OCI architecture, deployed in a few minutes with a simple internet c
 
 Now, you no longer need important resources on your PC (storage, CPU or memory), nor complex tools to master, making you completely autonomous to discover at your rhythm all new DB Security features.
 
+Watch a preview of "*Livelabs - Database Security Advanced (May 2022)*" [](youtube:h4gXFpOxWZU)
+
 ### Components
 The complete architecture of the **DB Security Hands-On Labs (v4)** is as following:
 
@@ -52,4 +54,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

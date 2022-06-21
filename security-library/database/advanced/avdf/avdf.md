@@ -9,7 +9,7 @@ This workshop introduces the various features and functionality of Oracle Audit 
 
 ### Video Preview
 
-Watch a preview of "*Introducing Oracle Audit Vault and Database Firewall 20.4 (June 2021)*" [](youtube:Q90Htb_Lef4)
+Watch a preview of "*LiveLabs - Oracle Audit Vault and Database Firewall (May 2022)*" [](youtube:eLEeOLMAEec)
 
 ### Objectives
 - Connect Audit Vault Server to an Oracle DB
@@ -2006,7 +2006,7 @@ Important: before performing this lab, you must have:
 
 7. **Now, the AVDF configuration is correctly reset!**
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -2045,8 +2045,9 @@ Video:
 - *Understanding Oracle Audit Vault and Database Firewall 20c (August 2020)* [](youtube:9xG0GFKbVJk)
 - *Auditing PostgreSQL and MongoDB with Oracle Audit Vault and Database Firewall (October 2020)* [](youtube:o0LqJXwS4L0)
 - *Introducing Oracle Audit Vault and Database Firewall 20 update 3 (20.3) (February 2021)* [](youtube:BkeCuU90ek4)
+- *Introducing Oracle Audit Vault and Database Firewall 20.4 (June 2021)* [](youtube:Q90Htb_Lef4)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Angeline Dhanarani, Nazia Zaidi, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

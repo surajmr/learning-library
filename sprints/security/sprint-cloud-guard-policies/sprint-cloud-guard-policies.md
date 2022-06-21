@@ -1,5 +1,5 @@
 # How do I enable policies to run Cloud Guard?
-Duration: 10 minutes
+Duration: 5 minutes
 
 You can utilize Oracle Cloud Guard policies to control who has access to Cloud Guard and the type of access each group has. 
 
@@ -15,7 +15,7 @@ To enable Cloud Guard, you need to add the proper IAM policies below. From there
 
 5. The following IAM policies are automatically added to the "Cloud Guard Policies" policy group when you click <b>Enable</b> at the bottom of the <b>Enable Cloud Guard</b> dialog box
 
-![A list of the Cloud Guard IAM policies](images/GuardPolicies.png)
+![A list of the Cloud Guard IAM policies](images/guard-policies.png "Example of clod guard policies")
 
 
 

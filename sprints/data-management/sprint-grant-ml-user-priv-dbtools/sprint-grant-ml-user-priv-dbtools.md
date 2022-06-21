@@ -1,12 +1,12 @@
-# How can I grant privileges to my new Machine Learning user to access ADB Data Tools?
+# How can I grant my new Machine Learning user privileges to access ADB Data Tools?
 
-Duration: 4 minutes
+Duration: 5 minutes
 
 ## Grant privileges to your new Machine Learning user to access ADB Data Tools
 
 1.  Click the navigation menu in the upper left, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
 
-2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases, and sort by **Workload Type**.
+2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases and sort by **Workload Type**.
 
 3. From the databases displayed, click **Display Name** of the database where your new machine learning user is created and click **Database Actions** on the Autonomous Database Details page.
 
@@ -16,7 +16,7 @@ Duration: 4 minutes
 
 	![](./images/launch-db-actions.png)
 
-5. The Database Actions login page opens in a new tab, log in with your ADB admin user credentials, provide the **Username - ADMIN** and click **Next**. Then give the **Password** you provided when you created your the Autonomous database instance and click **Sign in**.
+5. The Database Actions login page opens in a new tab, log in with your ADB admin user credentials, provide the **Username - ADMIN** and click **Next**. Then give the **Password** you provided when you created your Autonomous database instance and click **Sign in**.
 
     ![](./images/ml-admin.png " ")
 
@@ -26,7 +26,7 @@ Duration: 4 minutes
 
     ![](./images/sql.png " ")
 
-7. If this is the first time you are logging in to the SQL Developer Web, dismiss the Help by clicking on the **X** in the popup.
+7. If this is the first time you log in to the SQL Developer Web, dismiss the Help by clicking on the **X** in the popup.
 
     ![](./images/click-x.png  " ")
 
@@ -68,7 +68,7 @@ Duration: 4 minutes
 
     ![](./images/grant-mluser-access.png " ")
 
-10. Copy and paste the below SQL statement, replace `<provide your machine learning username>` with your new machine learning username who you wish to grant storage access and click **Run Statement** to grant storage privileges to your machine learning user.
+10. Copy and paste the below SQL statement, replace `<provide your machine learning username>` with your new machine learning username who you wish to grant storage access, and click **Run Statement** to grant storage privileges to your machine learning user.
 
     ````
     <copy>

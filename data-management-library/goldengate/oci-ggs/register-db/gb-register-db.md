@@ -27,7 +27,7 @@ First, follow the steps below to register the source Oracle Autonomous Transacti
 
     ![Registered Databases in GoldenGate menu](images/01-02-ggs-registerdb.png " ")
 
-3.  Click **Register Database**.
+3.  Click **Register database**.
 
     ![Registered Databases page](images/01-03-ggs-registerdb.png " ")
 
@@ -67,17 +67,17 @@ Oracle Autonomous Databases come with a GGADMIN user that is locked by default. 
 
 4.  Under **Administration**, click **Database Users**.
 
-    ![Database Actions](images/02-05.png " ")
+    ![Database Actions](images/database-actions.png " ")
 
 5.  From the list of users, locate **GGADMIN**, and then click the ellipsis (three dots) icon and select **Edit**.
 
     ![Database users](images/02-06-locked.png)
 
-6.  In the Edit User panel, deselect **Account is Locked**, enter the password you gave the ggadmin user in the database registration steps above, and then click **Apply Changes**.
+6.  In the Edit User panel, deselect **Account is Locked**, enter the password you gave the ggadmin user in the database registration steps above (Lab 1, Task 1, Step 14), and then click **Apply Changes**. Note that the user icon changes from a padlock to a checkmark.
 
     ![Edit user](images/02-07-edit.png)
 
-    Note that the user icon changes from a padlock to a checkmark.
+>**Note:** If you encounter errors when entering the password, please make sure your password contains only upper case letters, lower case letters, numbers, and underscores. If you are using the green button (run on LiveLabs tenancy), you can use your database admin password given to you on the reservation page. Just make sure this password matches the ggadmin user's password.
 
 7.  Open the navigation menu (hamburger icon), and then under **Development**, select **SQL**.
 
@@ -137,5 +137,5 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, February 2022
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, April 2022

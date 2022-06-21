@@ -6,8 +6,9 @@ This workshop introduces the various features and functionality of Oracle Data R
 *Estimated Lab Time:* 15 minutes
 
 *Version tested in this lab:* Oracle DB 19.13
+
 ### Video Preview
-Watch a preview of "*Understanding Oracle Data Redaction (July 2020)*" [](youtube:ssy6Hov-MAs)
+Watch a preview of "*Livelabs - Oracle ASO (Transparent Data Encryption & Data Redaction) (May 2022)*" [](youtube:JflshZKgxYs)
 
 ### Objectives
 Dynamically redact sensitive data preventing it from being displayed outside the application
@@ -179,7 +180,7 @@ This lab assumes you have:
 
     ![](./images/dr-001.png " ")
 
-You may now [proceed to the next lab](#next)..
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -215,9 +216,13 @@ Data Redaction performs the redaction at runtime, that is, the moment that the u
 - The Data Redaction policies enable you to create a wide variety of function conditions based on `SYS_CONTEXT` values, which can be used at runtime to decide when the Data Redaction policies will apply to the results of the application user's query
 
 ## Want to Learn More?
-Technical Documentation: [Data Redaction 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/asopart1.html)
+Technical Documentation:
+- [Data Redaction 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/asopart1.html)
+
+Video:
+- *Understanding Oracle Data Redaction (July 2020)* [](youtube:ssy6Hov-MAs)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

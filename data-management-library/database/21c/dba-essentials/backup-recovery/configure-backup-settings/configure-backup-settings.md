@@ -1,4 +1,4 @@
-# Configure Backup Settings
+# Configure backup settings
 
 ## Introduction
 
@@ -17,13 +17,14 @@ Estimated Time: 20 minutes
 
 ### Prerequisites
 
-- Oracle Database 21c installed and a container database (CDB) with at least one pluggable database (PDB) created.
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 - You have completed:
-    - Lab: Prepare Setup (_Free-Tier_ and _Paid Tenants_ only)
-    - Lab: Configure Recovery Settings
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
+    - Lab: Configure recovery settings
 
 
-## Task 1: View Backup Settings
+## Task 1: View backup settings
 In this task, you can view all the existing backup settings by using the following steps.
 
 1. Start the RMAN prompt.
@@ -48,7 +49,7 @@ In this task, you can view all the existing backup settings by using the followi
 
     Output:
     ```
-    connected to target database: ORCL (DBID=1016703368)
+    connected to target database: CDB1 (DBID=1016703368)
     ```
 
 3. Use the following command to view the RMAN configuration settings, including backup settings.
@@ -60,7 +61,7 @@ In this task, you can view all the existing backup settings by using the followi
     Output:
     ```
     using target database control file instead of recovery catalog
-    RMAN configuration parameters for database with db_unique_name ORCL are:
+    RMAN configuration parameters for database with db_unique_name CDB1 are:
     CONFIGURE RETENTION POLICY TO REDUNDANCY 1; # default
     CONFIGURE BACKUP OPTIMIZATION OFF; # default
     CONFIGURE DEFAULT DEVICE TYPE TO DISK; # default
@@ -75,11 +76,11 @@ In this task, you can view all the existing backup settings by using the followi
     CONFIGURE COMPRESSION ALGORITHM 'BASIC' AS OF RELEASE 'DEFAULT' OPTIMIZE FOR LOAD TRUE ; # default
     CONFIGURE RMAN OUTPUT TO KEEP FOR 7 DAYS; # default
     CONFIGURE ARCHIVELOG DELETION POLICY TO NONE; # default
-    CONFIGURE SNAPSHOT CONTROLFILE NAME TO '/u01/app/oracle/dbs/snapcf_orcl.f'; # default
+    CONFIGURE SNAPSHOT CONTROLFILE NAME TO '/opt/oracle/dbs/snapcf_cdb1.f'; # default
     ```
 
 
-## Task 2: Configure Backup Device Settings
+## Task 2: Configure backup device settings
 
 The default device used to store backups is `disk` by default. If the default type is different, you can change it to `disk`.
 
@@ -106,11 +107,11 @@ In this task, you configure backup device settings using the following steps.
 
     Output:
     ```
-    RMAN configuration parameters for database with db_unique_name ORCL are:
+    RMAN configuration parameters for database with db_unique_name CDB1 are:
     CONFIGURE DEFAULT DEVICE TYPE TO DISK;
     ```
 
-## Task 3: Configure Backup Optimization Settings
+## Task 3: Configure backup optimization settings
 
 Configure backup optimization to save space in the fast recovery area. Optimization excludes unchanged files, such as read-only files and offline data files, that were previously backed up.
 
@@ -137,11 +138,11 @@ In this task, you configure backup optimization settings using the following ste
 
     Output:
     ```
-    RMAN configuration parameters for database with db_unique_name ORCL are:
+    RMAN configuration parameters for database with db_unique_name CDB1 are:
     CONFIGURE BACKUP OPTIMIZATION ON;
     ```
 
-## Task 4: Configure Retention Policy Settings
+## Task 4: Configure retention policy settings
 
 Configure the retention policy to specify how long the backups and archived redo logs must be retained for media recovery.
 
@@ -168,11 +169,11 @@ In this task, you configure retention policy settings using the following steps.
 
     Output:
     ```
-    RMAN configuration parameters for database with db_unique_name ORCL are:
+    RMAN configuration parameters for database with db_unique_name CDB1 are:
     CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 31 DAYS;
     ```
 
-## Task 5: Configure Control File and Server Parameter File Automatic Backups
+## Task 5: Configure control file and server parameter file automatic backups
 
 You can configure RMAN to automatically backup the control file and server parameter file with every backup. This is referred to as an **autobackup.** The control and server parameter files are critical to the Oracle Database and RMAN. Creating automatic backups of the control file enables RMAN to recover the Oracle Database even if the current control file and server parameter file are lost. The control and server parameter files are relatively small compared to typical data files and, therefore, backing them up frequently results in relatively little storage overhead.
 
@@ -201,7 +202,7 @@ In this task, you configure the control file and server parameter file automatic
 
     Output:
     ```
-    RMAN configuration parameters for database with db_unique_name ORCL are:
+    RMAN configuration parameters for database with db_unique_name CDB1 are:
     CONFIGURE CONTROLFILE AUTOBACKUP ON;
     ```
 
@@ -211,7 +212,7 @@ In this task, you configure the control file and server parameter file automatic
     RMAN> <copy>exit;</copy>
     ```
 
-## Task 6: Enable Block Change Tracking
+## Task 6: Enable block change tracking
 
 Block change tracking improves the performance of incremental backups by recording changed blocks in the block change tracking file. During an incremental backup, instead of scanning all data blocks to identify which blocks have changed, RMAN uses this file to identify the changed blocks that need to be backed up.
 
@@ -240,7 +241,7 @@ In this task, you enable block change tracking using the following steps.
 2. Use the following command to specify the location of the block change tracking file by setting `db_create_file_dest`, if not already set.
 
     ```
-    SQL> <copy>alter system set db_create_file_dest = '/u01/app/oracle/oradata/ORCL';</copy>
+    SQL> <copy>alter system set db_create_file_dest = '/opt/oracle/oradata/CDB1';</copy>
     ```
 
     Output:
@@ -248,7 +249,7 @@ In this task, you enable block change tracking using the following steps.
     System altered.
     ```
 
-    >Note: The `db_create_file_dest` specifies the default location for Oracle-managed files. In this lab, the `db_create_file_dest` parameter is set to `/u01/app/oracle/oradata/ORCL,` the storage location for data files and control files.
+    >**Note:** The `db_create_file_dest` specifies the default location for Oracle-managed files. In this lab, the `db_create_file_dest` parameter is set to `/opt/oracle/oradata/CDB1,` the storage location for data files and control files.
 
 3. Use the following command to enable block change tracking.
 
@@ -271,7 +272,7 @@ In this task, you enable block change tracking using the following steps.
     ```
     STATUS   FILENAME
     -------- -------------------------------------------------------------------------------
-    ENABLED  /u01/app/oracle/oradata/ORCL/ORCL/changetracking/o1_mf_jvovlb3m_.chg
+    ENABLED  /opt/oracle/oradata/CDB1/CDB1/changetracking/o1_mf_jvovlb3m_.chg
     ```
 
 5. Exit the SQL\*Plus prompt.
@@ -286,4 +287,4 @@ You may now **proceed to the next lab**.
 
 - **Author**: Suresh Mohan, Database User Assistance Development Team
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-- **Last Updated By & Date**: Suresh Mohan, February 2022
+- **Last Updated By & Date**: Suresh Mohan, May 2022

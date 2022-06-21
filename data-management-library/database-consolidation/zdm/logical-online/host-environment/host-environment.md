@@ -1,4 +1,4 @@
-# Configure the ZDM Environment
+# Configure the ZDM environment
 
 ## Introduction
 In this lab on your host instance, you will learn how to congifute the ZDM Service Node, generate and configure the required API Keys and configure connectivity between ZDM's Service Node and the GoldenGate Hub. 

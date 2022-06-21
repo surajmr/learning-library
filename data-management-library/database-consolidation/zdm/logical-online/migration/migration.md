@@ -1,4 +1,4 @@
-# Migrate your Database
+# Migrate your database
 
 ## Introduction
 In this lab on your host instance, you will learn how to perform a logical online migration to Autonomous Database with ZDM.

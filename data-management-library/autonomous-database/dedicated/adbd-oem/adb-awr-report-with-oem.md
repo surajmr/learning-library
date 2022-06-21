@@ -3,23 +3,23 @@
 ## Introduction
 Use Automatic Workload Repository (AWR) and automate database statistics gathering by collecting, processing, and maintaining performance statistics for database problem detection and self-tuning purposes.
 
-*In this lab we will see the capabilities of Oracle Enterprise Manager in generating AWR reports.*
+In this lab, we will see the capabilities of Oracle Enterprise Manager in generating AWR reports.
 
 Estimated Time: 20 minutes
 
 ### Objectives
 
-As a Database Administrator,
+As a Database Administrator:
 
-1. Learn how to generate AWR report of your ATP Dedicated Database using Oracle Enterprise Manager
-2. Learn how to change retention period of AWR report generated for your ATP Dedicated Database using Oracle Enterprise Manager
+1. Learn how to generate an AWR report of your ATP Dedicated Database using Oracle Enterprise Manager.
+2. Learn how to change retention period of the AWR report generated for your ATP Dedicated Database using Oracle Enterprise Manager.
 3. Compare the two AWR reports of ATP Dedicated database taken at different intervals, using OEM.
-   
+
 
 ### Required Artifacts
 
    - An Oracle Cloud Infrastructure account.
-   - A pre-provisioned dedicated autonomous database instance. Refer to [Lab 7](?lab=lab-7-provisioning-databases).
+   - A pre-provisioned dedicated autonomous database instance. Refer to the lab **Provisioning Databases** in the **Introduction to ADB Dedicated for Developers and Database Users** workshop.
    - Successful connection of ATP dedicated database from OEM.
 
 
@@ -34,14 +34,14 @@ As a Database Administrator,
 - Click on Autonomous Transaction Processing and select "ADBEM" (name of your ATP database)
     ![](./images/us1_3.png " ")
     ![](./images/us1_4.png " ")
-	
+
 - Click on "Performance" select "AWR" and then click on "AWR Report"
     ![](./images/us1_5.png " ")
-  
+
 - Select the "Begin Snapshot" and "End Snapshot" and Click on "Generate Report".
-    ![](./images/us1_6.png " ") 
-    ![](./images/us1_7.png " ") 
-	
+    ![](./images/us1_6.png " ")
+    ![](./images/us1_7.png " ")
+
 ## STEP2: Change the AWR retention period of the report generated
 
 - On the OEM home page click on "Performance" select "AWR" and then click on "AWR Administration"
@@ -52,7 +52,7 @@ As a Database Administrator,
 
 - Change the "Retention Period"
     ![](./images/us1_10.png " ")
-	
+
 - Click "OK"
     ![](./images/us1_10.png " ")
     ![](./images/us1_11.png " ")
@@ -67,7 +67,7 @@ As a Database Administrator,
 
 - Click on "Generate Report"
     ![](./images/us1_13.png " ")
-    
+
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
@@ -75,4 +75,3 @@ You may now **proceed to the next lab**.
 *Congratulations! You have successfully completed AWR report analysis using Oracle Enterprise Manager .*
 
 - **Authors** - Navya M S & Padma Priya Natarajan
-

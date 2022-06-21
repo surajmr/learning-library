@@ -8,7 +8,7 @@ This workshop introduces the various features and functionality of Oracle Transp
 *Version tested in this lab:* Oracle DB 19.13
 
 ### Video Preview
-Watch a preview of "*Back to basics with Transparent Data Encryption (TDE) (March 2021)*" [](youtube:JflshZKgxYs)
+Watch a preview of "*Livelabs - Oracle ASO (Transparent Data Encryption & Data Redaction) (May 2022)*" [](youtube:JflshZKgxYs)
 
 ### Objectives
 - Take a cold backup of the database to enable db restore if needed
@@ -334,7 +334,7 @@ This lab assumes you have:
 
 7. Now, your database is restored to the point in time prior to enabling TDE!
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -364,13 +364,14 @@ You can configure Oracle Key Vault as part of the TDE implementation. This enabl
 
 ## Want to Learn More?
 Technical Documentation
-  - [Transparent Data Encryption (TDE) 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/asopart2.html)
+- [Transparent Data Encryption (TDE) 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/asopart2.html)
 
-Video
-  - *Understanding Oracle Transparent Data Encryption (TDE) - Part1 (January 2020)* [](youtube:avNWykLpic4)
-  - *Understanding Oracle Transparent Data Encryption (TDE) - Part2 (February 2020)* [](youtube:aUfwG5MIMNU)
+Video:
+- *Understanding Oracle Transparent Data Encryption (TDE) - Part1 (January 2020)* [](youtube:avNWykLpic4)
+- *Understanding Oracle Transparent Data Encryption (TDE) - Part2 (February 2020)* [](youtube:aUfwG5MIMNU)
+- *Back to basics with Transparent Data Encryption (TDE) (March 2021)* [](youtube:JflshZKgxYs)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

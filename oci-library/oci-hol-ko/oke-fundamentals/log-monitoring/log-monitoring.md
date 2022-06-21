@@ -77,7 +77,7 @@ Custom Log는 커스텀 애플리케이션에서 수집하는 로그에 매핑�
 
 Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니다.
 
-1. **Logging** &gt; **Agent Configurations** 메뉴로 이동하여 **Create agent log**를 클릭합니다.
+1. **Logging** &gt; **Agent Configurations** 메뉴로 이동하여 **Create agent config**를 클릭합니다.
 
 2. Name: 예) oke-cluster-1-agent-conf
 
@@ -86,8 +86,9 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
 4. Agent 설정 부분에서 로그가 위치한 경로 및 수집된 로그의 전달 위치를 지정합니다.
 
     - log input: 
-        - input name: 예) container_log
-        - File Paths: **/var/log/containers/*.log**
+        * input type: Log path
+        * input name: 예) container_log
+        * File Paths: **/var/log/containers/*.log**
             - 앞서 지정한 Dynamic Group상에 있는 VM, 여기서는 OKE 클러스터 Worker Node VM 상에 수집할 로그의 위치를 지정합니다.**입력하고 엔터키를 꼭 칩니다.**
 
     - log destination: 수집한 로그를 전달한 앞서 생성한 custom log 이름을 지정합니다.
@@ -138,7 +139,7 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
     ...
     ````
 
-1. OCI 서비스 콘솔에서 **Logging** &gt; **Search** 화면으로 다시 돌아갑니다.
+1. OCI 서비스 콘솔에서 **Observability & Management** &gt; **Logging** &gt; **Search** 화면으로 다시 돌아갑니다.
 
 1. Custom filters 항목에서 POD 이름 또는 앞서 테스트 URL에 있는 customlogtest 같이 검색값으로 조회하면 됩니다. **Custom filters에 값을 입력하고 엔터키를 꼭 칩니다.**
 
@@ -177,12 +178,13 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
     </copy>       
     ```
 
-3. 설정값 정의
+3. Lab 3, 4에서 사용하던 values.yaml과 중복되지 않도록 다른 폴더로 이동합니다.
+
+4. 배포 설정값 정의
  
-    Helm Chart를 설치시 설정가능한 파라미터 목록을 참고하여 변경하고자 하는 값을 입력합니다.
- 
-    - https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch/#parameters
-    - 아래 예시는 elasticsearch 내장 kibana를 함께 설치하고, kibana 접근 URL을 이전 장에서 설치한 nginx ingress controller를 사용하는 예시입니다.
+    ElasticSearch Helm Chart 배포시 사용할 values.yaml 파일을 만듭니다.
+    - 다음 values.yaml은 kibana를 함께 설치하고, kibana 접근 URL을 이전 장에서 설치한 nginx ingress controller를 사용하는 예시입니다.
+
  
     ```yaml
     <copy>   
@@ -206,20 +208,23 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
     </copy>      
     ```
 
-4. elasticsearch helm chart 설치
+    - 추가적인 사용자 설정이 필요한 경우, 대상 Chart에서 제공하는 파라미터를 참고하여 values.yaml을 작성할 수 있습니다.
+        * https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch/#parameters
+
+5. elasticsearch helm chart 설치
 
     ```
     <copy>    
-    helm install elasticsearch -f values.yaml bitnami/elasticsearch --version 17.5.0 -n logging
+    helm install elasticsearch -f values.yaml bitnami/elasticsearch --version 17.9.29 -n logging
     </copy>
     ```
 
-5. 설치
+6. 설치
 
     아래와 같이 설치되며, 실제 컨테이너가 기동하는 데 까지 약간의 시간이 걸립니다.
  
     ```
-    $ helm install elasticsearch -f values.yaml bitnami/elasticsearch --version 17.5.0 -n logging
+    $ helm install elasticsearch -f values.yaml bitnami/elasticsearch --version 17.9.29 -n logging
     NAME: elasticsearch
     ...
     
@@ -231,17 +236,25 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
         curl http://127.0.0.1:9200/
     ```
 
-6. 설치된 elastic search 내부 주소와 포트를 확인합니다. 이후 Fluentd에서 로그 전송을 위해 사용할 주소입니다.
+7. 설치된 elastic search 내부 주소와 포트를 확인합니다. 이후 Fluentd에서 로그 전송을 위해 사용할 주소입니다.
     - 주소: elasticsearch-coordinating-only.logging.svc.cluster.local
     - 포트: 9200
 
-7. Pod가 모두 기동할때 까지 기다립니다.
+8. Pod가 모두 기동할때 까지 기다립니다.
 
     ````
     <copy>
     kubectl get pod -n logging --watch
     </copy>    
     ````
+
+9. 설정값이 잘못되어 재설치가 필요한 경우 다음 명령으로 먼저 삭제하고 재설치합니다.
+
+    ```
+    <copy>    
+    helm delete elasticsearch -n logging
+    </copy>
+    ```
 
 ### Fluentd 구성
 
@@ -294,33 +307,7 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
     </copy>
     ````
 
-2. configmap 추가 설정정의
-
-    - Fluentd 컨테이너 이미지에는 로그 파싱과 관련된 설정들이 컨테이너 이미지내에 /fluentd/etc/ 하위에 .conf 파일로 모두 정의 되어 있습니다. 이 파일들을 재정의 할 수 있습니다. 여기에서는 다른 설정들은 그대로 두고 Parser만 변경합니다.
-    - 기본 Parser는 Docker Engine이 런타임인 경우 잘 동작하지만, 최근 OSS 쿠버네티스의 기본 런타임인 containerd와 OKE에서 사용하고 있는 cri-o에서는 파싱 에러가 발생합니다. 정상 파싱을 위해 파서 설정(`tail_container_parse.conf`)만 아래와 같이 cri Parser로 변경합니다.
-    - https://github.com/fluent/fluentd-kubernetes-daemonset/issues/434#issuecomment-831801690
-
-    ````
-    <copy>    
-    cat <<EOF > fluentd-configmap-elasticsearch.yaml
-    ---
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: fluentd-config
-      namespace: kube-system
-    data:
-      tail_container_parse.conf: |-
-        <parse>
-          @type cri
-        </parse>
-    EOF
-    </copy>    
-    ````
-
-3. fluentd damonset 정의
-
-    설정한 configmap 사용을 위해 Fluentd 문서상의 YAML을 일부 변경하셨습니다.
+2. fluentd damonset 정의
 
     ````
     <copy>
@@ -361,6 +348,10 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
                 value: "http"
               - name: FLUENTD_SYSTEMD_CONF
                 value: disable
+              - name: FLUENT_CONTAINER_TAIL_PARSER_TYPE
+                value: "cri"
+              - name: FLUENT_CONTAINER_TAIL_PARSER_TIME_FORMAT
+                value: "%Y-%m-%dT%H:%M:%S.%N%:z"                
             resources:
               limits:
                 memory: 200Mi
@@ -373,9 +364,6 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
             - name: varlibdockercontainers
               mountPath: /var/lib/docker/containers
               readOnly: true
-            - name: config
-              mountPath: /fluentd/etc/tail_container_parse.conf
-              subPath: tail_container_parse.conf
           terminationGracePeriodSeconds: 30
           volumes:
           - name: varlog
@@ -384,9 +372,6 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
           - name: varlibdockercontainers
             hostPath:
               path: /var/lib/docker/containers
-          - name: config
-            configMap:
-              name: fluentd-config
     EOF
     </copy>    
     ````
@@ -396,7 +381,6 @@ Agent Configuration는 로그를 수집하는 agent를 설정하는 부분입니
     ```bash
     <copy>
     kubectl apply -f fluentd-rbac.yaml
-    kubectl apply -f fluentd-configmap-elasticsearch.yaml
     kubectl apply -f fluentd-daemonset-elasticsearch.yaml
     </copy>        
     ```

@@ -94,59 +94,57 @@ To create a user account:
 
 	![Oracle Autonomous Data Warehouse](images/provisioned-adb.png)
 
-3. On the Autonomous Database Details page, click **Service Console**.
+3. On the Autonomous Database Details page, click **Database Actions**.
 
-	![Oracle Autonomous Data Warehouse](images/service-console.png)
+	![Oracle Autonomous Data Warehouse](images/database-actions.png)
 
-4. On the Service Console, click **Administration**.
+4. The Oracle Database Actions Launchpad page opens in a separate tab. Scroll down to the Administration section and click **DATABASE USERS**.
 
-	![Oracle Autonomous Data Warehouse](images/administration.png)
+	![Oracle Autonomous Data Warehouse](images/admin-db-users.png)
 
-5. Click **Manage Oracle ML Users** to open the Oracle Machine Learning User Administration page.
+5. Click **Create User**. The Create User dialog opens.
 
-	![Oracle Autonomous Data Warehouse](images/manage-oml-users.png)
+	![Oracle Autonomous Data Warehouse](images/create-users-db.png)
 
-6. On the Oracle Machine Learning User Administration Sign in page, enter the username and password to sign in.
+6. On the Create User dialog, enter the following details and click **Create User**:	  
 
-	> **Note:** The username is ADMIN. For the password, use the password you defined while provisioning the Autonomous Database instance.   
+	![Oracle Machine Learning User Administration Sign in page](images/create-user-dialog.png)
 
-	![Oracle Machine Learning User Administration Sign in page](images/database-admin-signin.png)
+	* **User Name:** Enter the user name OMLUSER.
+	* **Password:** Enter a password for this user.
+	* **Confirm Password:** Re-enter the password that you entered in the Password field.
+	* **Graph:** Select this option to enable graph for this user.
+	* **Web Access:** Select this option to allow web access to this user.
+	* **OML:** Select this option to allow this user to access Oracle Machine Learning.
+	* **Quota of tablespace data:** Click on the drop-down list and select an option. For this lab, 1G is selected.
+	* **Password Expired:** Select this option if you want the user to reset the password.
+	* **Account is locked:** Select this option to lock the account.
 
-7. Click **Create** on the Oracle Machine Learning User Administration page.
 
-	![Oracle Autonomous Data Warehouse](images/oml-um-page.png)
+7. After the user is created successfully, the message _User OMLUSER created successfully_ is displayed.
 
-8. On the Create User page, enter the following details to create the user:
+	![Oracle Autonomous Data Warehouse](images/user-creation-msg.png)
 
-	![Oracle Autonomous Data Warehouse](images/omluser-creation.png)
+	Scroll down the page to view the user. The OMLUSER is listed along with all details. Click ![ellipse icon](images/ellipse.png) to edit, delete, or disable any of the privileges granted to the user.
+	![Oracle Autonomous Data Warehouse](images/view-user.png)
 
-	* **Username:** Enter a username for the account. Using the username, the user will log in to an Oracle Machine Learning instance.
-	* **First Name:** Enter the first name of the user.
-	* **Last Name:**  Enter the first name of the user.
-	* **Email Address:** Enter the email ID of the user.
-	* Deselect the option **Generate password and email account details to user. User will be required to reset the password on first sign in**. This option auto generates a temporary password and sends an email with the account credentials to the user. If you select this option, you need not define the password in the **Password** and **Confirm Password** fields, as these two fields are disabled.
-	* **Password:** Enter a password for the user.
-		> **Note:** This option is disabled if you select the **Generate password...** option to auto generate a temporary password for the user.
-
-	* **Confirm Password:** Enter the password to confirm the value that you entered in the **Password** field. By doing so, you create the password for the user. The user can change the password when first Signing in.
-
-8. Click **Create**. After the user is created, it is listed on the Oracle Machine Learning User Administration page. This completes the task of creating an Oracle Machine Learning user.
-
-	 ![Oracle Autonomous Data Warehouse](images/omluser-created.png)
-
-	 > **Note:** Click on the home icon on the top right corner of the Oracle Machine Learning User Administration page to open the Oracle Machine Learning Notebooks home page.
+	This completes the task of creating a user.
 
 ## Task 3: Sign into Oracle Machine Learning
 
 A notebook is a web-based interface for data analysis, data discovery, data visualization, and collaboration. You create and run notebooks in Oracle Machine Learning user interface. You can access Oracle Machine Learning user interface from Autonomous Database.
 
-1. From the tab on your browser with your ADW instance, click **Service Console**, then select **Development** on the left.
+1. On your Oracle ADW instance, click **Database Actions**.
 
-	![Development option in ADW Service Console](images/adw-development.png)
+	![Database Actions in ADW](images/database_actions.png)
 
-2. Click **Oracle Machine Learning Notebooks User Interface.**
+	 To go to Database Actions page from the Database Users page, click **Database Actions** on the top left corner of the page, as shown in the screenshot below.
 
-	 ![Oracle Machine Learning Notebooks in ADW](images/oml-notebooks-dev.png)
+	![Database Actions](images/db-users-db-actions.png)
+
+2. On the Database Actions page, go to the Development section and click **Oracle Machine Learning**. This opens the Oracle Machine Learning sign in page.
+
+	 ![Oracle Machine Learning Notebooks in ADW](images/adb-dev-oml.png)
 
 3. Enter your user credentials and click **Sign in**.
 
@@ -218,4 +216,4 @@ This completes the task of creating the CUSTOMERS360 table.
 
 * **Author** - Moitreyee Hazarika, Principal User Assistance Developer, Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Principal Member of Tech Staff, Advanced Analytics, Machine Learning
-* **Last Updated By/Date** - Moitreyee Hazarika, March 2022
+* **Last Updated By/Date** - Moitreyee Hazarika, June 2022

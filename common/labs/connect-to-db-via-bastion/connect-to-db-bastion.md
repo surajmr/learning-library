@@ -1,83 +1,68 @@
-# Connnect to Database via SSH Bastion 
+# Connnect to database via SSH Bastion
 
 ## Introduction
 
-*This lab walks you through the steps required to a managed SSH session using Bastion. This connection will be used as a prerequisite for many labs that require an SSH. 
+This lab walks you through the steps required to a managed SSH session using Bastion. This connection will be used as a prerequisite for many labs that require an SSH.
 
 Estimated Time: 30 minutes
-
-### About <Product/Technology> (Optional)
 
 
 ### Objectives
 
-*List objectives for this lab using the format below*
-
 In this lab, you will:
-* Create a bastion 
+* Create a bastion
 * Create your sessions
 * Manage your sessions
 
-### Prerequisites (Optional)
-
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites
 
 This lab assumes you have:
-* An Oracle account with access to a tenancy 
+* An Oracle account with access to a tenancy
 * The VCN (virtual cloud network)  that the target was created in
 * A private subnet  in the VCN
 * The IPv4 address or addresses from which you plan to connect to sessions hosted by the bastion
 
 
-*Below, is the "fold"--where items are collapsed by default.*
+## Task 1: Create Bastion
 
-## Task 1: Create Bastion 
+1. Access cloud.oracle.com and login to your tenancy
 
-(optional) Step 1 opening paragraph. 
+2. Click the hamburger menu on the left hand side and select "Identity and Security" then "Bastion"
 
-1. Access cloud.oracle.com and login to your tenancy 
-
-
-
-2. Click the hamburger menu on the left hand side and select "Identity and Security" then "Bastion" 
-
-![Image alt text](images/identity_sec_bastion.png)
-
-4. Under List Scope, in the Compartment list, click the name of the compartment where you want to create a bastion.
+	![Bastion](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/id-bastion.png " ")
 
 
-![Image alt text](images/list_scope_comp.png)
+3. Under List Scope, in the Compartment list, click the name of the compartment where you want to create a bastion.
+
+	![Compartment](images/list-scope-comp.png)
 
 Change name of Instance to your specification.
 
+4. Click "Create Bastion"
 
-5. Click "Create Bastion"
-
-6. Enter a name for the Bastion
+5. Enter a name for the Bastion
 	- Avoid entering any confidential information in this field. Only alphanumeric characters are supported.
 
-![Image alt text](images/name_bastion.png)
+	![Bastion name](images/name-bastion.png)
 
-7. Under Configure networking, select the Target virtual cloud network of the target resource that you intend to connect to by using sessions hosted on this bastion.
+6. Under Configure networking, select the Target virtual cloud network of the target resource that you intend to connect to by using sessions hosted on this bastion.
 If needed, change the compartment to find the VCN.
 
-8. Select the Target subnet. The subnet must either be the same as the target resource's subnet or it must be a subnet from which the target resource's subnet accepts network traffic.
+7. Select the Target subnet. The subnet must either be the same as the target resource's subnet or it must be a subnet from which the target resource's subnet accepts network traffic.
 If needed, change the compartment to find the subnet.
 
-9. In CIDR block allowlist, add one or more address ranges in CIDR notation that you want to allow to connect to sessions hosted by this bastion.
+8. In CIDR block allowlist, add one or more address ranges in CIDR notation that you want to allow to connect to sessions hosted by this bastion.
 For example, 203.0.113.0/24 or 0.0.0.0/0 to allow all.
 
-Enter a CIDR block into the input field, and then either click the value or press Enter to add the value to the list. The maximum allowed number of CIDR blocks is 20.
+	Enter a CIDR block into the input field, and then either click the value or press Enter to add the value to the list. The maximum allowed number of CIDR blocks is 20.
 
-![Image alt text](images/cidr.png)
+	![CIDR](images/cidr.png " ")
 
 A more limited address range offers better security.
 
-10. Click "Create Bastion" 
+9. Click "Create Bastion"
 
-
-
-## Task 2: Create a Managed SSH Session 
+## Task 2: Create a Managed SSH Session
 
 Before creating a Managed SSH session, verify that:
 	- The Bastion plugin is enabled on the target compute instance (if you have not done so, please create a compute instance)
@@ -89,27 +74,26 @@ Before creating a Managed SSH session, verify that:
 
 3. Click the name of the session
 
-![Image alt text](images/bastion.png)
+	![Session name](images/bastion.png)
 
-4. Click "Create Session" 
+4. Click "Create Session"
 
-![Image alt text](images/create_session.png)
+	![Create Session](images/create-session.png)
 
-5. Choose a session type by selecting "Managed SSH Session" 
+5. Choose a session type by selecting "Managed SSH Session"
 
-6. Enter a display name for the new session 
+6. Enter a display name for the new session
 
-![Image alt text](images/managed.png)
-
+	![Display name](images/managed.png)
 
 7. Under Add SSH Key, provide the public key file of the SSH key pair that you want to use for the session.
 Later, when you connect to the session, you must provide the private key of the same SSH key pair.
 
 8. When you are finished, click "Create session"
 
-![Image alt text](images/create_session2.png)
+	![Create session](images/create-session2.png)
 
-## Task 3: Allowing Network Access From the Bastion
+## Task 3: Allow Network Access From the Bastion
 
 1. Open the navigation menu and click Identity & Security. Click Bastion.
 
@@ -119,39 +103,39 @@ Later, when you connect to the session, you must provide the private key of the 
 
 4. Copy the Private endpoint IP address.
 
-![Image alt text](images/endpoint_address.png)
+	![Endpoint address](images/endpoint-address.png)
 
 5. Click the Target subnet.
 If the target resource is on a different subnet than the one used by the bastion to access this VCN, edit the target resource's subnet.
 
-![Image alt text](images/target_subnet.png)
+	![Target subnet](images/target-subnet.png)
 
 6. From the Subnet Details page, click an existing security list that is assigned to this subnet.
 Alternatively, you can create a security list and assign it to this subnet.
 
-![Image alt text](images/security_list.png)
+	![Security list](images/security-list.png)
 
-7. Click Add Ingress Rules.
+7. Click **Add Ingress Rules**.
 
-![Image alt text](images/ingress_rule.png)
+	![Add Ingress Rules](images/ingress-rule.png)
 
 8. For Source CIDR, enter a CIDR block that includes the Private endpoint IP address of the bastion.
-For example, the CIDR block <bastion_private_IP>/32 includes only the bastion's IP address.
-example: 10.140.250.22/32
+For example, the CIDR block &lt;bastion\_private\_IP&gt;/32 includes only the bastion's IP address.
+	Example: 10.140.250.22/32
 
-9. For IP Protocol, select TCP.
+9. For IP Protocol, select **TCP**.
 
 10. For Destination Port Range, enter the port number on the target resource.
-For Managed SSH sessions, specify port 22.
+For Managed SSH sessions, specify port **22**.
 
-11. Click Add Ingress Rules.
+11. Click **Add Ingress Rules**.
 
-![Image alt text](images/add_ingress_rule.png)
+	![Add Ingress Rules](images/add-ingress-rule.png)
 
-## Task 4: Connecting to a Managed SSH Session
+## Task 4: Connect to a Managed SSH Session
 Before you begin, you must create a Managed SSH session to the target instance
 
-1. Open the navigation menu and click Identity & Security. Click Bastion.
+1. Open the navigation menu and click **Identity & Security**. Click **Bastion**.
 
 2. Under List Scope, in the Compartment list, click the name of the compartment where the bastion was created.
 
@@ -159,21 +143,18 @@ Before you begin, you must create a Managed SSH session to the target instance
 
 4. In the Actions menu for the session, click View SSH command.
 
-![Image alt text](images/ssh_command.png)
+	![SSH command](images/ssh-command.png)
 
-5. To copy the command, next to SSH command, click Copy, and then click Close.
+5. To copy the command, next to SSH command, click **Copy**, and then click **Close**.
 
-![Image alt text](images/copy_close.png)
+	![Copy and close](images/copy-close.png)
 
-6. Using a text editor, replace <privateKey> with the pSSath to the private key of the SSH key pair that you provided when you created the session.
+6. Using a text editor, replace &lt;privateKey&gt; with the pSSath to the private key of the SSH key pair that you provided when you created the session.
 
 7. Use a command line to issue the customized SSH command and connect to the bastion session.
 If your private key was created with a passphrase, you are prompted to enter it.
 
-
-
-
 ## Acknowledgements
 * **Author** - Thea Lazarova, Solution Engineer Santa Monica
-* **Contributors** -  Andrew Hong, Solution Santa Monica
-* **Last Updated By/Date** - <Name, Month Year>
+* **Contributors** -  Andrew Hong, Solution Santa Monica, Arabella Yao
+* **Last Updated By/Date** - Arabella Yao, Database Product Management, May 2022

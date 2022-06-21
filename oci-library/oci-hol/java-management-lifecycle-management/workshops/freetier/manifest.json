@@ -1,9 +1,8 @@
 {
     "workshoptitle": "Perform Java Lifecycle Management with Java Management Service",
-    "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
-                "sample.json":"../../data-load/files/sample.json",
-                "step2.md":"../../data-load/files/step2.md"},
-    "help": "teck.kian.choo@oracle.com",
+    "include": {
+    },
+    "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
         {
             "title": "Introduction",

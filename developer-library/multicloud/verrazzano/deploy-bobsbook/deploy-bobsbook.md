@@ -226,8 +226,8 @@ We need to download the source code, where we have configuration files, `bobs-bo
 
     ```bash
     <copy>
-    curl -LSs  https://raw.githubusercontent.com/verrazzano/verrazzano/v1.1.0/examples/bobs-books/bobs-books-app.yaml >~/bobs-books-app.yaml
-    curl -LSs https://raw.githubusercontent.com/verrazzano/verrazzano/v1.1.0/examples/bobs-books/bobs-books-comp.yaml >~/bobs-books-comp.yaml
+    curl -LSs  https://raw.githubusercontent.com/verrazzano/verrazzano/v1.2.1/examples/bobs-books/bobs-books-app.yaml >~/bobs-books-app.yaml
+    curl -LSs https://raw.githubusercontent.com/verrazzano/verrazzano/v1.2.1/examples/bobs-books/bobs-books-comp.yaml >~/bobs-books-comp.yaml
     cd ~
     </copy>
     ```
@@ -260,7 +260,7 @@ Please copy and paste the block of commands into the *Cloud Shell*.
     ```bash
     <copy>
     export WLS_USERNAME=weblogic
-    export WLS_PASSWORD=$((< /dev/urandom tr -dc 'A-Za-z0-9"'\''*+,-./:;<=>?\^_`|~' | head -c10);(date +%S))
+    export WLS_PASSWORD=$((< /dev/urandom tr -dc 'A-Za-z0-9"'\''/<=>?\^_`|~' | head -c10);(date +%S))
     echo $WLS_PASSWORD
     kubectl create secret generic bobbys-front-end-weblogic-credentials --from-literal=password=$WLS_PASSWORD --from-literal=username=$WLS_USERNAME -n bobs-books
     kubectl create secret generic bobs-bookstore-weblogic-credentials --from-literal=password=$WLS_PASSWORD --from-literal=username=$WLS_USERNAME -n bobs-books
@@ -277,19 +277,39 @@ Please copy and paste the block of commands into the *Cloud Shell*.
 5. We have a Kuberneter cluster, <if type="freetier">*cluster1*</if><if type="livelabs">*verrazzano*</if>, with three nodes. Now, we want to deploy Bobby's Books containerized application on <if type="freetier">*cluster1*</if><if type="livelabs">*verrazzano*</if>. For this, we need a Kubernetes deployment configuration. This deployment instructs the Kubernetes to create and update instances for the Bobby's Books application. Here, we have the `bobs-books-comp.yaml` file, which instructs Kubernetes to deploy the Bobby's Books application. Copy and paste the following two commands as shown. The `bobs-books-comp.yaml` file contains definitions of various OAM components, where, an OAM component is a Kubernetes Custom Resource describing an application’s general composition and environment requirements. To learn more about the `bobs-books-comp.yaml` file, review Verrazzano Components in the Introduction section of this Lab 3.
 
     ```bash
-    <copy>kubectl apply -f ~/bobs-books-comp.yaml</copy>
+    <copy>kubectl apply -f ~/bobs-books-comp.yaml -n bobs-books</copy>
     ```
 
-    ![Deploy Compoment](images/deploycomponent.png " ")
+    The output should be similar to the following:
+
+    ```bash
+    $ kubectl apply -f ~/bobs-books-comp.yaml -n bobs-books
+    component.core.oam.dev/robert-coh created
+    component.core.oam.dev/robert-helidon created
+    component.core.oam.dev/bobby-coh created
+    component.core.oam.dev/bobby-helidon created
+    component.core.oam.dev/bobby-wls created
+    component.core.oam.dev/bobs-mysql-configmap created
+    component.core.oam.dev/bobs-mysql-service created
+    component.core.oam.dev/bobs-mysql-deployment created
+    component.core.oam.dev/bobs-orders-configmap created
+    component.core.oam.dev/bobs-orders-wls created
+    $
+    ```
 
 6. The `bobs-books-app.yaml` file is a Verrazzano application configuration file, which provides environment specific customizations. To learn more about `bobs-books-app.yaml` file, review Verrazzano Application Configuration in the Introduction section of this Lab 3.
 
     ```bash
-    <copy>kubectl apply -f ~/bobs-books-app.yaml</copy>
+    <copy>kubectl apply -f ~/bobs-books-app.yaml -n bobs-books</copy>
     ```
 
-    ![deploy app](images/deployapp.png " ")
+    The output should be similar to the following:
 
+    ```bash
+    $ kubectl apply -f ~/bobs-books-app.yaml -n bobs-books
+    applicationconfiguration.core.oam.dev/bobs-books created
+    $
+    ```
 7. Wait for all of the pods in the Bobby’s Books example application to be in the *Running* state. You may need to repeat this command several times before it is successful. The WebLogic Server and Coherence pods may take a while to be created and Ready. This *kubectl* command will wait for all the pods to be in the *Running* state within the bobs-books namespace. It takes around 4-5 minutes. If you are waiting for more then 5 minutes, then you can re-run the command again.
 
     ```bash
@@ -324,7 +344,13 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get ApplicationConfiguration -n bobs-books</copy>
     ```
 
-    ![Application Configuration](images/applicationconfiguratioin.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get ApplicationConfiguration -n bobs-books
+      NAME         AGE
+      bobs-books   72m
+    $
+    ```
 
 2. To verify that both WebLogic domains are created within the bobs-books namespace successfully.
 
@@ -332,7 +358,14 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get Domain -n bobs-books</copy>
     ```
 
-    ![WebLogic Domain](images/weblogicdomain.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get Domain -n bobs-books
+      NAME               AGE
+      bobbys-front-end   73m
+      bobs-orders-wls    73m
+    $
+    ```
 
 3. To verify that both Coherence clusters are created within the bobs-books namespace successfully.
 
@@ -340,7 +373,14 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get Coherence -n bobs-books</copy>
     ```
 
-    ![Coherence](images/conherence.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get Coherence -n bobs-books
+      NAME                CLUSTER             ROLE                REPLICAS   READY   PHASE
+      bobbys-coherence    bobbys-coherence    bobbys-coherence    1          1       Ready
+      roberts-coherence   roberts-coherence   roberts-coherence   2          2       Ready
+    $
+    ```
 
 4. To get the IngressTrait for the Bobby's Book application, run the following command in the *Cloud Shell*.
 
@@ -348,7 +388,15 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get IngressTrait -n bobs-books</copy>
     ```
 
-    ![Ingress](images/ingress.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get IngressTrait -n bobs-books
+      NAME                               AGE
+      bobby-wls-trait-79b67d9d88         76m
+      bobs-orders-wls-trait-57b4d8cb4b   76m
+      robert-helidon-trait-54d7bcd54b    76m
+    $
+    ```
 
 5. Verify that the service pods are successfully created and transition to the *Running* state. Note that this may take a few minutes and that you may see some of the services terminate and restart. Finally, you will observe all the pods associated with the bobs-books namespace are in the *Running* Status. Please copy the pods details for the *bobbys-helidon-stock-application*.
 

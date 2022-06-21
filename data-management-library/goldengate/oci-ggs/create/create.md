@@ -62,6 +62,8 @@ This lab assumes that you completed all preceding labs.
 
 14. For Administrator Password, enter a password. Take note of this password.
 
+>**Note:** This password needs to match password of a database user that we will use later. In order to make sure the password works for both, we suggest you enter a password containing only upper case letters, lower case letters, numbers, and underscores. If you are using the green button (run on LiveLabs tenancy), you can use your database admin password given to you on the reservation page.
+
 15. Click **Create**.
 
     ![Completed GoldenGate details](images/02-13.png " ")
@@ -102,5 +104,5 @@ In this lab, you created an OCI Deployment, reviewed its Deployment details, and
 
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, February 2022
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

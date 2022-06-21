@@ -21,7 +21,7 @@ In this lab, you will:
 This lab assumes you have:
 * All previous labs successfully completed
 
-## **Task 1:** Create Payroll Forecast
+## Task 1: Create Payroll Forecast
 
 <!-- Images -->
 In this exercise, we are going to create a 12 month forecast using OAS's built in ML capabilities to help us predict where our payroll trends are heading.
@@ -61,7 +61,7 @@ In this exercise, we are going to create a 12 month forecast using OAS's built i
 
   Immediately you're presented with an updated visualization and results show that over a period of 12 months if this trend continues, payroll costs will continue to increase exponentially and will put major pressure on margins.
 
-## **Task 2:** Compare Voluntary Turnover by Department
+## Task 2: Compare Voluntary Turnover by Department
 
 1. Lets now create a line graph of Voluntary Turnover by Fiscal Period and Department to help us understand the changes in turnover. **Control select** and choose **'Voluntary Turnover'**, **'Department'**, and **'Fiscal Period'** from the **"HCMLeavers"** data set and **drag** it into the canvas under the bar graph we just created.
     ![Create line graph](images/create-line-graph.png "Create line graph")
@@ -75,7 +75,7 @@ In this exercise, we are going to create a 12 month forecast using OAS's built i
 
   The resulting trend line shows us that Voluntary Turnover is steadily increasing overall but there was a spike in July for Line Cooks just as there was a spike in Overtime Cost in July.
 
-## **Task 3:** Create a Tag Cloud to Understand Reasons for Turnover
+## Task 3: Create a Tag Cloud to Understand Reasons for Turnover
 
 1. Let's now use customer survey responses for Voluntary Turnover and build a Tag Cloud to help us understand reasons for why employees are leaving. **Control select** and choose **'Reason'** and **'Voluntary Turnover'** from **"HCMLeavers"**.
 
@@ -101,7 +101,7 @@ In this exercise, we are going to create a 12 month forecast using OAS's built i
 
   Based on the Tag Cloud, we see that the top three reasons for voluntary attrition was because our employees want higher pay rates, better opportunities, and a better work-life balance.
 
-## **Task 4:** Create a Scatter Plot to Understand Age and Salary Distribution
+## Task 4: Create a Scatter Plot to Understand Age and Salary Distribution
 
 1. Now let's create the final visualization which is a scatter plot to help us understand the relationship between the age and salaries of our employees by department.
 
@@ -129,7 +129,7 @@ In this exercise, we are going to create a 12 month forecast using OAS's built i
 
   ![Result after scatter](images/result-after-scatter.png "Result after scatter")
 
-5. Lets improve the position of the visualizations so that our charts are easier to read. **Drag** the **Tag Cloud** on top of the **Scatter Plot** and **drop** it once a solid blue line appears above the Tag Cloud.
+5. Let's improve the position of the visualizations so that our charts are easier to read. **Drag** the **Tag Cloud** on top of the **Scatter Plot** and **drop** it once a solid blue line appears above the Tag Cloud.
   ![Re-arrange charts](images/move-tagcloud-above-scatter.png "Re-arrange charts")
 
 6. **Save** your analysis. Our final canvas should now look like this:
@@ -140,8 +140,6 @@ In this exercise, we are going to create a 12 month forecast using OAS's built i
   Our executives now need to put together a strategy to retain existing employees and fill the open positions as soon as possible. By doing so, payroll costs will be normalized, headcount will be restored, and her customers won't experience long wait times anymore.
 
 You have now finished the HR Analysis dashboard creation. Next we will take a closer look at our On Time Delivery. You may now **proceed to the next Lab.**
-
-
 
 ## Learn More
 

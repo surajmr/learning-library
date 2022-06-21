@@ -8,7 +8,7 @@ Estimated time: 5 minutes
 
 ### About Purge Tasks
 
-Purge Tasks help you to manage unused Trail files in your deployment. Trail files can add up over time and hinder the performance of your deployment.  
+Purge Tasks help you to manage unused Trail files in your deployment. Trail files can add up over time and hinder the performance of your deployment.
 
 ### Objectives
 
@@ -24,7 +24,7 @@ This lab assumes you completed all preceding labs.
 
     ![OCI GoldenGate Deployment Console navigation menu](images/01-01.png " ")
 
-2.  On the **Configuration** screen, click **Tasks**, and then click **Add Purge Task** (plus icon). The **Create a new Purge Process task** form appears.
+2.  On the **Configuration** screen, click **Tasks**, and then click **Add Purge Trail Task** (plus icon). The **Create a new Purge Trials task** form appears.
 
     ![Create a new Purge Trails task on Tasks page](images/01-02.png " ")
 
@@ -49,5 +49,5 @@ This lab assumes you completed all preceding labs.
 ## Acknowledgements
 
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, March 2022
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

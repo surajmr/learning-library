@@ -2,10 +2,9 @@
 
 ## Introduction
 
-**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes.
+In this lab, you will deploy an ingress-controller on **Oracle Container Engine for Kubernetes (OKE)** to allow public IP access to Kubernetes services (similar to load balancer). We will be using this ingress-controller to route access to Zeppelin deployed on OKE.
 
-In this lab, you will deploy an ingress-controller on **OKE** to allow public IP access to internal services (similar to load balancer). We will be using this ingress-controller to route access to applications (Grafana, Zeppelin, Superset) deployed to **OKE**. These applications will be accessed via different port numbers via this ingress-controller.
-
+**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud-native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes.
 
 Estimated Time: 5 minutes
 
@@ -53,7 +52,7 @@ This lab assumes you have:
 
     ![kubectl script](images/copy-kubectl-script.png)
 
-5. On OCI Console, click on the cloud shell to launch cloud shell
+5. On OCI Console, click on the cloud shell to launch the OCI cloud shell
 
     ![Cloud Shell](images/cloud-shell.png)
 
@@ -66,7 +65,7 @@ This lab assumes you have:
 
 ## Task 3: Deploy ingress-controller to OKE
 
-1. Apply the ingress controller deployment yaml to **OKE**
+1. Apply the ingress controller deployment YAML to **OKE**
 
     ```
 	<copy>
@@ -74,23 +73,31 @@ This lab assumes you have:
 	</copy>
     ```
 
-2. Check the status of deployed namespace and service
+2. Check the status of deployed namespace and services
 
     ```
 	<copy>
     kubectl get all -n ingress-nginx
-    kubectl get service -n ingress-nginx --watch
-	</copy>
-    ```
+  </copy>
+  ```
+3. Retrieve the Public IP of the ingress controller services
 
-  Once you have the External IP provisioned, you can press CTL+C to terminate the command
+	```
+<copy>
+kubectl get service -n ingress-nginx --watch
+</copy>
+```
+
+	Once you have the External IP provisioned, you can press CTL+C to terminate the command
 
 ## Task 4: Deploy sample 'hello world' application
 
 1. Create 'helloworld' namespace
 
 	```
+  <copy>
 	kubectl create ns helloworld
+  </copy>
 	```
 
 2. Deploying hello world application to 'helloworld' namespace
@@ -150,29 +157,29 @@ This lab assumes you have:
 4. Deploy Ingress Resource 'helloworld-ing' to 'helloworld' namespace
 
 	```
-	<copy>
-	cat <<EOF | kubectl apply -n helloworld -f -
-	apiVersion: networking.k8s.io/v1
-	kind: Ingress
-	metadata:
-	name: helloworld-ing
-	annotations:
-		nginx.ingress.kubernetes.io/rewrite-target: /
-	spec:
-	ingressClassName: nginx
-	rules:
-	- http:
-		paths: 
-		- path: /helloworld
-			pathType: Prefix
-			backend:
-			service:
-				name: docker-hello-world-svc
-				port:
-				number: 8088
-	EOF
-	</copy>
-	```
+<copy>
+cat <<EOF | kubectl apply -n helloworld -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: helloworld-ing
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+        - path: /helloworld
+          pathType: Prefix
+          backend:
+            service:
+              name: docker-hello-world-svc
+              port:
+                number: 8088
+EOF
+</copy>
+```
 
     ![Deploy ingress](images/deploy-ingress-output.png)
 
@@ -187,6 +194,10 @@ This lab assumes you have:
 	```
 	<copy>
 	kubectl get svc -n ingress-nginx
+	</copy>
+	```
+	```
+	<copy>
 	kubectl get ing -n helloworld
 	</copy>
 	```
@@ -212,10 +223,10 @@ This lab assumes you have:
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
+* **Last Updated By/Date** - Ryan Kuan, May 2022

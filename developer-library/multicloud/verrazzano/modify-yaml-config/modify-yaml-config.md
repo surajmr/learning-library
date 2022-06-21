@@ -47,10 +47,24 @@ You should have a text editor, where you can paste the commands and URLs and mod
 1. To apply the changes, copy and paste the following command in the *Cloud Shell*. When you will apply the change, a new pod will initialize for serving requests for new component, while the pod associated with the old component will continue serving requests. Later, after the new pod will reaches to the *Running* state, then the old pod will begin being *Terminated*. Eventually, only the new pod will be in the *Running* state.
 
     ```bash
-    <copy>kubectl apply -f bobs-books-comp.yaml</copy>
+    <copy>kubectl apply -f bobs-books-comp.yaml -n bobs-books</copy>
     ```
 
-    ![Apply changes](images/applychanges.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl apply -f ~/bobs-books-comp.yaml -n bobs-books
+    component.core.oam.dev/robert-coh unchanged
+    component.core.oam.dev/robert-helidon unchanged
+    component.core.oam.dev/bobby-coh unchanged
+    component.core.oam.dev/bobby-helidon configured
+    component.core.oam.dev/bobby-wls unchanged
+    component.core.oam.dev/bobs-mysql-configmap unchanged
+    component.core.oam.dev/bobs-mysql-service unchanged
+    component.core.oam.dev/bobs-mysql-deployment unchanged
+    component.core.oam.dev/bobs-orders-configmap unchanged
+    component.core.oam.dev/bobs-orders-wls unchanged
+    $
+    ```
 
     You can observe in the output; only *component.core.oam.dev/bobby-helidon* is configured and other components are unchanged.
 
@@ -94,4 +108,4 @@ Leave the *Cloud Shell* open as we also need it for our last lab.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, April 2022
+* **Last Updated By/Date** - Ankit Pandey, May 2022

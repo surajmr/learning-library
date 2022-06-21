@@ -2,9 +2,11 @@
 
 ## Introduction
 
-**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes. 
+<a href="https://superset.apache.org/", target="\_blank">Superset</a> is one of the top Apache projects that offers a set of tools to build dashboards to visualize data stored in your database.
 
-In this lab, you will deploy a Superset package using Helm to **OKE**, and connect it to **MySQL**.
+In this lab, you will deploy **Superset** using Helm to Oracle Container Engine for Kubernetes infrastructure, and create a simple dashboard for **MySQL HeatWave**.
+
+**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud-native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes.
 
 Estimated Time: 15 minutes
 
@@ -12,8 +14,8 @@ Estimated Time: 15 minutes
 
 In this lab, you will:
 
-* Install helm cli client and Superset repo for k8s package installation
-* Deploy Superset package to the OKE cluster using helm cli client
+* Install helm CLI client and Superset repo for k8s package installation
+* Deploy Superset package to the OKE cluster using helm CLI client
 * Use port-forward in oke-operator VM to route 8088 port traffic to superset service
 * Change VCN security list to open 8088
 * Define MySQL Database in Superset
@@ -44,7 +46,9 @@ This lab assumes you have:
 
 	![Connect to VM](images/connect-to-vm.png)
 
-2. Install **helm** cli client to **oke-operator** compute instance and add superset to helm repository
+2. Install **helm** CLI client to **oke-operator** compute instance
+
+    >**Note** Skip this step if you have helm client installed already
 
     ```
     <copy>
@@ -54,6 +58,8 @@ This lab assumes you have:
 
     ![Install helm cli](images/helm-cli-install.png)
 
+3. Add **Superset** to helm repository
+
     ```
     <copy>
     helm repo add superset https://apache.github.io/superset
@@ -62,7 +68,7 @@ This lab assumes you have:
 
     ![Add superset repo to helm ](images/helm-add-repo.png)
 
-3. Generate **superset-custom-values.yaml** (update any specific variables if required) and install Superset package
+4. Generate **superset-custom-values.yaml** (update any specific variables if required) and install Superset package
 
     ```
     <copy>
@@ -74,7 +80,7 @@ This lab assumes you have:
 
     ![Install superset ](images/superset-install.png)
 
-4. Verify the deployment status of Superset application
+5. Verify the deployment status of Superset application
 
     ```
     <copy>
@@ -85,7 +91,7 @@ This lab assumes you have:
 
     ![Check resources in namespace superset ](images/superset-get-all.png)
 
-5. Disable the **firewalld** service in **oke-operator** compute instance
+6. Disable the **firewalld** service in **oke-operator** compute instance
 
     ```
     <copy>
@@ -95,7 +101,7 @@ This lab assumes you have:
     ```
     > **Note** The purpose of this step is to simplify and allow port-forwarding service to the **oke-operator** compute instance. You should not disable the firewalld service in production
 
-6. Start port-forwarding to Superset service.
+7. Start port-forwarding to Superset service.
 
     ```
     <copy>
@@ -172,16 +178,10 @@ This lab assumes you have:
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
-
-
-
-
-
-
+* **Last Updated By/Date** - Ryan Kuan, May 2022

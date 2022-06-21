@@ -1,4 +1,4 @@
-# Building Applications with Oracle Sharding
+# Build Applications with Oracle Sharding
 
 ## Introduction   
 eShop is an example web-based, e-commerce retail application, built for an online electronics retailer.
@@ -8,14 +8,13 @@ We developed this application to demonstrate Oracle Sharding (a hyperscale globa
 - The application can support billions of users and products.
 
 -  We used Oracle Database Sharding (with 3 shards) with different types of data stored in a single database platform, which includes structured and unstructured data, relational, JSON and text.
-
+  
 -  Multiple capabilities, like the Simple Oracle Document Access (SODA) API + Text Search for JSON, joins, transactions, and ACID properties for relational queries, fuzzy match, type ahead, free-form text search, and sentiment analysis for text.
 
 
-*Estimated Lab Time*: 10 Minutes
+*Estimated Time*: 10 Minutes
 
-Watch the video below for a walk through of the lab.
-[](youtube:EMhd5OolcbM)
+![<application front page>](./images/app-front.jpg " ")
 
 Typically, multiple technologies and products are required to develop such an application. For example, you would need a JSON database, a Text Index application, a relational database, and an Analytics engine, which makes it difficult to query data across multiple data stores. Further, using the traditional methods, you could spend several years and millions of dollars in licensing and development.
 
@@ -44,41 +43,41 @@ This lab assumes you have:
 
 ## Task 1: Eshop Demonstration
 
-1. **eShop URL Access:** When you access the application using the URL  (**`http://localhost:3000/`**), the application's home page opens.
+1. **eShop URL Access:** When you access the application using the URL  (**`http://localhost:3000/`**), the application's home page opens. 
 
-  ![](./images/app_front.jpg " ")
+  ![<application front page>](./images/app-front.jpg " ")
 
   **Note:** Demo application can also be accessed directly from your browser using public IP with the URL (**`http://public-ip:3000/`**), you can get it as below highlighted in red.
 
-  ![](./images/stackip.jpg " ")
+  ![<public ip address>](./images/stackip.jpg " ")
 
 
 2. **Log In and Sign Up:** The application has **login** and new user **signup** features, but it allows access to a non-logged in application user to some extent. It allows you to search for a product in the catalog and make a purchase based on the product's reviews, sentiment score, and rating.
 
   To log in, go to the top right of the navigation bar, click the user profile icon, and select Log In. On the login page, you can log in to an existing account or sign up for a new account.
-
+   
   You can use the default login email and password for this LiveLab.
 
 
   **Login email** = demo@eshop.com and **password** = demo
 
-  ![](./images/app2.jpg " ")
+  ![<login page>](./images/login.jpg " ")
 
   After a successful login you are brought back to the home page.
 
 3. **Browse and Search Products:** Click **CATALOG** in the navigation bar to browse the product list. This page lists all of the products in the store by fetching all of the rows from the Product JSON tables, which are partitioned among the three database shards, along with a picture and price.
 
-  ![](./images/app3.jpg " ")
+  ![<catalog page>](./images/catalog.jpg " ")
 
-  Any of the product tiles on this page can be clicked to take you to the product information tab.
-  Use the Filter options by selecting from the Price and/or Brand filters to get a list of specific products.
+  Any of the product tiles on this page can be clicked to take you to the product information tab. 
+  Use the Filter options by selecting from the Price and/or Brand filters to get a list of specific products. 
 
    Alternatively, you can perform a text search. Access the search bar by clicking the Search icon, then directly type the product information in the search bar. Here, Oracle fuzzy matching is the method used, and it provides an improved ability to process word-based matching queries to find matching phrases or sentences from a database.
 
    You can click on a selected product to view its details, or you can choose to add the product directly to the cart by clicking on the cart symbol.
 
 
-  ![](./images/searchproduct.jpg " ")
+  ![<text search>](./images/searchproduct.jpg " ")
 
    The product search functionality is flexible enough to autocorrect any misspelled search text and provide you with a suggestion list of what you might be looking for.
 
@@ -86,7 +85,7 @@ This lab assumes you have:
 
 4. **Select a Product:** Select a specific product to go to the product information page, where you can find more information about the product and read the reviews and ratings.
 
-  ![](./images/singleproductview.jpg " ")
+  ![<select a product>](./images/singleproductview.jpg " ")
 
   On the product information screen the reviews are sorted by sentiment ratings. You can search for reviews based on the content or keyword.
 
@@ -94,45 +93,45 @@ This lab assumes you have:
 
 5. **Go To the Cart:**  Click the Go To Cart button on a product page.
 
-  ![](./images/0608.png " ")
+  ![<go to cart>](./images/cart.png " ")
 
   In the cart you can alter the number of a specific product and click **Proceed to Checkout**.
   When you change the product quantity, the cart updates the total price per product calculation. In addition, total value of the cart contents is updated using a query to a table which is sharded across all (3) shard databases.
 
-  ![](./images/0626.png " ")
+  ![<proceed to checkout>](./images/checkout.png " ")
 
-6. **Place Your Order:** In the Review Order page, look over the order and click **Place your order**.
+6. **Place Your Order:** In the Review Order page, look over the order and click **Place your order**. 
 You can change the address shown in Saved Address if you want to ship products to a location different from your default address.
 
-  ![](./images/bill.png " ")
+  ![place your order](./images/bill.png " ")
 
 7. **Submit a Review:** You can submit the review and rating for the purchased item. When your order is placed, eShop populates the LINE_ITEM and allows you to enter a product review.
 
- ![](./images/new.png " ")
+ ![<enter review>](./images/review.png " ")
 
   Your order workflow goes from Placed to Shipped, then OFD (out for delivery), and finally Delivered.
- ![](./images/new1.png " ")
+ ![<workflow>](./images/workflow.png " ")
 
-**Note: Repeat above steps for 5 times and order 5 different items. This is required for the next set of labs.**
+ **Note: Repeat above steps for 5 times and order 5 different items. This is required for the next set of labs.**
 
 
 ## Task 2: View Reports
 
-Navigate to application's home page with full screen and click on **REPORT** to view reports. ( **Note** : You can view reports as logged-in user only. ) The application can create reports by emulating two large data sets from relational tables (customers, orders, line items) and non-relational tables (Products and Reviews - JSON, Text, sentiment analysis). And these Analytics reports are built from a single query spanning multiple data types from multiple shard databases.
+The application can create reports by emulating two large data sets from relational tables (customers, orders, line items) and non-relational tables (Products and Reviews - JSON, Text, sentiment analysis). And these Analytics reports are built from a single query spanning multiple data types from multiple shard databases.
 
 1.	Dollar value sale by month: A single query from LINE_ITEM accessing multiple shard databases.
 2.	Sentiment Percentage: A single query from Reviews accessing multiple shard databases.
 
 
-  ![](./images/report.png " ")
+  ![<sentiment report>](./images/sentiment.png " ")
 
 3.	Best Selling Product In last two months: A single query from multiple tables, both relational and non-relational, accessing multiple shard databases.
-
-  ![](./images/report1.png " ")
+   
+  ![<best selling product report>](./images/product.png " ")
 
 4. The Analytics report is made with a Java table with multiple SQL queries (These queries are on multiple tables both relational and non-relational across all of the shard databases).
 
-  ![](./images/report2.png " ")
+  ![<analytics report>](./images/analytics.png " ")
 
 ## Task 3: Application Schema & Code Snippet (read-only)
 eShop application is server side rendered web application hosted on a NodeJS web server. Application is designed on MVC (Model, View and Controller) architecture pattern, with view as HTML 5 pages, controllers written in NodeJS to handle user http request and model to access database objects.
@@ -234,7 +233,7 @@ dbService.getProductByKey(item) – calling model layer function with “item”
  For more details for the eShop code snippet click [here] (https://github.com/nishakau/ShardingSampleCode.git)
 
 
- You may now proceed to the next lab.
+ You may now [proceed to the next lab](#next).
 
 ## Learn More
 

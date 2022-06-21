@@ -116,7 +116,7 @@ A compartment is a collection of cloud assets, like compute instances, load bala
 </if>
 <if type="livelabs">
     - __Choose a compartment__ - Use the default compartment created for you.
-    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use ____MyQuickStart__ ADW__.
+    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use **MyQuickStart**.
     - __Database Name__ - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use __MOVIE+your user id__, for example, __MOVIE9352__.
 
     ![Enter the required details.](./images/livelabs-adwname.png " ")

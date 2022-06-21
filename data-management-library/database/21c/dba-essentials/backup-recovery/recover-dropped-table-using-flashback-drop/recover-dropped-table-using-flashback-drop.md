@@ -1,31 +1,32 @@
-# Recover a Dropped Table Using Flashback Drop
+# Recover a dropped table using flashback drop
 
 ## Introduction
 This lab shows you how to perform Flashback Drop on a dropped table in Oracle Database.
 
 Estimated Time: 10 minutes
 
-### About Flashback Drop
+### About flashback drop
 Oracle Database's Flashback Drop enables you to reverse the effects of dropping (deleting) a table, returning the dropped table to the Oracle Database along with dependent objects such as indexes and triggers. This feature stores dropped objects in a recycle bin, from which you can retrieve them until the recycle bin is purged, either explicitly or because space is needed.
 
 As with Flashback Table, you can use Flashback Drop while the Oracle Database is open. Also, you can perform the flashback without undoing changes in objects not affected by the Flashback Drop operation. Flashback Table is more convenient than forms of media recovery that require taking the Oracle Database offline and restoring files from backup.
 
->Note: A table must reside in a locally managed tablespace so that you can recover the table using Flashback Drop. Also, you cannot recover tables in the `SYSTEM` tablespaces with Flashback Drop, regardless of the tablespace type.
+>**Note:** A table must reside in a locally managed tablespace so that you can recover the table using Flashback Drop. Also, you cannot recover tables in the `SYSTEM` tablespaces with Flashback Drop, regardless of the tablespace type.
 
 ### Objectives
 - Drop a table
 - Recover the dropped table
 
 ### Prerequisites
-- Oracle Database 21c installed and a container database (CDB) with at least one pluggable database (PDB) created.
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 - You have completed:
-    - Lab: Prepare Setup (_Free-Tier_ and _Paid Tenants_ only)
-    - Lab: Configure Recovery Settings
-    - Lab: Configure Backup Settings
-    - Lab: Perform and Schedule Backups
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
+    - Lab: Configure recovery settings
+    - Lab: Configure backup settings
+    - Lab: Perform and schedule backups
 
 
-## Task 1: Drop a Table
+## Task 1: Drop a table
 The Oracle Database moves the dropped table to the recycle bin. Such tables can be retrieved using the Flashback Drop feature.
 
 In this task, you will drop the `appuser.regions` table using the following steps.
@@ -46,9 +47,9 @@ In this task, you will drop the `appuser.regions` table using the following step
     Version 21.3.0.0.0
     ```
 
-2. Use the following command to switch to the pluggable database container. In this lab, `orclpdb` is the pluggable database.
+2. Use the following command to switch to the pluggable database container. In this lab, `pdb1` is the pluggable database.
     ```
-    SQL> <copy>alter session set container=orclpdb;</copy>
+    SQL> <copy>alter session set container=pdb1;</copy>
     ```
     Output:
     ```
@@ -77,7 +78,7 @@ In this task, you will drop the `appuser.regions` table using the following step
     ```
 
 
-## Task 2: Recover the Dropped Table
+## Task 2: Recover the dropped table
 In this task, you recover the `appuser.regions` table from the recycle bin using the following steps.
 1. Use the following command to recover the deleted table.
     ```
@@ -112,4 +113,4 @@ In this task, you recover the `appuser.regions` table from the recycle bin using
 ## Acknowledgements
 - **Author**: Suresh Mohan, Database User Assistance Development Team
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-- **Last Updated By & Date**: Suresh Mohan, February 2022
+- **Last Updated By & Date**: Suresh Mohan, May 2022

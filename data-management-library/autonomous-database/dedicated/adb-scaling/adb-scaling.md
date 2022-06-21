@@ -7,7 +7,7 @@ Estimated Time: 20 minutes
 
 ### Objectives
 
-As an adminstrator:
+As an administrator:
 1. Simulate a production workload using Swingbench load generator.
 2. Scale up the OCPUs in your autonomous database service through cloud console and observe effect on the workload performance.
 3. Scale down the OCPUs in your autonomous database service through cloud console and observe effect on the workload performance.
@@ -21,7 +21,7 @@ As an adminstrator:
 
 ## Task 1: Log in to the Oracle Cloud Developer image and start the order entry workload
 
-- To complete this lab it's mandatory you have a developer client image configured with swingbench, an autonomous dedicated database instance with the wallet uploaded to the dev client. Follow instructions in the earlier labs, **Configure a Development System** and **Build Always On Applications**.
+- To complete this lab it's mandatory you have a developer client image configured with Swingbench, an autonomous dedicated database instance with the wallet uploaded to the dev client. Follow instructions in the earlier labs, **Configure a Development System** and **Build Always On Applications**.
 
 *The remainder of this lab assumes you are connected to the image through VNC Viewer and are operating from the image itself and not your local machine.*
 
@@ -51,7 +51,7 @@ As an adminstrator:
     </copy>
     ```
 
-- Once swingbench starts running, you will see results similar to the screen below. The first column is a time stamp, the second column indicates how many users of the total users requested with the *-uc* parameter are active, and of interest is the third column which indicates transactions per second. If you see any intermittent connect or other error messages, ignore those.
+- Once Swingbench starts running, you will see results similar to the screen below. The first column is a time stamp, the second column indicates how many users of the total users requested with the *-uc* parameter are active, and of interest is the third column which indicates transactions per second. If you see any intermittent connect or other error messages, ignore those.
 
     ![This image shows the result of performing the above step.](./images/swingbenchoutput.jpeg " ")
 

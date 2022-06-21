@@ -48,13 +48,13 @@ In this step, we are going to generate an *Authentication Token*, that we will u
 
     ![Endpoint](images/endpoint.png " ")
 
- 2. Copy the following command and paste it in your text editor and then replace the `END_POINT_OF_REGION_NAME` with the endpoint of your region.
+ 2. Copy the following command and paste it in your text editor and then replace the **`END_POINT_OF_REGION_NAME`** with the endpoint of your region.
 
     ```bash
     <copy> docker login `END_POINT_OF_REGION_NAME`</copy>
     ```
 <if type="freetier">
-3. In the previous lab, you determined the Tenancy Namespace. Make the user name as follows: `NAMESPACE_OF_YOUR_TENANCY`/oracleidentitycloudservice/`YOUR_ORACLE_CLOUD_USERNAME`. Here, replace `NAMESPACE_OF_YOUR_TENANCY` with your tenancy's namespace and `YOUR_ORACLE_CLOUD_USERNAME` with your Oracle Cloud Account user name and then copy the replaced user name from your text editor and paste it in the *Cloud Shell*. For Password , paste the Authentication Token from your text editor or where you saved it.
+3. In the previous lab, you determined the Tenancy Namespace. Make the user name as follows: **`NAMESPACE_OF_YOUR_TENANCY`/oracleidentitycloudservice/`YOUR_ORACLE_CLOUD_USERNAME`**. Here, replace **`NAMESPACE_OF_YOUR_TENANCY`** with your tenancy's namespace and **`YOUR_ORACLE_CLOUD_USERNAME`** with your Oracle Cloud Account user name and then copy the replaced user name from your text editor and paste it in the *Cloud Shell*. For Password , paste the Authentication Token from your text editor or where you saved it.
     ![Login Registry](images/loginregistry.png " ")
 </if>
 
@@ -97,4 +97,4 @@ Leave the *Cloud Shell* and Container Registry repository page open; we will nee
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, April 2022
+* **Last Updated By/Date** - Ankit Pandey, May 2022

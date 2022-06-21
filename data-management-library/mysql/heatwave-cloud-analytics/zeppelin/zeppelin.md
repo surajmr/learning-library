@@ -2,9 +2,13 @@
 
 ## Introduction
 
-In this lab, we will deploy the popular <a href="https://zeppelin.apache.org/" target="\_blank">**Apache Zeppelin**</a> notebook to OKE and to create a simple notebook to MySQL HeatWave
+<a href="https://zeppelin.apache.org/" target="\_blank">Zeppelin</a> is a web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala, Python, and R.
 
-Estimated Time: 2 minutes
+In this lab, you will deploy the **Zeppelin** notebook to Oracle Kubernetes infrastructure and create a simple notebook to **MySQL HeatWave**.
+
+**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud-native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes.
+
+Estimated Time: 10 minutes
 
 ### Objectives
 
@@ -36,18 +40,18 @@ In this lab, you will:
 
     ![Connect to VM](images/connect-to-vm.png)
 
-2. Download the [Zeppelin-Server](files/zeppelin-server.yml?download=1)
+2. Download the [Zeppelin-Server YAML](files/zeppelin-server.yaml?download=1)
 
     ```
     <copy>
-    wget https://raw.githubusercontent.com/kuanrcl/learning-library/master/data-management-library/mysql/heatwave-cloud-analytics/zeppelin/files/zeppelin-server.yml
+    wget https://raw.githubusercontent.com/kuanrcl/learning-library/master/data-management-library/mysql/heatwave-cloud-analytics/zeppelin/files/zeppelin-server.yaml
     </copy>
     ```
 
-3. Download the [Zeppelin ingress](files/zeppelin-ing.yml)
+3. Download the [Zeppelin ingress YAML](files/zeppelin-ing.yaml) 
     ```
     <copy>
-    wget https://raw.githubusercontent.com/kuanrcl/learning-library/master/data-management-library/mysql/heatwave-cloud-analytics/zeppelin/files/zeppelin-ing.yml
+    wget https://raw.githubusercontent.com/kuanrcl/learning-library/master/data-management-library/mysql/heatwave-cloud-analytics/zeppelin/files/zeppelin-ing.yaml
     </copy>
     ```
 
@@ -81,7 +85,9 @@ In this lab, you will:
     ```
 	![Ingress IP](images/ingress.png)
 
-6. Access the deployed Zeppelin application. Point your browser to **http://&lt;INGRESS&#95;PUBLIC&#95;IP&#95;ADDRESS&gt;/zeppelin**
+6. Access the deployed Zeppelin application. Point your browser to **http://&lt;INGRESS&#95;PUBLIC&#95;IP&#95;ADDRESS&gt;/zeppelin/**
+
+    >Note: Please ensure you have the closing **/** in the url, that is, **zeppelin/**
 
 	![Zeppelin](images/zeppelin.png)
 
@@ -92,7 +98,12 @@ Task 3: Connect to MySQL HeatWave
 	![Interpreter](images/interpreter.png)
 
 2. Click on **Create** to create a new JDBC driver for MySQL HeatWave. Fill up the details as indicated in the diagram
-  Replace the private ip address of your MySQL instance in the **JDBC URL**
+    Replace the private ip address of your MySQL instance in the **JDBC URL**, admin user and password
+
+    * default.url: jdbc:mysql://private-ip-address:3306
+    * default.user: admin
+    * default.password: &lt;your mysql password&gt;
+    * default.driver: com.mysql.cj.jdbc.Driver
 
    ![MySQL JDBC](images/mysql-jdbc.png)
 
@@ -108,7 +119,32 @@ Task 3: Connect to MySQL HeatWave
 
 	![Interactive Query](images/notebook-query.png)
 
-  Congratulations! You have completed all the labs
+    ```
+<copy>
+%mysql
+use airportdb;
+select * from airline limit 10;
+</copy>
+```
+
+    ```
+<copy>
+%mysql
+use airportdb;
+select airline.airlinename, count(*) as nb_people from booking, flight, airline, passengerdetails
+where booking.flight_id=flight.flight_id and
+airline.airline_id=flight.airline_id and
+booking.passenger_id=passengerdetails.passenger_id and
+country in ("SWITZERLAND", "FRANCE", "ITALY")
+group by
+airline.airlinename
+order by
+airline.airlinename, nb_people
+limit 10;
+</copy>
+```
+
+    You may now **proceed to the next lab.**
 
 ## Acknowledgements
 

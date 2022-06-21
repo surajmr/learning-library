@@ -2,9 +2,13 @@
 
 ## Introduction
 
-In this lab, we will deploy a very popular open-source tool, <a href="https://www.phpmyadmin.net/", target="\_blank">phpMyAdmin</a> to OKE to manage MySQL HeatWave
+<a href="https://www.phpmyadmin.net/", target="\_blank">PhpMyAdmin</a> is a web-based MySQL management tool to help you manage MySQL databases.
 
-Estimated Time: 15 minutes
+In this lab, we will deploy **phpMyAdmin** to Oracle Container Engine for Kubernetes to manage MySQL HeatWave.
+
+**Oracle Container Engine for Kubernetes (OKE)** is an Oracle-managed container orchestration service that can reduce the time and cost to build modern cloud native applications. Unlike most other vendors, Oracle Cloud Infrastructure provides Container Engine for Kubernetes as a free service that runs on higher-performance, lower-cost compute shapes.
+
+Estimated Time: 10 minutes
 
 ### Objectives
 
@@ -14,7 +18,7 @@ In this lab, you will:
 * Deploy phpMyAdmin to OKE
 * Manage MySQL using phpMyAdmin
 
-### Prerequisites (Optional)
+### Prerequisites
 
 * You have an Oracle account
 * You have enough privileges to use OCI
@@ -34,11 +38,11 @@ In this lab, you will:
 
 1. Connect to the **oke-operator** compute instance using OCI Cloud Shell
 
-	![Connect to VM](images/connect-to-vm.png)
+	  ![Connect to VM](images/connect-to-vm.png)
 
-2. Create the phpMyAdmin yaml deployment script
+2. Create the phpMyAdmin YAML deployment script
 
-	```
+    ```
 <copy>
 cat <<EOF >>phpmyadmin.yaml
 ---
@@ -77,92 +81,51 @@ EOF
 </copy>
 ```
 
+3. Specify your MySQL private IP address in the YAML file, replace **MYSQL&#95;PRIVATE&#95;IP&#95;ADDRESS** with your MySQL Private IP Address. For example, if your MySQL Private IP address is 10.0.30.11, then the sed command will be "sed -i -e 's/MYSQL_HOST/10.0.30.11/g' phpmyadmin.yaml"
 
-3. Specify your MySQL private IP address in the yaml file, replace **MYSQL&#95;PRIVATE&#95;IP&#95;ADDRESS** with your MySQL Private IP Address. For example, if your MySQL Private IP address is 10.0.30.11, then the sed command will be "sed -i -e 's/MYSQL_HOST/10.0.30.11/g' phpmyadmin.yaml"
+    ```
+ <copy>
+ sed -i -e 's/MYSQL_HOST/<MYSQL_PRIVATE_IP_ADDRESS>/g' phpmyadmin.yaml
+ </copy>
+ ```
 
-	```
-	<copy>
-	sed -i -e 's/MYSQL_HOST/<MYSQL_PRIVATE_IP_ADDRESS>/g' phpmyadmin.yaml 
-	</copy>
-	```
+4. Create the **phpmyadmin** namespace in OKE
 
-4. Create a phpmyadmin namespace in OKE
-
-	```
-	<copy>
-	kubectl create ns phpmyadmin
-	</copy>
-	```
+    ```
+ <copy>
+ kubectl create ns phpmyadmin
+ </copy>
+ ```
 
 5. Create the phpmyadmin service
 
-	```
-	<copy>
-	kubectl apply -f phpmyadmin.yaml -n phpmyadmin
-	</copy>
-	```
+    ```
+ <copy>
+ kubectl apply -f phpmyadmin.yaml -n phpmyadmin
+ </copy>
+```
 
-6. Create the phpmyadmin ingress service
+6. Login to the operator VM and start the port-forward service
 
-	```
+    ```
 <copy>
-cat <<EOF | kubectl -n phpmyadmin apply -f - 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: phpmyadmin-ing
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/app-root: /phpmyadmin/
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^/themes/(.*)$ /phpmyadmin/themes/$1 redirect;
-      rewrite ^/index.php(.*)$ /phpmyadmin/index.php$1 redirect;
-      rewrite ^/config/(.*)$ /phpmyadmin/config/$1 redirect;
-spec:
-  ingressClassName: nginx
-  rules:
-  - http:
-      paths:
-        - path: /phpmyadmin(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: phpmyadmin-svc
-              port:
-                number: 80
-        - path: /index.php(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: phpmyadmin-svc
-              port: 
-                number: 80
-EOF
+kubectl port-forward service/phpmyadmin-svc -n phpmyadmin --address 0.0.0.0 8080:80 &
 </copy>
 ```
 
-7. Find out the public IP of OKE Ingress Controller
+7. Access the deployed phpMyAdmin application using your browser, **http:://&lt;PUBLIC&#95;IP of Operator VM&gt;:8080/**. Enter MySQL admin user, **admin**, and default password **Oracle#123**
 
-	```
-	<copy>
-	kubectl get all -n ingress-nginx
-	</copy>
-	```
-	![Ingress IP](images/ingress.png)
+	  ![PhpMyAdmin](images/phpmyadmin.png)
 
-8. Access the deployed phpMyAdmin application using your browser, http:://&lt;OKE&#95;INGRESS&#95;PUBLIC&#95;IP&gt;/phpmyadmin
-
-	![PhpMyAdmin](images/phpmyadmin.png)
-
-  You may now **proceed to the next lab.**
+	  Congratulations! You have completed all the labs.
 
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
+* **Last Updated By/Date** - Ryan Kuan, May 2022

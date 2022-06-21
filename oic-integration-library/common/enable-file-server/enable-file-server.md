@@ -44,7 +44,7 @@ To enable File Server:
 
    ![File Server Enabled](images/file-server-enablement3.png)
 
-   You may now **proceed to the next lab**.
+You may now **proceed to the next lab**.
 
 ## Learn More
 

@@ -36,6 +36,8 @@ This lab assumes you have:
 
 ## Task 1: Configure the In-Memory Column Store Size
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. Set the In-Memory column store size to 800M.
 
     ```
@@ -190,7 +192,7 @@ In this task, you create the logical directories to store the source data files 
 
     SQL>
     ```
-4. Execute the `create_inmem_hybrid_table.sql` SQL script to create the `HYPT_INMEM_TAB` hybrid partitioned table with the following attributes:
+4. Execute the following command to create the `HYPT_INMEM_TAB` hybrid partitioned table with the following attributes:
 * The table is partitioned by range on the `TIME_ID` column.
 * The default tablespace for internal partitions is `TS1`.
 * The default tablespace for external partitions is `CENT20`.
@@ -200,13 +202,38 @@ In this task, you create the logical directories to store the source data files 
     * Two internal partitions: `Y2000` is stored in tablespace `TS2` and `PMAX` is stored in the default tablespace `TS1`.
 
     ```
-    SQL> <copy>@$HOME/labs/19cnf/create_inmem_hybrid_table.sql</copy>
-
+    SQL> <copy>CREATE TABLE hypt.hypt_inmem_tab
+      (history_event NUMBER , time_id DATE) 
+       TABLESPACE ts1 
+       EXTERNAL PARTITION ATTRIBUTES 
+       (TYPE ORACLE_LOADER 
+        DEFAULT DIRECTORY cent20 
+        ACCESS PARAMETERS
+         (FIELDS TERMINATED BY ','
+          (history_event , time_id DATE 'dd-MON-yyyy')
+         )
+         REJECT LIMIT UNLIMITED
+        ) 
+   PARTITION BY RANGE (time_id) 
+   (PARTITION cent18 VALUES LESS THAN 
+     (TO_DATE('01-Jan-1800','dd-MON-yyyy')) EXTERNAL,
+    PARTITION cent19 VALUES LESS THAN 
+     (TO_DATE('01-Jan-1900','dd-MON-yyyy')) EXTERNAL 
+	                 DEFAULT DIRECTORY cent19 
+				 LOCATION ('cent19.dat'),
+    PARTITION cent20 VALUES LESS THAN 
+     (TO_DATE('01-Jan-2000','dd-MON-yyyy')) EXTERNAL 
+	                          LOCATION('cent20.dat'),
+    PARTITION y2000 VALUES LESS THAN 
+     (TO_DATE('01-Jan-2001','dd-MON-yyyy')) TABLESPACE ts2,
+    PARTITION pmax VALUES LESS THAN (MAXVALUE))
+   INMEMORY MEMCOMPRESS FOR QUERY HIGH;
+    </copy>
     Table created.
 
     SQL>
     ```
-5. Find the partitions that are defined as in-memory segments.
+1. Find the partitions that are defined as in-memory segments.
 
     ```
     SQL> <copy>SELECT partition_name, inmemory, inmemory_compression FROM dba_tab_partitions WHERE table_name = 'HYPT_INMEM_TAB';</copy>
@@ -227,10 +254,10 @@ In this task, you create the logical directories to store the source data files 
 
 ## Task 5: Insert Data Into the Partitions
 
-1. Execute the `insert_select.sql` SQL script to insert rows into the different partitions of the table and query the table.
+1. Execute the `insert_select_bd.sql` SQL script to insert rows into the different partitions of the table and query the table.
 
     ```
-    SQL> <copy>@/home/oracle/labs/19cnf/insert_select.sql</copy>
+    SQL> <copy>@/home/oracle/labs/19cnf/insert_select_bd.sql</copy>
 
     ...
 
@@ -238,7 +265,7 @@ In this task, you create the logical directories to store the source data files 
 
     SQL>
     ```
-    *Note:* Number of rows selected subject to change.
+    > **Note**: Number of rows selected subject to change.
     
     The execution of the query on the table rows automatically populates the data into the `IM` column store.
 
@@ -282,7 +309,7 @@ In this task, you create the logical directories to store the source data files 
     |   3| TABLE ACCESS INMEMORY FULL               | HYPT_INMEM_TAB    |      |       |              |          |    1  |    5  |
     ------------------------------------------------------------------------------------------------------------------------------
     ```
-    *Note:* Table values subject to change.
+    > **Note**: Table values subject to change.
 
 2. Display the execution plan for a query on the rows of one of the internal partition in the table.
 
@@ -307,7 +334,7 @@ In this task, you create the logical directories to store the source data files 
     |   2| TABLE ACCESS INMEMORY FULL               | HYPT_INMEM_TAB    | 82171 | 1765K |    25   (56)| 00:00:01 |    5  |    5  |
     ------------------------------------------------------------------------------------------------------------------------------
     ```
-    *Note:* Table values subject to change.
+    > **Note**: Table values subject to change.
 
 3. Display the execution plan for a query on the rows of one of the external partition in the table.
 
@@ -332,7 +359,7 @@ In this task, you create the logical directories to store the source data files 
     |   2| EXTERNAL TABLE ACCESS FULL               | HYPT_INMEM_TAB    | 8169 | 175K |    31   (7)| 00:00:01 |    2  |    2  |
     ------------------------------------------------------------------------------------------------------------------------------
     ```
-    *Note:* Table values subject to change.
+    > **Note**: Table values subject to change.
 
    According to the type of partition accessed and the number of partitions accessed at the same time, the operation shows either `EXTERNAL TABLE ACCESS FULL` (external partitions, not `INMEMORY`), `TABLE ACCESS INMEMORY FULL` (internal partitions, `INMEMORY`) or `HYBRID PART INMEMORY FULL` (both internal and external partitions). 
 

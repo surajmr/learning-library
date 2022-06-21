@@ -22,7 +22,11 @@ In this lab, you will:
 - Ensure that you have Python SDK installed on your machine by following the steps [here](https://docs.oracle.com/en-us/iaas/tools/python/2.57.0/installation.html#install)
   * Note that if you have a Python version of less than 3, it is necessary to replace all instances of 'python3' in the CLI operations mentioned in this lab with 'python'. In these lab instructions, we will assume that the user has Python3.
 
-**Required Download:** Use [this](https://objectstorage.us-ashburn-1.oraclecloud.com/p/zDOLdHIblEgbMO_4RCotgp4_iL32UnBY8WCjR78hAvJJJj8nbQyB6FNoHt633fIb/n/orasenatdpltintegration03/b/all-images-live-lab/o/biomedical-image-classification-training-data.zip) link to download the files needed throughout the lab. Unzip the file to a location of your choice on your local machine.
+**Required Download:**
+
+Mac Users: Use [this](https://objectstorage.us-ashburn-1.oraclecloud.com/p/zDOLdHIblEgbMO_4RCotgp4_iL32UnBY8WCjR78hAvJJJj8nbQyB6FNoHt633fIb/n/orasenatdpltintegration03/b/all-images-live-lab/o/biomedical-image-classification-training-data.zip) link to download the files needed throughout the lab. Unzip the file to a location of your choice on your local machine.
+
+Windows Users: Use [this](https://objectstorage.us-ashburn-1.oraclecloud.com/p/PN4oCX_LSj-gkGIciVxpHVpW36-Vh_wj8VVEk7q-5VR5sO_bGR_IY4XPvOvVFg89/n/orasenatdpltintegration03/b/all-images-live-lab/o/windows-biomedical-image-classification-training-data.zip) link to download the files needed throughout the lab. Unzip the file to a location of your choice on your local machine.
 
 ## **Policy Setup**
 
@@ -51,6 +55,9 @@ Before you start using OCI Data Labeling Service, you or your tenancy administra
   a. From the OCI services menu, click 'Groups' under 'Identity'
   ![OCI services menu](./images/groups.png)
 
+  **Note:** For Free Tier accounts, navigate to 'Groups' by clicking on the profile icon in the upper right-hand corner, and select 'Identity Domain: Default.' Click on 'Groups.'
+  ![Select groups for Free Tier accounts](./images/groups-freetier.png)
+
   b. Click 'Create Group'
 
   c. Provide an adequate group name (e.g. named ImageClassification_Group) and description
@@ -65,6 +72,9 @@ Before you start using OCI Data Labeling Service, you or your tenancy administra
 
     a. From the OCI services menu, click 'Dynamic Groups' under 'Identity'
     ![OCI services menu](./images/dynamic-group.png)
+
+    **Note:** For Free Tier accounts, navigate to 'Dynamic Groups' by clicking on the profile icon in the upper right-hand corner, and select 'Identity Domain: Default.' Click on 'Dynamic Groups.'
+    ![Select dynamic groups for Free Tier accounts](./images/dynamic-groups-freetier.png)
 
     b. Select 'Create Dynamic Group'
 
@@ -238,4 +248,4 @@ Congratulations on completing this lab!
     * Gabrielle Prichard - Cloud Solution Engineer
 
 * **Last Updated By/Date**
-    * Gabrielle Prichard - Cloud Solution Engineer, March 2022
+    * Gabrielle Prichard - Cloud Solution Engineer, April 2022

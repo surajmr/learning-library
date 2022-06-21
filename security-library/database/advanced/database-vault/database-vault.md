@@ -8,7 +8,7 @@ Estimated Time: 45 minutes
 *Version tested in this lab:* Oracle DB 19.13
 
 ### Video Preview
-Watch a preview of "*Understanding Oracle Database Vault (March 2019)*" [](youtube:oVidZw7yWIQ)
+Watch a preview of "*LiveLabs - Oracle Database Vault (May 2022)*" [](youtube:M5Kn-acUHRQ)
 
 ### Objectives
 - Enable Database Vault in the container and `PDB1` pluggable database
@@ -396,7 +396,7 @@ This lab assumes you have:
 
 3. Now, Database Vault is disabled in the container database as well as pdb1!
 
-You may now **proceed to the next lab**.
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -462,8 +462,9 @@ Technical Documentation:
 Video:
   - *Oracle Database Vault - Use Cases (Part1) (October 2019)* [](youtube:aW9YQT5IRmA)
   - *Oracle Database Vault - Use Cases (Part2) (November 2019)* [](youtube:hh-cX-ubCkY)
+  - *Understanding Oracle Database Vault (March 2019)* [](youtube:oVidZw7yWIQ)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Alan Williams, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

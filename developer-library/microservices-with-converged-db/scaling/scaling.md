@@ -154,11 +154,11 @@ This lab assumes that you have already completed the earlier labs.
 
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
 
-2. Select DB1, the database that contains the order schema, click **More Actions**, and enter 2 in the OCPU field. Click **Update**.
+2. Select DB1, the database that contains the order schema, click **More Actions**, then **Manage Scaling**. Enter 2 in the OCPU field. Click **Apply**.
 
     ![More Actiona](images/ScaleTo2dbocpuScreen1.png " ")
 
-    ![Update OCPU Field](images/ScaleTo2dbocpuScreen2.png " ")
+    ![Update OCPU Field](images/manage-scaling.png " ")
 
 3. Wait until the scaling has completed (Lifecycle State: Available).
 
@@ -188,11 +188,11 @@ This lab assumes that you have already completed the earlier labs.
 
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
 
-2. Click **Scale Up/Down** and enter 1 in the OCPU field. Click **Update**.
+2. Click **Manage Scaling** and enter 1 in the OCPU field. Click **Apply**.
 
     ![Navigate to Scale Up/Down](images/ScaleTo2dbocpuScreen1.png " ")
 
-    ![Update OCPU Field](images/ScaleTo1dbocpuScreen2.png " ")
+    ![Update OCPU Field](images/manage-scaling2.png " ")
 
 3. Scale the order-helidon service back to **1 replica**.
 

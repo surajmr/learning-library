@@ -28,16 +28,46 @@ This lab assumes you have:
 
 ## Task 1: Create the tablespaces for the internal partitions
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 In this section, you create two tablespaces to store data of the internal partitions, one of the two tablespaces to be the default tablespace for internal partitions.
 
-1. Log in to the PDB as the `SYS` user.
+1. Open a terminal session.
+
+2. Set the Oracle environment variables. When prompted, enter CDB1.
 
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@PDB1 as sysdba</copy>
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
+
+3. If not open, pleae open PDB1.
+
+    ```
+    $ <copy>sqlplus / as sysdba</copy>
     Connected.
     ```
 
-2. Create the tablespaces TS1 and TS2 to store internal partitions of the hybrid partitioned table
+4. Open PDB1.
+
+    ```
+    SQL> <copy>ALTER PLUGGABLE DATABASE pdb1 OPEN;</copy>
+    ```
+
+5. Exit SQL*Plus.
+
+    ```
+    SQL> <copy>EXIT;</copy>
+    ```
+
+6. Log in to PDB1 as the `SYS` user.
+
+    ```
+    $ <copy>sqlplus sys/password@PDB1 as sysdba</copy>
+    Connected.
+    ```
+
+7. Create the tablespaces TS1 and TS2 to store internal partitions of the hybrid partitioned table
 
     ```
     SQL> <copy>CREATE TABLESPACE ts1 DATAFILE '/home/oracle/labs/19cnf/ts1.dbf' SIZE 100M;</copy>
@@ -73,7 +103,7 @@ In this task, you create the logical directories to store the source data files 
 1. Create the user that owns the hybrid partitioned table.
 
     ```
-    SQL> <copy>CREATE USER hypt IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER hypt IDENTIFIED BY password;</copy>
     ```
 
 2. Grant the read and write privileges on the directories that store the source data files to the table owner.
@@ -81,9 +111,11 @@ In this task, you create the logical directories to store the source data files 
     ```
     SQL> <copy>GRANT read, write ON DIRECTORY cent18 TO hypt;</copy>
     ```
+
     ```
     SQL> <copy>GRANT read, write ON DIRECTORY cent19 TO hypt;</copy>
     ```
+
     ```
     SQL> <copy>GRANT read, write ON DIRECTORY cent20 TO hypt;</copy>
     ```
@@ -105,16 +137,17 @@ In this task, you create the logical directories to store the source data files 
         - CENT19 has the `cent19.dat` file stored in another directory than the default, CENT19;
         - CENT20 has the `cent20.dat` file stored in the default directory.
       - Two internal partitions: Y2000 is stored in tablespace TS2 and PMAX is stored in the default tablespace TS1.
+      
     ```
     SQL> <copy>@/home/oracle/labs/19cnf/create_hybrid_table.sql</copy>
     ```
 
 ## Task 4: Insert data into the partitions
 
-1. Insert rows into the internal partitions of the table. Execute the `insert.sql` script.
+1. Insert rows into the internal partitions of the table. Execute the `insert_bd.sql` script.
 
     ```
-    SQL> <copy>@/home/oracle/labs/19cnf/insert.sql</copy>
+    SQL> <copy>@/home/oracle/labs/19cnf/insert_bd.sql</copy>
     ```
 
 2. Insert a row for the date of 12 August 1997.
@@ -140,8 +173,7 @@ The data can be inserted into the external partition only via the external sourc
     ```
     SQL> <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy')
     FROM hypt.hypt_tab PARTITION (cent20) ORDER BY 1;</copy>
-    ```
-    ```
+   
     HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
     ------------- --------------------
                 1 01-JAN-1976
@@ -190,12 +222,12 @@ The data can be inserted into the external partition only via the external sourc
     SQL> <copy>exit</copy>
     ```
     ```
-    $ vi /home/oracle/labs/19cnf/CENT19/cent19.dat
+    $ <copy>vi /home/oracle/labs/19cnf/CENT19/cent19.dat</copy>
     ```
     Once in the vi editor, press "i" and delete line containing '42 12-AUG-1997'. Press "Esc" then ":wq" and "Enter".
     Return to SQL*Plus to continue the lab.
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@PDB1 as sysdba</copy>
+    $ <copy>sqlplus sys/password@PDB1 as sysdba</copy>
     Connected.
     ```
 
@@ -352,7 +384,7 @@ The data can be inserted into the external partition only via the external sourc
 3. Execute the `insert2.sql` SQL script to insert rows into the internal partitions of the `PART_TAB` table.
 
     ```
-    SQL> <copy>@$HOME/oracle/labs/19cnf/insert2.sql</copy>
+    SQL> <copy>@$HOME/labs/19cnf/insert2_bd.sql</copy>
     ```
 
 4. Display the rows in the table. The results should match the output below.
@@ -465,20 +497,32 @@ This command should return an error. External partitions must be dropped first b
     SQL> <copy>DROP TABLE hypt.part_tab PURGE;</copy>
     ```
 
-2. Quit the session.
+2. Exit SQL*Plus.
+
+    ```
+    SQL> <copy>EXIT;</copy>
+    ```
+3. Recreate PDB1.
+
+    ```
+    $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+    ```
+
+4. Quit the session.
+   
     ```
     SQL> <copy>exit</copy>
     ```
 
-*At the conclusion of the lab add this statement:*
-You may proceed to the next lab.
+    You may now **proceed to the next lab**.
+
 
 ## Learn More
 
 * [Managing Hybrid Partitioned Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/manage_hypt.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Adapted for Cloud by** -  <Name, Group> -- optional
-* **Last Updated By/Date** - Kherington Barley, Austin Specialist Hub, January 2022
-* **Workshop (or Lab) Expiry Date** - <Month Year> -- optional, use this when you are using a Pre-Authorized Request (PAR) URL to an object in Oracle Object Store.
+* **Author** - Dominique Jeunot, Consulting User Assistance Developer
+* **Contributors** - Kherington Barley, Austin Specialist Hub
+* **Last Updated By/Date** - Kherington Barley, Austin Specialist Hub, May 2022
+

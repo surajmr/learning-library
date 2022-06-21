@@ -1,4 +1,4 @@
-# Configure Recovery Settings
+# Configure recovery settings
 
 ## Introduction
 This lab shows you how to configure the Oracle Database for several recovery settings.  
@@ -12,44 +12,13 @@ Estimated Time: 20 minutes
 - Enable Flashback Database
 
 ### Prerequisites
-- Oracle Database 21c installed and a container database (CDB) with at least one pluggable database (PDB) created.
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 - You have completed:
-    - Lab: Prepare Setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
 
 
-## Task 1: Set the Environment
-To connect to Oracle Database and run SQL commands, you should set the environment first. 
-
-In this task, you set up the environment using the following steps.
-
-1. Log in to your host as `oracle`, the user who can perform database administration.
-
-2. Open a terminal window and change the current working directory to `$ORACLE_HOME/bin`.
-    ```
-    $ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
-    ```
-
-3. Run the command `oraenv` to set the environment variables.
-    ```
-    $ <copy>./oraenv</copy>
-    ```
-
-4. Enter Oracle SID `orcl`.
-    ```
-    ORACLE_SID = [oracle] ? <copy>orcl</copy>
-
-    The Oracle base has been set to /u01/app/oracle
-    ```
-    This command also sets the Oracle home path to `/u01/app/oracle/product/21.0.0/dbhome_1`.
-
-You have set the environment variables for the active terminal session. You can now connect to Oracle Database and run the commands.
-
->Note: Every time you open a new terminal window, you need to set the environment variables to connect to Oracle Database from that terminal. Environment variables from one terminal do not apply automatically to other terminals. 
-
-Alternatively, you may run the script file `.set-env-db.sh` from the home location and enter the number for `ORACLE_SID`, for example, `3` for `orcl`. It sets the environment variables automatically.
-
-
-## Task 2: Configure the Fast Recovery Area
+## Task 1: Configure the fast recovery area
 The fast recovery area is an Oracle-managed directory on a file system or Oracle Automatic Storage Management (Oracle ASM) disk group that provides a centralized storage location for backup and recovery files. Oracle creates archived logs and flashback logs in the fast recovery area. Oracle automatically manages the fast recovery area, deleting files that are no longer needed.
 
 Recovery Manager (RMAN) can store its backup sets and image copies in the fast recovery area and use them when restoring files during media recovery. If the fast recovery area is configured, RMAN automatically backs up to the fast recovery area when you issue the RMAN `backup` command without specifying a backup destination.
@@ -80,13 +49,13 @@ In this task, you configure the fast recovery area using the following steps.
     ```
     NAME                                 TYPE        VALUE
     ------------------------------------ ----------- ------------------------------
-    db_recovery_file_dest                string      /u01/app/oracle/recovery_area
+    db_recovery_file_dest                string      /opt/oracle/recovery_area
     db_recovery_file_dest_size           big integer 13776M
     recovery_parallelism                 integer     0
     remote_recovery_file_dest            string
     ```
 
-    >Note: The `db_recovery_file_dest` parameter sets the location of the fast recovery area. Oracle recommends placing the fast recovery area on a separate storage device from the Oracle Database files. The `db_recovery_file_dest_size` parameter shows the size of your fast recovery area. The size of your fast recovery area may differ from what is shown in this example. Generally, the default size present for the fast recovery area might not be sufficient for your files.
+    >**Note:** The `db_recovery_file_dest` parameter sets the location of the fast recovery area. Oracle recommends placing the fast recovery area on a separate storage device from the Oracle Database files. The `db_recovery_file_dest_size` parameter shows the size of your fast recovery area. The size of your fast recovery area may differ from what is shown in this example. Generally, the default size present for the fast recovery area might not be sufficient for your files.
 
 3. Use the following command to set the fast recovery area size to a larger size to store the Oracle Database files sufficiently. In this case, it is set to `10GB`.
     ```
@@ -97,7 +66,16 @@ In this task, you configure the fast recovery area using the following steps.
     System altered.
     ```
 
-4. Use the following command again to view the altered settings. You can see that the **`db_recovery_file_dest_size`** parameter is set to _`10GB`.
+4. If the `db_recovery_file_dest` parameter is not already set, use the following command to set the recovery file destination location. In this case, it is set to `/opt/oracle/recovery_area`.
+    ```
+    SQL> <copy>alter system set db_recovery_file_dest="/opt/oracle/recovery_area";</copy>
+    ```
+    Output:
+    ```
+    System altered.
+    ```
+
+5. Use the following command again to view the altered settings. You can see that the `db_recovery_file_dest_size` parameter is set to _`10GB` and `db_recovery_file_dest` parameter is set.
     ```
     SQL> <copy>show parameter recovery;</copy>
     ```
@@ -105,14 +83,14 @@ In this task, you configure the fast recovery area using the following steps.
     ```
     NAME                                 TYPE        VALUE
     ------------------------------------ ----------- ------------------------------
-    db_recovery_file_dest                string      /u01/app/oracle/recovery_area
+    db_recovery_file_dest                string      /opt/oracle/recovery_area
     db_recovery_file_dest_size           big integer 10G
     recovery_parallelism                 integer     0
     remote_recovery_file_dest            string
     ```
 
 
-## Task 3: Enable Archiving of Redo Log Files
+## Task 2: Enable archiving of redo log files
 To back up the Oracle Database while it is open or to be able to perform complete or point-in-time media recovery, you must enable the archiving of redo log files. To do so, you start the Oracle Database in **`ARCHIVELOG`** mode.
 
 In this task, you enable archiving of the redo log files using the following steps.
@@ -153,7 +131,7 @@ In this task, you enable archiving of the redo log files using the following ste
     ```
     Output:
     ```
-    connected to target database: ORCL (DBID=1016703368)
+    connected to target database: CDB1 (DBID=1016703368)
     ```
 
 5. To enable archiving, you must mount the Oracle Database but not open it. Use the following command to shut down the Oracle Database instance.
@@ -196,37 +174,37 @@ In this task, you enable archiving of the redo log files using the following ste
     channel ORA_DISK_1: SID=4 device type=DISK
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00001 name=/u01/app/oracle/oradata/ORCL/system01.dbf
-    input datafile file number=00003 name=/u01/app/oracle/oradata/ORCL/sysaux01.dbf
-    input datafile file number=00004 name=/u01/app/oracle/oradata/ORCL/undotbs01.dbf
-    input datafile file number=00007 name=/u01/app/oracle/oradata/ORCL/users01.dbf
+    input datafile file number=00001 name=/opt/oracle/oradata/CDB1/system01.dbf
+    input datafile file number=00003 name=/opt/oracle/oradata/CDB1/sysaux01.dbf
+    input datafile file number=00004 name=/opt/oracle/oradata/CDB1/undotbs01.dbf
+    input datafile file number=00007 name=/opt/oracle/oradata/CDB1/users01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp tag=TAG20211216T073341 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp tag=TAG20211216T073341 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:36
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00010 name=/u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf
-    input datafile file number=00009 name=/u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf
-    input datafile file number=00011 name=/u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf
-    input datafile file number=00012 name=/u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf
+    input datafile file number=00010 name=/opt/oracle/oradata/CDB1/pdb1/sysaux01.dbf
+    input datafile file number=00009 name=/opt/oracle/oradata/CDB1/pdb1/system01.dbf
+    input datafile file number=00011 name=/opt/oracle/oradata/CDB1/pdb1/undotbs01.dbf
+    input datafile file number=00012 name=/opt/oracle/oradata/CDB1/pdb1/users01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotzsb1_.bkp tag=TAG20211216T073341 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotzsb1_.bkp tag=TAG20211216T073341 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:15
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00006 name=/u01/app/oracle/oradata/ORCL/pdbseed/sysaux01.dbf
-    input datafile file number=00005 name=/u01/app/oracle/oradata/ORCL/pdbseed/system01.dbf
-    input datafile file number=00008 name=/u01/app/oracle/oradata/ORCL/pdbseed/undotbs01.dbf
+    input datafile file number=00006 name=/opt/oracle/oradata/CDB1/pdbseed/sysaux01.dbf
+    input datafile file number=00005 name=/opt/oracle/oradata/CDB1/pdbseed/system01.dbf
+    input datafile file number=00008 name=/opt/oracle/oradata/CDB1/pdbseed/undotbs01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvov08hj_.bkp tag=TAG20211216T073341 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvov08hj_.bkp tag=TAG20211216T073341 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:15
     Finished backup at 16-DEC-21
 
     Starting Control File and SPFILE Autobackup at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091431963_jvov0qz6_.bkp comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091431963_jvov0qz6_.bkp comment=NONE
     Finished Control File and SPFILE Autobackup at 16-DEC-21
     ```
 
@@ -262,7 +240,7 @@ In this task, you enable archiving of the redo log files using the following ste
     input archived log thread=1 sequence=3 RECID=1 STAMP=1091432138
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073538_jvov2bjk_.bkp tag=TAG20211216T073538 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073538_jvov2bjk_.bkp tag=TAG20211216T073538 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
     Finished backup at 16-DEC-21
 
@@ -270,32 +248,32 @@ In this task, you enable archiving of the redo log files using the following ste
     using channel ORA_DISK_1
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00001 name=/u01/app/oracle/oradata/ORCL/system01.dbf
-    input datafile file number=00003 name=/u01/app/oracle/oradata/ORCL/sysaux01.dbf
-    input datafile file number=00004 name=/u01/app/oracle/oradata/ORCL/undotbs01.dbf
-    input datafile file number=00007 name=/u01/app/oracle/oradata/ORCL/users01.dbf
+    input datafile file number=00001 name=/opt/oracle/oradata/CDB1/system01.dbf
+    input datafile file number=00003 name=/opt/oracle/oradata/CDB1/sysaux01.dbf
+    input datafile file number=00004 name=/opt/oracle/oradata/CDB1/undotbs01.dbf
+    input datafile file number=00007 name=/opt/oracle/oradata/CDB1/users01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov2d0t_.bkp tag=TAG20211216T073539 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov2d0t_.bkp tag=TAG20211216T073539 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:36
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00010 name=/u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf
-    input datafile file number=00009 name=/u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf
-    input datafile file number=00011 name=/u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf
-    input datafile file number=00012 name=/u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf
+    input datafile file number=00010 name=/opt/oracle/oradata/CDB1/pdb1/sysaux01.dbf
+    input datafile file number=00009 name=/opt/oracle/oradata/CDB1/pdb1/system01.dbf
+    input datafile file number=00011 name=/opt/oracle/oradata/CDB1/pdb1/undotbs01.dbf
+    input datafile file number=00012 name=/opt/oracle/oradata/CDB1/pdb1/users01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3h8y_.bkp tag=TAG20211216T073539 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3h8y_.bkp tag=TAG20211216T073539 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:15
     channel ORA_DISK_1: starting full datafile backup set
     channel ORA_DISK_1: specifying datafile(s) in backup set
-    input datafile file number=00006 name=/u01/app/oracle/oradata/ORCL/pdbseed/sysaux01.dbf
-    input datafile file number=00005 name=/u01/app/oracle/oradata/ORCL/pdbseed/system01.dbf
-    input datafile file number=00008 name=/u01/app/oracle/oradata/ORCL/pdbseed/undotbs01.dbf
+    input datafile file number=00006 name=/opt/oracle/oradata/CDB1/pdbseed/sysaux01.dbf
+    input datafile file number=00005 name=/opt/oracle/oradata/CDB1/pdbseed/system01.dbf
+    input datafile file number=00008 name=/opt/oracle/oradata/CDB1/pdbseed/undotbs01.dbf
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3yhx_.bkp tag=TAG20211216T073539 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3yhx_.bkp tag=TAG20211216T073539 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:15
     Finished backup at 16-DEC-21
 
@@ -307,17 +285,17 @@ In this task, you enable archiving of the redo log files using the following ste
     input archived log thread=1 sequence=4 RECID=2 STAMP=1091432205
     channel ORA_DISK_1: starting piece 1 at 16-DEC-21
     channel ORA_DISK_1: finished piece 1 at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073645_jvov4g0y_.bkp tag=TAG20211216T073645 comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073645_jvov4g0y_.bkp tag=TAG20211216T073645 comment=NONE
     channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
     Finished backup at 16-DEC-21
 
     Starting Control File and SPFILE Autobackup at 16-DEC-21
-    piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091432207_jvov4hdv_.bkp comment=NONE
+    piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091432207_jvov4hdv_.bkp comment=NONE
     Finished Control File and SPFILE Autobackup at 16-DEC-21
     ```
 
 
-## Task 4: Enable Flashback Database
+## Task 3: Enable flashback database
 You can revert the whole Oracle Database to a prior point in time using the following ways: either revert the whole Oracle Database to a prior point in time by restoring a backup and performing a point-in-time recovery or enable flashback database. When you enable flashback database, the Oracle Database generates flashback logs in the fast recovery area. These logs are used to flashback the Oracle Database to a specified time. The Oracle Database automatically creates, deletes, and resizes flashback logs.
 
 In this task, you enable Flashback Database using the following steps.
@@ -342,4 +320,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 - **Author**: Suresh Mohan, Database User Assistance Development Team
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-- **Last Updated By & Date**: Suresh Mohan, February 2022
+- **Last Updated By & Date**: Suresh Mohan, June 2022

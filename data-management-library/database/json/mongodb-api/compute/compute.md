@@ -8,7 +8,7 @@ Estimated Time: 10 minutes
 
 
 Watch the video below for an overview of the provision a compute node lab.
-[](youtube:yU3uW5hFNtc)
+[Youtube video of lab](youtube:yU3uW5hFNtc)
 
 ### Objectives
 
@@ -97,7 +97,7 @@ In this lab, you will:
 
 1. On the Autonomous Database Details page, Public IP address value. Press the __Copy__ button to copy it to the clipboard, and save it somewhere (write it down or save it in a text file) for later use.
 
-    ![](./images/ip-address.png)
+    ![Copy IP address](./images/ip-address.png)
 
 ## Task 4: Use the Cloud Shell to connect to your instance
 
@@ -105,30 +105,30 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
 
 1. Start the Cloud Shell console by clicking on the square icon with ">" in it at the top right.
 
-	![](./images/open-console.png)
+	![start cloud shell](./images/open-console.png)
 
 2. The console will open at the bottom of your screen. It may take a minute or so to do so first time round. You should see a Linux command prompt. If you wish, you can expand the console window to fill your browser screen by clicking on the diagonal double-arrow. You can resize the font if needed using your browser's normal zoom operation (e.g. CMD-+ on a Mac)
 
-	![](./images/cloud-shell.png)
+	![cloud shell](./images/cloud-shell.png)
 
 3. Upload the key file you saved earlier to the cloud shell, and set the right permissions.
 
     There is an additional menu at the top left of the Cloud Shell window. Open this and select __Upload__.
 
-	![](./images/cloud-shell-upload.png)
+	![upload button](./images/cloud-shell-upload.png)
 
     Select the key file ssh-key-YYYY-MM-DD.key that you saved earlier either by dropping it onto the window of using the file selector. Then click the __Upload__ button.
 
-	![](./images/upload-key.png)
+	![upload file](./images/upload-key.png)
 
-    To use ssh you must set the file permissions correctly for the key file. Run the following command, substituting in the correct date strings:
+    To use ssh you must set the file permissions correctly for the key file. Run the following command (this will set file permissions for all such key files, if there is more than one present):
 
     ```
 	<copy>
-    chmod 400 ssh-key-YYYY-MM-DD.key
+    chmod 400 ssh-key-*.key
     </copy>
 	```
-	![](./images/chmod.png)
+	![chmod command](./images/chmod.png)
 
 4. Connect to your Compute Node from Cloud Shell
 
@@ -144,30 +144,25 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
 
     Answer "yes" when prompted to continue connecting.
 
-    ![](./images/ssh-connect.png)
+    ![Connection](./images/ssh-connect.png)
 
 ## Task 5: Download and install MongoDB shell and MongoDB tools
 
-1. In a new browser tab, open the following link: [https://www.mongodb.com/try/download/shell](https://www.mongodb.com/try/download/shell) 
-(note: this page belongs to MongoDB and may change - Oracle Corporation is not responsible for the page or any programs downloaded from it).
+1. On your compute node, enter the following commands to download and install MongoDB Shell
 
-	In the Available Downloads box, leave the Version as it is and change Platform to __Linux Tarball 64-bit__. Click the __Copy Link__ button
+    ```
+    <copy>
+    wget https://downloads.mongodb.com/compass/mongosh-1.3.1-linux-x64.tgz
+    tar -xvf mongosh-1.3.1-linux-x64.tgz
+    </copy>
+    ```
 
-	![Mongo Shell download](./images/mongosh-download.png)
+    ![Download Mongo Shell](./images/mongosh-download.png)
 
-2. Go back to the cloud shell where you are logged into your Compute instance, and type "wget" and a space, followed by the link you just copied
+3. Finally set the PATH variable so it includes the mongosh executable.
 
-	![](./images/wget-mongosh.png)
-
-3. This willl download a compressed tar file which you will need to unzip. Do that with "tar xvf " followed by the name of the downloaded file. In my case, this would be "tar xvf mongosh-1.2.3-linux-x64.tgz" but it may change with newer versions.
-
-	![](./images/unzip.png)
-
-4. Finally set the PATH variable so it includes the mongosh executable.
-
-	The PATH variable must include the 'bin' directory, which you can see in the output from the unzip command (it may not be the same as the one below). 
-    You can set the PATH variable manually, or use the following shell magic to set it up automatically, and add it to the .bashrc startup file
-    for next time you log in to the Compute instance. Make sure to cut and paste this carefully, do not try to retype it, as a mistake here may damage your 
+	The PATH variable must include the 'bin' directory, which you can see in the output from the unzip command. 
+    You can set the PATH variable manually, or use the following shell magic to set it up automatically, and add it to the .bashrc startup file for next time you log in to the Compute instance. Make sure to cut and paste this carefully, do not try to retype it, as a mistake here may damage your 
     .bashrc file:
 
     ```
@@ -175,6 +170,17 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
     echo export PATH=$(dirname `find /home/opc -name mongosh`):\$PATH >> .bashrc && . .bashrc
 	</copy>
 	```
+
+    If that command doesn't work for some reason, you can use this command instead, but you'll need to re-run it each time you log into the compute instance:
+
+    ```
+    <copy>
+    # Alternate command - would need to be run each time you log in
+    export PATH=/home/opc/mongosh-1.3.1-linux-x64/bin:$PATH
+    </copy>
+    ```
+
+
 
 Our Compute instance is now set up. We will later use it to connect to Autonomous Database. Remember the "ssh" command you used to connect from Cloud Shell to the instance.
 

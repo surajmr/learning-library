@@ -1,13 +1,12 @@
 # Create MySQL Database Service
 
-![MySQL Database Service](images/mds_banner.png)
+![MySQL Database Service](images/mds-banner.png)
 
 ## Introduction
 
 **MySQL Database Service** is a fully-managed Oracle Cloud Infrastructure service, developed, managed, and supported by the MySQL team in Oracle.
 
 [](youtube:f-fVabi1tRA)
- 
 
 Estimated Time: 30 minutes.
 
@@ -27,44 +26,56 @@ In this section, you will:
 
 1. Go to **Menu**, **Databases** and then click **DB Systems**.
 
-   ![](images/mysql_menu.png)
+   ![DB System Dashboard](images/mysql-menu.png)
 
 2. Click **Create MySQL DB System**.
 
    Make sure your **root** compartment (or the one you want) is selected.
 
-   ![](images/mysql_create_button.png)
+   ![Create MySQL DB System](images/mysql-create-button.png)
 
       - Name your MySQL instance: `mysql-analytics`
+         ```
+         <copy>mysql-analytics</copy>
+         ```
       - Description (optional): `MySQL instance for Analytics`
+         ```
+         <copy>MySQL instance for Analytics</copy>
+         ```
 
 3. Between the three options, pick `HeatWave`. `Standalone` will work for the test, but it doesn't include the Analytics Engine that will improve performance for Analytics.
 
    For Username and password:
 
       - Username: `root`
+         ```
+         <copy>root</copy>
+         ```
       - Password: `<your_password>`
       - Confirm Password: `<your_password>`
 
-   ![](images/mysql_create_db_fields.png)
+   ![MySQL create db fields](images/mysql-create-db-fields.png)
 
 4. **Network** configuration:
 
       - Virtual Cloud Network: `nature`
       - Subnet: `Private Subnet-nature (Regional)`
 
-   ![](images/mysql_vcn_fields.png)
+   ![MySQL vcn fields](images/mysql-vcn-fields.png)
 
 5. Everything else is good by **default**:
 
       - Configure placement: `AD-1`
       - Configure hardware: `MySQL.HeatWave.VM.Standard.E3` or Standalone (selected above) `MySQL.VM.Standard.E3.1.8GB`
       - Data Storage Size (GB): `50`
+         ```
+         <copy>50</copy>
+         ```
       - Configure Backups: `Enable Automatic Backups`
 
 6. Click **Create**.
 
-   ![](images/mysql_shape_fields.png)
+   ![MySQL shape fields](images/mysql-shape-fields.png)
 
    The provisioning is around **10 minutes**. The icon should change to `ACTIVE` in green:
 
@@ -74,7 +85,7 @@ In this section, you will:
 
 7. **Copy the Private IP address** from the MySQL DB System Information page. It will look like `10.0.1.xxx`.
 
-   ![](images/mysql_private_ip.png)
+   ![MySQL private IP](images/mysql-private-ip.png)
 
 ---
 
@@ -82,7 +93,7 @@ In this section, you will:
 
 1. Connect with **Cloud Shell** (if you close it or it is no longer active).
 
-   ![](images/cloud_shell.png)
+   ![Cloud Shell Dashboard](images/cloud-shell.png)
 
       - (If you are NOT inside the bastion host already) SSH into the bastion host: `ssh -i ~/.ssh/bastion opc@PUBLIC_IP`
       - Run MySQL Shell (replace `PRIVATE_IP` with your MDS IP value): 
@@ -97,7 +108,7 @@ In this section, you will:
 
    If there is no error on the console, everything is ready to proceed.
 
-   ![Create Schema Terminal](images/create_schema_mysql_terminal.png)
+   ![Create Schema Terminal](images/create-schema-mysql-terminal.png)
 
 ---
 
@@ -107,23 +118,23 @@ In this section, you will:
 
 2. Go to the **Resources Menu** > **HeatWave**.
 
-   ![](images/mds_heatwave_menu.png)
+   ![MDS Heatwave menu](images/mds-heatwave-menu.png)
 
 3. Your HeatWave is disabled, add the HeatWave Cluster. Click **Add HeatWave Cluster**.
 
-   ![](images/mds_heatwave_add_cluster.png)
+   ![MDS Heatwave Add cluster](images/mds-heatwave-add-cluster.png)
 
 4. Leave the default values, and click **Add HeatWave Cluster**.
 
-   ![](images/mds_heatwave_select_shape.png)
+   ![MDS Heatwave shape](images/mds-heatwave-select-shape.png)
 
    Wait for the Cluster to be **created**.
 
-   ![](images/mds_heatwave_creating.png)
+   ![MDS Heatwave creating](images/mds-heatwave-creating.png)
 
 5. **HeatWave** will be `Active` and the cluster nodes will be as well in `Active` state.
 
-   ![](images/mds_heatwave_active.png)
+   ![MDS Heatwave active](images/mds-heatwave-active.png)
 
 Congratulations! You are ready to go to the next Lab!
 
@@ -133,4 +144,4 @@ Congratulations! You are ready to go to the next Lab!
 
 - **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Priscila Iruela, April 2022
+- **Last Updated By/Date** - Priscila Iruela, June 2022

@@ -23,6 +23,7 @@ Log to your Forms machine. And download the sample files.
 
 ```
 <copy>cd $HOME
+sudo yum install git -y
 git clone https://github.com/mgueury/forms-to-oci-samples.git
 cd forms-to-oci-samples
 # Copy the Forms files in the FORMS_PATH
@@ -121,7 +122,7 @@ sqlplus $DB_ADMIN/$DB_PASSWORD@$DB_TNS @dept.sql $DB_PASSWORD $DB_TNS</copy>
 
 Output:
 ```
-SQL> @dept.sql LiveLab1 orcl
+SQL> @dept.sql LiveLab__123 orcl
 old   1: create user scott identified by &1
 new   1: create user scott identified by LiveLab__123
 

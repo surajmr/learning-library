@@ -81,8 +81,8 @@
             "filename": "./../../atp-data-pump-migration/atp-data-pump-migration.md"
         },
         {
-            "title": "Lab 10: Oracle Goldengate Replication",
-            "description": "Live migration to ATP-Dedicated using Oracle Goldengate replication",
+            "title": "Lab 10: Oracle GoldenGate Replication",
+            "description": "Live migration to ATP-Dedicated using Oracle GoldenGate replication",
             "partnumber": "Ennnnn_01",
             "publisheddate": "03/31/2020",
             "contentid": "12nnnn",

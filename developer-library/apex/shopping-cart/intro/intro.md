@@ -38,8 +38,8 @@ In this lab, you will:
 | 6 | [Create the Shopping Cart Page](?lab=6-creating-shopping-cart) | 20 min |
 | 7 | [Create the Add to Cart Page](?lab=7-creating-add-to-cart-page) | 20 min |
 | 8 | [Improve the Products Page](?lab=8-improving-products) | 20 min |
-| 9 | [Improve the Application](?lab=9-improving-app) | 10 min |
-| 10 | [Terminate Oracle Autonomous Database Instance](?lab=terminate-adb) | 5 min |
+| 9 | [Improve the Application](?lab=9-improving-app) | 10 min |<if type="odbw">
+| 10 | [Terminate Oracle Autonomous Database Instance](?lab=terminate-adb) | 5 min |</if>
 
 ### **Let's Get Started!**
 

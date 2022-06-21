@@ -6,9 +6,9 @@ This workshop introduces the functionality of Oracle Transparent Sensitive Data 
 *Estimated Lab Time:* 15 minutes
 
 *Version tested in this lab:* Oracle DB 19.13
+
 ### Video Preview
 No video for the moment
-
 
 ### Objectives
 - Create a TSDP policy on sensitive data
@@ -139,7 +139,7 @@ This lab assumes you have:
 
     ![](./images/tsdp-009.png " ")
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**

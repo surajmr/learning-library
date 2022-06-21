@@ -163,7 +163,7 @@ This lab assumes that you have:
     ```
     $ <copy>mkdir -p ~/labs/19cnf</copy>
     $ <copy>cd ~/labs/19cnf</copy>
-    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/19cnf-lab-files.zip</copy>
+    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/19cnf-lab-files.zip</copy>
     $ <copy>unzip -q 19cnf-lab-files.zip</copy>
     $ <copy>chmod -R +x ~/labs/19cnf</copy>
     $ <copy>ls -an</copy>

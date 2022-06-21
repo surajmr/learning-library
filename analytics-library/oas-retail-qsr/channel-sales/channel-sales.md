@@ -23,11 +23,11 @@ This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
-## **Task 1:** Create Stacked Bar Chart
+## Task 1: Create Stacked Bar Chart
 
 1. **Select** the plus symbol to open an empty canvas so we can build out our visualizations.
 
-    ![empty canvas](images/empty-dashboard-red-box.png)
+    ![empty canvas](images/main-cards.png)
 
 2. **Rename** the canvas by tapping the arrow, and hitting 'rename'. Rename the canvas to **'Analyze Channel Sales'**
 
@@ -54,7 +54,7 @@ This lab assumes you have:
 
     Now, we have the correct stacked bar chart of sales by channel!
 
-## **Task 2:** Create a Treemap
+## Task 2: Create a Treemap
 
 1. On the same dashboard, let's continue visualizing the dataset by inspecting survey data that was collected.
 
@@ -68,7 +68,7 @@ This lab assumes you have:
 
     We now have a visual that breaks down the different surveys we collect by menu items. We can see that our top 5 menu categories, where fries and hamburger meals top the list - not surprising as this QSR is known for their fries.
 
-## **Task 3:** Create a Bar Chart
+## Task 3: Create a Bar Chart
 
 1. From these survey responses, let's continue by analyzing the different kinds of sentiment that was derived.
 
@@ -83,7 +83,7 @@ This lab assumes you have:
 
     Now, we have a visual that breaks down the different instances of each sentiment.
 
-## **Task 4:** Create a Tag Cloud
+## Task 4: Create a Tag Cloud
 
 1.  Let's finish up by creating a tag cloud to summarize the leading responses to each customer sentiment.
 
@@ -100,7 +100,7 @@ This lab assumes you have:
 
     ![Tag Cloud](images/tag-cloud.png")
 
-## **Task 5:** Analyze Sentiment
+## Task 5: Analyze Sentiment
 
 1. Let's wrap up this dashboard with a quick encompassing filter that can help us interact with the different sentiments.
 
@@ -128,4 +128,4 @@ This lab assumes you have:
 
 * **Authors** - Killian Lynch, Nagwang Gyamtso, Luke Wheless, Akash Dharamshi, Solution Engineer Specialist Hub Team, NA Technology
 * **Contributors** - Luke Wheless, Solution Engineer Specialist Hub Team, NA Technology
-* **Last Updated By/Date** - Luke Wheless, Solution Engineer Specialist Hub Team, NA Technology, April 2022
+* **Last Updated By/Date** - Luke Wheless, April 2022

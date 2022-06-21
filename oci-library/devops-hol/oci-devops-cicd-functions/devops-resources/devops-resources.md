@@ -53,7 +53,7 @@ In this lab, as a developer or SRE,
 
     ![Build Specs](./images/oci-coderepo-buildspec.png)
 
-    Optional : You can check all the options in the code repo and read more about [OCI code repo here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/managing-coderepo.htm)
+    Optional : You can check all the options in the code repo and read more about [OCI code repo here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/managing_coderepo.htm)
 
 1. Go back to the project overview page ,click on the Latest Build Pipeline named `Function-Python-Buildpipeline`.It will open up the build pipeline and show the different stages. 
 
@@ -77,7 +77,7 @@ In this lab, as a developer or SRE,
     ![Build stage details](./images/oci-build-stage-details.png)
 
 
-    Optional : Read more about OCI Build stages [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/managing-build-pipelines.htm)
+    Optional : Read more about OCI Build stages [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/managing_build_pipelines.htm)
 
 
 1. Go back to the project overview page ,click on the Latest Deployment  Pipeline named `function-python-pipeline-<XXXX>`.It will open up the deployment  pipeline and show the different stages.
@@ -95,7 +95,7 @@ In this lab, as a developer or SRE,
 
     The parameter `BUILDRUN-HASH` is the value that will be parsed from build pipeline which will be used as a docker container image tag for the upload and deployment of applications.
 
-    Optional : Read more about OCI Deployment pipeline and deployment  stages [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/deployment-pipelines.htm)
+    Optional : Read more about OCI Deployment pipeline and deployment  stages [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/deployment_pipelines.htm)
 
 
 1. Go back to the project overview page ,under the Latest environments.Click on each of the enviroments and view the details.
@@ -127,7 +127,7 @@ In this lab, as a developer or SRE,
 
     Triggers will enable us to trigger our build pipeline automatically  when we update the OCI devops code repo.
 
-    Optional : Read more about devops triggers [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/trigger-build.htm#trigger-build)
+    Optional : Read more about devops triggers [here.](https://docs.oracle.com/en-us/iaas/Content/devops/using/trigger_build.htm)
 
 
 ## Task 2: Validate the OCI function  components.

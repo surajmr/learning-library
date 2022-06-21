@@ -1,4 +1,4 @@
-# Configure Token Authentication, Credentials and Object Storage
+# Configure token authentication, credentials and object storage
 
 ## Introduction
 In this lab, you will learn how to create an authentication Token, Create an Object Storage Bucket and run the require credential scripts in the Target Autonomous Database.

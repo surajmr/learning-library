@@ -7,6 +7,9 @@ This workshop introduces the functionality of Oracle Native Network Encryption (
 
 *Version tested in this lab:* Oracle DB 19.13
 
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Native Network Encryption (May 2022)*" [](youtube:N6Uz-pVTkaI)
+
 ### Objectives
 - Enable/Disable the Native Network Encryption on your database
 - Check the network encryption effects before/after enabling
@@ -193,7 +196,7 @@ You will enable SQL*Net encryption with the `REQUESTED` value for `SQLNET.ENCRYP
 
     ![](./images/nne-013.png " ")
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -211,9 +214,10 @@ Oracle SQL*Net traffic can be encrypted by using:
 - TLS certificate-based encryption
 
 ## Want to Learn More?
-Technical Documentation: [Oracle Native Network Encryption 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-network-data-encryption-and-integrity.html)
+Technical Documentation:
+- [Oracle Native Network Encryption 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-network-data-encryption-and-integrity.html)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

@@ -4,7 +4,7 @@
 
 This lab walks you through the steps to understand on-time delivery analysis through visualizations that blend data from distribution centers, logistics and shipping.
 
-Estimated Time: XXXX
+Estimated Time: 1 hour
 
 ### Objectives
 
@@ -35,11 +35,7 @@ This lab assumes you have:
 * All previous labs successfully completed
 * Access to a data visualization instance
 
-
-
-
-
-## **Task 1**: Utilizing One-Click Explain
+## Task 1: Utilizing One-Click Explain
 
 Let’s drill into on-time delivery performance from the various nodes across our distribution network, perhaps we can uncover some insight on why some of our distribution channels are low.
 
@@ -78,14 +74,14 @@ Let’s drill into on-time delivery performance from the various nodes across ou
 
   These insights are machine generated in real time. Here we can see which states, dates, months, shipping modes, and product names often result in on-time (or late) deliveries and can begin investigating.
 
-  You can also select the visualization, then click 'add selected' and immediately begin to use Data Visualizations project editor to customize to drill further.
+  You can also select the visualization, then click 'add selected' and immediately begin to use Data Visualizations workbook editor to customize to drill further.
 
   ![add to canvas](images/explain-display-add-to-canvas.png)
 
   Now that we've taken a high level view of On-Time delivery as a starting point, let's start creating some of our own visuals to get a deeper look at what is affecting on-time delivery.
 
 
-## **Task 2**: Create a Combination Bar and Line Chart
+## Task 2: Create a Combination Bar and Line Chart
 Now we can start building our self-service visualization canvas that breaks down on-time delivery statistics.
 
 
@@ -112,7 +108,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   ![add quarter](images/quarter-in-visual.png)
 
-  6. Now **Click and drag** the variable **'Quarter'** to the **Filters** tab. Filter to display all quarters except for '<NULL>', 'Q1 2019', and 'Q3 2021.' This will remove the quarters that are not as important to us.
+  6. Now **Click and drag** the variable **'Quarter'** to the **Filters** tab. Filter to display all quarters except for '<NULL>', 'Q1 2019', and '2021 Q3.' This will remove the quarters that are not as important to us.
 
   ![add filter](images/add-filter.png)
 
@@ -150,7 +146,7 @@ Now we can start building our self-service visualization canvas that breaks down
   Here we see the green on-time delivery by quarter line has been trending downwards.
 
 
-## **Task 3**: Create a Bar Chart to view On-Time Delivery by Channel
+## Task 3: Create a Bar Chart to view On-Time Delivery by Channel
 
   Now, let's create a bar chart to view On time delivery quantity by channel.
 
@@ -176,7 +172,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   ![created bar chart](images/bar-chart-viz-complete.png)
 
-## **Task 4**: Create a Visual Map Layer to View Late Shipment Areas
+## Task 4: Create a Visual Map Layer to View Late Shipment Areas
 
   Now, let's create a Visual Map Layer to view Ship Late Quantity by State.
 
@@ -200,7 +196,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   You have now successfully created a map layer to visualize ship late quantities by state.
 
-## **Task 5**: Create a Pie Chart to View Late Shipment Distributions
+## Task 5: Create a Pie Chart to View Late Shipment Distributions
 
   Now, let's create a Pie Chart to view late shipment distributions by delivery channel.
 
@@ -222,7 +218,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   You have now successfully created a pie chart to visualize ship late quantities by channel.
 
-## **Task 6**: Create a Horizontal Bar Chart to View Ship Late Percentage
+## Task 6: Create a Horizontal Bar Chart to View Ship Late Percentage
 
   Now, let's create a Horizontal Bar Chart to look at which products have the greatest Ship Late Percentage.
 
@@ -276,7 +272,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   You have now successfully created a horizontal bar chart to visualize ship late percentage by product.
 
-## **Task 7**: Create a Pivot Table to View Ship Late Percentage by Channel & Product Name
+## Task 7: Create a Pivot Table to View Ship Late Percentage by Channel & Product Name
 
   Now, let's create a Pivot Table to view ship late percentage by delivery channel as well as product.
 
@@ -309,7 +305,7 @@ Now we can start building our self-service visualization canvas that breaks down
   We can see fries have the highest rate of late shipments; this is not a good sign given that we know potato french fries are one of the most popular items on the menu. We need to meet with Pennsylvania, the direct channel seeing the most late shipments, to work out an improvement strategy regarding fry shipments. Let’s navigate back to the main dashboard to continue our analysis.”
 
 
-## **Task 8**: Build a Machine Learning Model to Predict On-Time Delivery
+## Task 8: Build a Machine Learning Model to Predict On-Time Delivery
 
   Now that we have completed our drill downs, let's build a machine learning model to better predict on time delivery percentage.
 
@@ -486,7 +482,7 @@ Now we can start building our self-service visualization canvas that breaks down
 
   Here we can see a distribution of the distribution centers, states, and products and which are predicted to have the lowest ontime delivery percentages. This is useful if management wants to catch products that have lower on-time ship quantities resulting in more late shipments.
 
-  We have now successfully created a machine learning model and applied it's results to our project.
+  We have now successfully created a machine learning model and applied it's results to our workbook.
 
   **This concludes the lab**
 
@@ -497,4 +493,4 @@ Now we can start building our self-service visualization canvas that breaks down
 ## Acknowledgements
 * **Authors** - Killian Lynch, Nagwang Gyamtso, Luke Wheless, Akash Dharamshi, Solution Engineer Specialist Hub Team, NA Technology
 * **Contributors** -  Akash Dharamshi, Solution Engineer Specialist Hub Team, NA Technology
-* **Last Updated By/Date** - Akash Dharamshi, Solution Engineer Specialist Hub Team, NA Technology, March 2022
+* **Last Updated By/Date** - Akash Dharamshi, March 2022

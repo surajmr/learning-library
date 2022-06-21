@@ -11,7 +11,7 @@
 
 Error: `attribute = {heatWaveCluster.shapeFamily}, value = {MySQL.HeatWave.VM.Standard.E3} - for this cluster shape the MySQL instance shape must be the same`
 
-![](images/heatwave_error_shape.png)
+![Heatwave error shape](images/heatwave-error-shape.png)
 
 > Note: You need to use HeatWave Shape when you created MySQL Database Service.
 >
@@ -36,7 +36,7 @@ Review Policy:
 ### Lab Create Data Integration Instance
 
 
-![Data Integration VNC policy missing](images/di_error_vcn.png.png)
+![Data Integration VNC policy missing](images/di-error-vcn.png)
 
 ```
 Following VCN not found or user not authorized: ocid1.vcn.oc1.uk-london-1...<unique_ID> ,or there might be missing network policies, please refer this link for more information https://docs.cloud.oracle.com/en-us/iaas/data-integration/using/
@@ -54,4 +54,4 @@ You forgot to create the policy for Data Integration to use Virtual Cloud Networ
 
 - **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Priscila Iruela, April 2022
+- **Last Updated By/Date** - Priscila Iruela, June 2022

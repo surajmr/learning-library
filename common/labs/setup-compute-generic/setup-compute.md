@@ -269,7 +269,7 @@ On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to c
     - Port: _22_
     - Connection type: _SSH_
 
-  ![](images/7c9e4d803ae849daa227b6684705964c.jpg " ")
+  ![](images/putty-session.jpg " ")
 
 #### **Configuring Automatic Login**
 
@@ -277,7 +277,7 @@ On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to c
 
 2.  Enter your auto-login username. Enter **opc**.
 
-  ![](images/36164be0029033be6d65f883bbf31713.jpg " ")
+  ![](images/auto-login.jpg " ")
 
 #### **Adding Your Private Key**
 

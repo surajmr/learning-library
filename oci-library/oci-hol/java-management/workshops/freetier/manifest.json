@@ -1,13 +1,8 @@
 {
     "workshoptitle": "Manage Java Runtimes, Applications and Managed Instances Inventory with Java Management Service",
     "include": {
-        "starter-file.sql": "../../data-load/files/starter-file.sql",
-        "sample.json": "../../data-load/files/sample.json",
-        "step2.md": "../../data-load/files/step2.md",
-        "lifecycle-management.md":"../../java-management-lifecycle-management/workshops/freetier/index.html?lab=introduction/introduction.md",
-        "oci-services-integration.md": "../../java-management-oci-services-integration/workshops/freetier/index.html?lab=introduction/introduction.md"
     },
-    "help": "teck.kian.choo@oracle.com",
+    "help": "livelabs-help-oci_us@oracle.com",
     "tutorials": [
         {
             "title": "Introduction",
@@ -47,11 +42,15 @@
             "filename": "../../install-management-agent-oca/install-management-agent-oca.md"
         },
         {
-            "title": "Lab 8: Track Java Usage in a Container",
+            "title": "Lab 8: Set up multiple Managed Instances and Management Gateway",
+            "filename": "../../multiple-managed-instances/multiple-managed-instances.md"
+        },
+        {
+            "title": "Lab 9: Track Java Usage in a Container",
             "filename": "../../track-java-usage-in-a-container/track-java-usage-in-a-container.md"
         },
         {
-            "title": "Lab 9: Set up Logrotate",
+            "title": "Lab 10: Set up Logrotate",
             "filename":"../../set-up-logrotate/set-up-logrotate.md"
 
         },

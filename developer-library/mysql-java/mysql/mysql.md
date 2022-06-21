@@ -108,10 +108,16 @@ Let's install a Bastion. A longer explanation is available here: [https://blogs.
           - Remove the  -i <privateKey>, since it is the default key
           - Replace &lt;localPort&gt; with 3306
           - Add the flag -4
-          - Add & at the end of the command to run in background
 
 	Example
      
+	```
+	<copy>ssh -4 -N -L 3306:10.0.10.2:3306 -p 22 ocid1.bastionsession.oc1.eu-frankfurt-1.abcdefgxxcujoii55b7kq@host.bastion.eu-frankfurt-1.oci.oraclecloud.com
+	</copy>
+	````
+      
+      - Accept the key. Then run the same command with '&' at the end to run in the background
+
 	```
 	<copy>ssh -4 -N -L 3306:10.0.10.2:3306 -p 22 ocid1.bastionsession.oc1.eu-frankfurt-1.abcdefgxxcujoii55b7kq@host.bastion.eu-frankfurt-1.oci.oraclecloud.com &
 	</copy>

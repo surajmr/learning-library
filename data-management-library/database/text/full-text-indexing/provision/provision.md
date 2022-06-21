@@ -1,8 +1,8 @@
-# Provisioning an Autonomous JSON Database
+# Provisioning an Autonomous Database
 
 ## Introduction
 
-This lab walks you through the steps to get started using the Oracle Autonomous JSON Database [AJD] on Oracle Cloud. In this lab, you will provision a new AJD instance and connect to the Autonomous Database using JSON.
+This lab walks you through the steps to provision at Autonomous Database on Oracle Cloud. In this lab, you will provision a new Autonomous Transaction processing instance.
 
 Estimated Time: 10 minutes
 
@@ -11,7 +11,6 @@ Estimated Time: 10 minutes
 In this lab, you will:
 
 * Learn how to provision a new Autonomous Database
-* Connect to your Autonomous Database using JSON
 
 ### Prerequisites
 

@@ -2,27 +2,29 @@
 
 Duration: 2 minutes
 
-## Change bucket visibility settings
+## Change a Bucket Visibility Settings
 
 Make sure you are in the region where your bucket is and follow the steps below to change the visibility settings of a bucket:
 
-1. Open the navigation menu on the left in the Oracle Cloud console, click **Storage**, and then click **Buckets** under Object Storage & Archive Storage.
+1. Open the **Navigation** menu in the Oracle Cloud console and click **Storage**. Under **Object Storage & Archive Storage**, click **Buckets**.
 
-2. Click on the **Compartment** drop-down under List Scope and choose the Compartment where your bucket is.
+2. On the **Buckets** page, select the compartment that contains your bucket from the **Compartment** drop-down list in the **List Scope** section.
 
-3. In the Compartment, click on the bucket name for which you want to change the visibility settings.
+3. On the **Buckets** page, note the current **Visibility** setting for your bucket, **Private** in this example. On the row for the bucket, click the **Actions** icon (three vertical dots), and then click **Edit Visibility** from the context menu. In the **Edit Visibility** dialog box, select the **Public** option (or Private if it was Public), and then click **Save Changes**.
 
-4. In the Bucket Details page, Bucket Information tab, look at the visibility status under the Features section.
+  ![Select the bucket.](./images/select-bucket.png " ")
 
-5. To change the bucket visibility setting, click on **Edit Visibility**.
+    >**Note:** You can also edit the bucket's visibility setting by clicking the bucket's name link in the **Name** column to display the **Bucket Details** page.
 
-6. In the Edit Visibility dialog box, choose the radio button for the state - Public or Private you want to switch.
+4. In the **Edit Visibility** dialog box, select the desired visibility option, **Public** in this example, and then click **Save Changes**.
 
-7. If you are switching to Public from Private, check the box **Allow users to list objects from this bucket** if you wish to list the objects in the bucket for the users.
+  ![Select the bucket.](./images/select-public.png " ")
 
-8. Click **Save Changes** to save the changes.
+    >**Note:** If you are switching the bucket's visibility from Private to Public, the **Allow users to list objects from this bucket** check box is selected. This allows users to list the objects in the bucket.
 
-9. Now, look at the visibility status under the Features section in the Bucket Information tab. The status will be updated to the one you just switched.
+5. The **Buckets** page is re-displayed. The updated visibility setting for your bucket is displayed in the **Visibility** column, **Public** in this example.
+
+    ![Select the bucket.](./images/visibility-updated.png " ")
 
 ## Learn More
 

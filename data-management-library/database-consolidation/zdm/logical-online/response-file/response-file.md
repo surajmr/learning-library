@@ -1,4 +1,4 @@
-# Configure the Response File
+# Configure the response file
 
 ## Introduction
 In this lab you will learn about ZDM's response file and its parameters. You will also learn howto create and pre-fill a response file for your migration. 
@@ -182,16 +182,16 @@ GOLDENGATEHUB_URL=https://GGHUB
 The __GOLDENGATEHUB URL__ parameter specifies the GoldenGate REST endpoint. In the following task, when preparing the response file, instructions on where to find this parameter will be provided.
 
 ```
-GOLDENGATEHUB_SOURCEDEPLOYMENTNAME=Source
+GOLDENGATEHUB_SOURCEDEPLOYMENTNAME=Marketplace
 ```
 
-The __GOLDENGATEHUB SOURCEDEPLOYMENTNAME__ parameter specifies the name of GoldenGate Microservices deployment that operates on the source, in this case __Source__ will be used.
+The __GOLDENGATEHUB SOURCEDEPLOYMENTNAME__ parameter specifies the name of GoldenGate Microservices deployment that operates on the source, the deployment created in Lab 5 can handle both source and target, hence, in this case __Marketplace__ will be used.
 
 ```
-GOLDENGATEHUB_TARGETDEPLOYMENTNAME=Target
+GOLDENGATEHUB_TARGETDEPLOYMENTNAME=Marketplace
 ```
 
-The __GOLDENGATEHUB TARGETDEPLOYMENTNAME__ parameter specifies the name of GoldenGate Microservices deployment that operates on the target, in this case __Target__ will be used.
+The __GOLDENGATEHUB TARGETDEPLOYMENTNAME__ parameter specifies the name of GoldenGate Microservices deployment that operates on the target, the deployment created in Lab 5 can handle both source and target, hence, in this case __Marketplace__ will be used.
 
 ```
 GOLDENGATEHUB_COMPUTEID=ocid1.instance
@@ -333,8 +333,8 @@ The __DATAPUMPSETTINGS EXPORTDIRECTORYOBJECT PATH__ parameter specifies the dire
 
     GOLDENGATEHUB_ADMINUSERNAME=oggadmin
     GOLDENGATEHUB_URL=<UPDATE>
-    GOLDENGATEHUB_SOURCEDEPLOYMENTNAME=Source
-    GOLDENGATEHUB_TARGETDEPLOYMENTNAME=Target
+    GOLDENGATEHUB_SOURCEDEPLOYMENTNAME=Marketplace
+    GOLDENGATEHUB_TARGETDEPLOYMENTNAME=Marketplace
     GOLDENGATEHUB_COMPUTEID=<UPDATE>
 
 

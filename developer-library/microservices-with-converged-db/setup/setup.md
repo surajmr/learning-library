@@ -61,7 +61,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
 ## Task 5: Create a Folder to Contain the Workshop Code
 
-1. Create a directory to contain the workshop code. The directory name is used to create a compartment of the same name in your tenancy. The directory name must have between 1 and 13 characters, contain only letters or numbers, and start with a letter. Make sure that a compartment of the same name does not already exist in your tenancy or the setup will fail. For example:
+1. Create a directory to contain the workshop code. For example:
 
 	```
 	<copy>
@@ -71,10 +71,10 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
    All the resources created by the setup are created in this compartment. This will let you to quickly delete and cleanup afterward.  
 
-2. Change directory to the directory that you have created. The setup will fail if you do not complete this step. For example:
+2. Change directory to the directory that you have created. For example:
 
 	```
-	<copy> 
+	<copy>
 	cd grabdish
 	</copy>
 	```
@@ -85,7 +85,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
 	```
 	<copy>
-	git clone -b 22.4.1 --single-branch https://github.com/oracle/microservices-datadriven.git
+	git clone -b 22.6.4 --single-branch https://github.com/oracle/microservices-datadriven.git
 	</copy>
 	```
     You should now see the directory `microservices-datadriven` in the directory that you created.
@@ -140,7 +140,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
 	![Obtain Oracle Cloud Infrastructure Compartment OCID](images/compartment-ocid.png " ")
 
-4. The setup will ask for you to enter your user's OCID.
+4. The setup will ask for you to enter your user's OCID.  
 
 	Be sure to provide the user OCID and not the user name or tenancy OCID. The user OCID will look something like:
 
@@ -148,15 +148,11 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
 	> **Note:** Notice the format of "ocid1.user" prefix.
 
-	Locate your menu bar in the Cloud Console and click the person icon at the far upper right. 
-	
+	Locate your menu bar in the Cloud Console and click the person icon at the far upper right.
+
 	From the drop-down menu, select your user's name or My Profile. Note, sometimes the name link is missing in which case select the **User Settings** link. Do not select the **Tenancy** link.
 
 	![Obtain Oracle Cloud Infrastructure User OCID](images/get-user-ocid.png " ")
-
-	Alternative:
-
-	![Obtain Oracle Cloud Infrastructure User OCID](images/get-user-ocid-iam.png " ")
 
 	Click Show to see the details and then click Copy to copy the user OCID to the clipboard, paste in the copied data in console.
 
@@ -221,10 +217,10 @@ The setup will provision the following resources in your tenancy:
 	</copy>
 	```
 
-   	Once the setup has completed you are ready to [move on to Lab 2](#next). 
+   	Once the setup has completed you are ready to [move on to Lab 2](#next).
 
-   	> **Note:** Builds may continue to run even after the setup has completed. 
- 
+   	> **Note:** Builds may continue to run even after the setup has completed.
+
 4. The status of the builds can be monitored with this command:
 
 	```

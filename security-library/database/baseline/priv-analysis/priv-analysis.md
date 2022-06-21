@@ -6,9 +6,9 @@ This workshop introduces the functionality of Oracle Privilege Analysis. It give
 *Estimated Lab Time:* 15 minutes
 
 *Version tested in this lab:* Oracle DB 19.13
-### Video Preview
-Watch a preview of "*Understanding Privilege Analysis (January 2019)*" [](youtube:3oRODVtWwbg)
 
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Privilege Analysis (May 2022)*" [](youtube:OsvxpBIKoOQ)
 
 ### Objectives
 - Capture the workload of a database
@@ -116,7 +116,7 @@ This lab assumes you have:
 
     ![](./images/pa-007.png " ")
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -159,7 +159,10 @@ You can create different types of privilege analysis policies to achieve specifi
 Technical Documentation:
 - [Oracle Privilege Analysis 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/performing-privilege-analysis-find-privilege-use.html#GUID-44CB644B-7B59-4B3B-B375-9F9B96F60186)
 
+Video:
+- *Understanding Privilege Analysis (January 2019)* [](youtube:3oRODVtWwbg)
+
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

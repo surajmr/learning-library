@@ -1,19 +1,19 @@
 # How can I define paragraphs using the md, SQL, PL/SQL, and Python interpreters in Oracle Machine Learning Notebook?
 
-Duration: 4 minutes
+Duration: 10 minutes
 
 ## Define paragraphs using the md, SQL, PL/SQL, and Python interpreters in an OML Notebook
 
-1. If you have your ADB ML user sign in URL bookmarked, navigate to the link and enter the username and password you provided when you created your machine learning user and click on **Sign in**. This will launch the Database Actions Launchpad page.
+1. If you have your ADB ML user sign-in URL bookmarked, navigate to the link, enter the username and password you provided when you created your machine learning user, and click on **Sign in**. This will launch the Oracle Machine Learning home page.
 
     ![](./images/mluser-sign-in.png  " ")
 
     <details>
-    <summary>If you do not have your ADB ML user sign in URL bookmarked, click expand to view the steps to sign in as machine learning user!</summary>
+    <summary>If you do not have your ADB ML user sign-in URL bookmarked, click expand to view the steps to sign in as a machine learning user!</summary>
 
-    1. If you do not have your ADB ML user sign in URL bookmarked, then click the navigation menu in the upper left of the Oracle Cloud Console, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
+    1. If you do not have your ADB ML user sign-in URL bookmarked, click the navigation menu in the upper left of the Oracle Cloud Console, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
 
-    2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases, and sort by **Workload Type**.
+    2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases and sort by **Workload Type**.
 
     3. From the databases displayed, click **Display Name** of the database you wish to create a notebook for the machine learning user and click **Service Console**. The Launch Service Console dialog opens. Wait till the Service Console opens.
 
@@ -23,7 +23,7 @@ Duration: 4 minutes
 
 	    ![Development option in ADW Service Console](images/adw-development.png)
 
-    5. Click **Oracle Machine Learning User Interface.** This opens the Oracle Machine Learning sign in page.
+    5. Click **Oracle Machine Learning User Interface.** This opens the Oracle Machine Learning sign-in page.
 
         ![Oracle Machine Learning User Interface in ADW](images/adw-oml-notebooks.png)
 
@@ -37,25 +37,25 @@ Duration: 4 minutes
 
     ![](./images/choose-notebooks.png  " ")
 
-3. From the notebooks, click on a notebook to create paragraphs.
+3. From your notebooks displayed on the Notebooks page, click on the notebook you wish to create paragraphs.
 
     ![](./images/new-notebook.png  " ")
 
-### Call the Markdown interpreter and generate static html from Markdown plain text
+### Call the Markdown interpreter and generate static HTML from Markdown plain text
 
-To call the Markdown interpreter and generate static html from Markdown plain text:
+To call the Markdown interpreter and generate static HTML from Markdown plain text:
 
 4. In the Test Notebook, type ``%md`` and press Enter.
 
 	![Markdown tag](images/tag-markdown.png)
 
-5. Type the following:   
+5. Type the following:
 
-	* To generate static html text, type the text `Hello World` inside double quotes, and press Enter.
+	* To generate static html text, type the text `Hello World` inside double quotes and press Enter.
 	* To format the text in bold, type the text `Hello World` inside two asterisks pair, and press Enter.
 	* To format the text in italics, type the text `Hello World` either inside an asterisk pair or an underscore pair, and click the Run ![run icon](images/run.png) icon.
 
-	Alternatively, you may copy the code and paste it in the notebook just below `%md`, and click the Run icon ![run icon](images/run.png) as shown in the screenshot:
+	Alternatively, you may copy the code, paste it into the notebook just below `%md`, and click the Run icon ![run icon](images/run.png) as shown in the screenshot:
 
 		<copy>
 		"Hello World"
@@ -66,7 +66,7 @@ To call the Markdown interpreter and generate static html from Markdown plain te
 
 	![Markdown tags for plain text and other formatting](images/run-md-text-formatting.png)
 
-	After running the paragraph, the output is displayed, and a new paragraph is automatically created. Also, you can manually create additional paragraphs.
+	The output is displayed after running the paragraph, and a new paragraph is automatically created. Also, you can manually create additional paragraphs.
 
 	![Markdown tags for plain text and other formatting](images/md-text-formatting.png)
 
@@ -75,7 +75,7 @@ To call the Markdown interpreter and generate static html from Markdown plain te
 		<copy>
 		* Hello World
 		* We welcome you
-		 </copy>
+		</copy>
 
 	![Markdown tags for bulleted points](images/md-bullets.png)
 
@@ -85,7 +85,7 @@ To call the Markdown interpreter and generate static html from Markdown plain te
 
 	![Add Paragraph](images/add-paragraph.png)
 
-8. In this paragraph that you just created, the markdown tag `%md` is already present. Here, you will use Markdown tags to display the text in heading 1 (H1), heading 2 (H2) and heading 23 (H3). For H1, H2, and H3, add one, two, and three hashes before the text `Hello World` respectively. Or, you may copy the code below and paste it just below the tag `%md`.
+8. In this paragraph you just created, the markdown tag `%md` is already present. Here, you will use Markdown tags to display the text in heading 1 (H1), heading 2 (H2), and heading 23 (H3). For H1, H2, and H3, add one, two, and three hashes before the text `Hello World`, respectively. Or, you may copy the code below and paste it just below the tag `%md`.
 
 		<copy>
 		# Hello World
@@ -101,7 +101,7 @@ To call the Markdown interpreter and generate static html from Markdown plain te
 
 	![Run all confirm](images/run-all-confirm.png)
 
-	The two paragraphs run and the output is displayed in the respective paragraphs, as shown in the screenshot.
+	The two paragraphs run, and the output is displayed in the respective paragraphs, as shown in the screenshot.
 
 	 ![Run all paragraphs](images/md-paragraph-output.png)
 
@@ -113,11 +113,11 @@ Let’s create another paragraph to call the SQL interpreter and run SQL stateme
 
 	![Add Paragraph](images/add-paragraph-gen.png)
 
-12. Edit the existing paragraph tag, type ``%sql`` to call the SQL interpreter, and press Enter.
+12. Edit the existing paragraph tag, type ``%sql`` to call the SQL interpreter and press Enter.
 
 	![SQL Paragraph](images/tag-sql.png)
 
-13. Type the following command and click the Run ![run icon](images/run.png) icon. Alternatively, you can press Shift+Enter keys to run the paragraph.
+13. Type the following command and click the Run ![run icon](images/run.png) icon. Alternatively, you can press the Shift+Enter keys to run the paragraph.
 
 	```
 	<copy>
@@ -131,11 +131,12 @@ Let’s create another paragraph to call the SQL interpreter and run SQL stateme
 ### Call the PL/SQL Interpreter and run PL/SQL Scripts
 
 Create another paragraph to call the PL/SQL interpreter and run PL/SQL scripts:
-14. In the new paragraph, type ``%script`` to call the PL/SQL interpreter, and press Enter.
+
+14. In the new paragraph, type ``%script`` to call the PL/SQL interpreter and press Enter.
 
 	![PL/SQL Paragraph](images/tag-script.png)
 
-15. Type the following command and click ![run icon](images/run.png). Alternatively, you can press Shift+Enter keys to run the paragraph.
+15. Type the following command and click ![run icon](images/run.png). Alternatively, you can press the Shift+Enter keys to run the paragraph.
 
 		<copy>
 		CREATE TABLE small_table
@@ -158,9 +159,11 @@ Create another paragraph to call the PL/SQL interpreter and run PL/SQL scripts:
 
 	![PL/SQL script](images/plsql-script.png)
 
-The PL/SQL script successfully creates the table SMALL_TABLE. The PL/SQL script in this example contains two parts:
-* The first part of the script contains the SQL statement CREATE TABLE to create a table named ``small_table``. It defines the table name, table column, data types, and size. In this example, the column names are ``NAME, ID1, ID2, ID3, ID4, and TEXT``.
-* The second part of the script begins with the keyword ``BEGIN``. It inserts 100 rows into the table ``small_table``
+	The PL/SQL script successfully creates the table SMALL_TABLE. The PL/SQL script in this example contains two parts:
+
+	* The first part of the script contains the SQL statement CREATE TABLE to create a table named ``small_table``. It defines the table name, table column, data types, and size. In this example, the column names are ``NAME, ID1, ID2, ID3, ID4, and TEXT``.
+
+	* The second part of the script begins with the keyword ``BEGIN``. It inserts 100 rows into the table ``small_table``.
 
 ### Call the Python Interpreter and run Python Statements
 

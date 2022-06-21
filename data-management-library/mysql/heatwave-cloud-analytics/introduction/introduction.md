@@ -2,15 +2,15 @@
 
 ## About this Workshop
 
-This workshop will cover the flexibility of using popular open-source tools such as Superset, Grafana and Zepplin with MySQL HeatWave to leverage the cloud-scale capabilities of Oracle Cloud Infrastructure to implement cloud-native analytics. We will walk you through the process of
+The main purpose of this workshop is to teach you how you can implement a cloud-native analytics solution using **MySQL HeatWave** and various popular open-source tools on Oracle Cloud Infrastructure (OCI). MySQL HeatWave is not only proven to accelerate your most complicated SQL queries with in-memory partitioning technology, but it is also enhanced with Oracle AutoML-based machine learning technology lately to add prediction capabilities to your applications.
 
-* Creating Oracle Kubernetes Engine and MySQL HeatWave
-* Loading data into MySQL HeatWave using mysqlsh and auto-pilot utility
-* Deploying open-source analytics tools (Superset, Grafana, Zeppelin) to analyze data in MySQL HeatWave
+We have selected a few popular open-source analytics tools such as **Zeppelin, Jupyter, Superset, Redash and Grafana** as part of this workshop to start using these tools with MySQL HeatWave on OCI, for example, build a sales performance dashboard with Superset, or profile your customer data with Zeppelin or Jupyter. Each of the labs is independent of each other, hence you can just pick which tools you like to work with, for example, if you want to build a dashboard, you can choose the Redash, Grafana or Superset labs. Likewise, you can choose to use Zeppelin or Jupyter for data exploration and analysis.
+
+With the combination of your preferred analytics tool and **MySQL HeatWave** engine, you will be able to build a solid cloud native data analytics platform to solve your business problems.
 
 [](youtube:pexH2tqI_0E)
 
-Estimated Time: 90 minutes
+Estimated Time: 135 minutes
 
 ### About Oracle MySQL Database Service
 
@@ -25,15 +25,16 @@ HeatWave is a distributed, scalable, shared-nothing, in-memory, hybrid columnar,
 
 In this workshop, you will learn how to:
 
-* Creating Oracle Kubernetes Engine and MySQL HeatWave
-* Loading data into MySQL HeatWave using mysqlsh and auto-pilot utility
-* Deploying open-source analytics tools (Superset, Grafana and Zeppelin) to analyze data in MySQL HeatWave
+* Create Oracle Kubernetes Engine and MySQL HeatWave
+* Load data into MySQL HeatWave
+* Deploy selected analytics tools (Zeppelin, Jupyter, Superset, Redash, Grafana) to accelerate your queries with MySQL HeatWave
+* (Optional) Deploy phpMyAdmin tool to manage MySQL HeatWave
 
-The following is the OCI architecture with all the components deployed
+The following diagram illustrates all the components deployed on OCI when you completed the workshop
 
 ![OCI architecture](images/heatwave-cloud-analytics.png)
 
-### Prerequisites (Optional)
+### Prerequisites
 
 * You have an Oracle account
 * You have enough privileges to use OCI
@@ -41,10 +42,10 @@ The following is the OCI architecture with all the components deployed
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
+* **Last Updated By/Date** - Ryan Kuan, May 2022

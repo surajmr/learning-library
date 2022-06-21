@@ -20,7 +20,9 @@ In this workshop, you will learn how to:
 - Install a Database schema
 - Compile Forms Samples
 - Run them 
-- Optionally, Install Forms Builder on Windows
+- Optional:
+    - Install Forms Builder on Windows
+    - Install Webutil 
 
 ### Prerequisites 
 
@@ -35,4 +37,4 @@ And if not:
 ## Acknowledgements
 * Marc Gueury - Application Development EMEA
 * Michael Ferrante - Senior Principal Product Manager
-* Last Updated - March 2022
+* Last Updated - June 2022

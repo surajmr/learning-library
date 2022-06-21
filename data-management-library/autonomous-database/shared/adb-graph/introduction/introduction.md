@@ -2,7 +2,7 @@
 
 ## About This Workshop
 
-**Note:** *Update in progress. May have errors.*
+## Note: *Update in progress. Will have errors.*
 
 This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database.
 

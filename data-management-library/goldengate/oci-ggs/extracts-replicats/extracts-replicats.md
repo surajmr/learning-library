@@ -180,7 +180,11 @@ Before using Oracle Data Pump to export data from the source database, first cre
     <copy>https://objectstorage.&lt;region&gt;.oraclecloud.com/n/&lt;namespace&gt;/b/&lt;bucket-name&gt;/o/</copy>
     ```
 
-    For example, if your region is Phoenix, your namespace is c4u04, and your bucket name ADB-LLStore, then your URI would be: `https://objectstorage.us-phoenix-1.oraclecloud.com/n/c4u04/b/ADB-LLStore/o/`.
+    For example, if your region is Phoenix, your namespace (tenancy) is c4u04, and your bucket name ADB-LLStore, then your URI would be: `https://objectstorage.us-phoenix-1.oraclecloud.com/n/c4u04/b/ADB-LLStore/o/`.
+
+    To find your &lt;region&gt;, click on the three dots to the right of your bucket, click **Create Pre-Authenticated Request**. In the dialog, you can see your region code to put into the bucket URL.
+
+    ![Find Region Code](images/bucket-region.png " ")
 
 6.  In the Oracle Cloud Console global header, click **Profile** (user icon), and then select your username.
 
@@ -303,9 +307,9 @@ Before importing data to the target database, create a credential in the target 
 
     ![Autonomous Data Warehouse page](images/06-02.png " ")
 
-3. On the **TargetADW Details** page, click **Tools**, and then click **Open Database Actions**.
+3. On the **TargetADW Details** page, click **Database Actions**.
 
-    ![TargetADW Details page](images/06-03.png " ")
+    ![TargetADW Details page](images/database-actions.png " ")
 
 4. Log in to Database Actions as ADMIN, and then click **SQL**.
 
@@ -490,5 +494,5 @@ Before importing data to the target database, create a credential in the target 
 
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, February 2022
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

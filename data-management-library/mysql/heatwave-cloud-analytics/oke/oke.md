@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Resource Manager is an Oracle Cloud Infrastructure service that allows you to automate the process of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager help you to install, configure, and manage resources through the "infrastructure-as-code" model.
+In this lab, we will build the workshop environment using Oracle Container Engine for Kubernetes (OKE) and **MySQL HeatWave** using Terraform script with OCI Resource Manager. OKE will be used to deploy various open-source tools to connect and analyze data in MySQL HeatWave.
+
+**Resource Manager** is an OCI service that allows you to automate the process of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager helps you install, configure, and manage resources through the "infrastructure-as-code" model.
 
 Estimated Time: 30 minutes
 
@@ -15,7 +17,7 @@ In this lab, you will provision the following OCI resources using Resource Manag
 * MySQL Database System
 * An Operator Virtual Machine with kubectl and MySQL client tools installed
 
-### Prerequisites (Optional)
+### Prerequisites
 
 * You have an Oracle account
 * You have enough privileges to use OCI
@@ -27,7 +29,7 @@ In this lab, you will provision the following OCI resources using Resource Manag
 
 	![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)
 
-2. Sign in to **Oracle Cloud** if you haven't yet. In the page of 'Create Stack', check to accept terms, give a name to your stack (e.g. "Analytics on OKE"), select the compartment (e.g. HOL-compartment) to provision OCI resources, and click **Next**
+2. Sign in to **Oracle Cloud** if you haven't yet. On the page of 'Create Stack', check to accept terms, give a name to your stack (e.g. "Analytics on OKE"), select the compartment (e.g. HOL-compartment) to provision OCI resources, and click **Next**
 
 	![Stack Information](images/resource-manager-stack-info.png)
 
@@ -43,27 +45,27 @@ In this lab, you will provision the following OCI resources using Resource Manag
 
 	![Apply Stack](images/resource-manager-stack-apply.png)
 
-6. It takes about **20 minutes** to complete this job. At the meanwhile, you can click on your Terraform job to view logs of progress of your job.
+6. It takes about **20 minutes** to complete this job, you can click on your Terraform job to view logs of the progress of your job.
 
 	![Stack Job](images/resource-manager-stack-job.png)
 
 	![Stack Progress](images/resource-manager-stack-progress.png)
 
-7. Once your job has been executed successfully, you can find the public IP address of your operator VM, and the private IP address of the MySQL Database from the outputs.
+7. Once your job executes successfully, you can find the public IP address of your operator VM, and the private IP address of the MySQL Database from the outputs.
 
 	>**Note** down these two IP addresses that will be used in the subsequent labs.
 
 	![Stack Complete](images/resource-manager-stack-complete.png)
 
   You may now **proceed to the next lab.**
-  
+
 ## Acknowledgements
 
 * **Author**
-	* Ivan Ma, MySQL Solution Engineer, MySQL APAC
-	* Ryan Kuan, MySQL Cloud Engineer, MySQL APAC
+	* Ivan Ma, MySQL Solutions Engineer, MySQL Asia Pacific
+	* Ryan Kuan, MySQL Cloud Engineer, MySQL Asia Pacific
 * **Contributors**
-	* Perside Foster, MySQL Solution Engineering
-	* Rayes Huang, OCI Solution Specialist, OCI APAC
+	* Perside Foster, MySQL Solution Engineering North America
+	* Rayes Huang, OCI Solution Specialist, OCI Asia Pacific
 
-* **Last Updated By/Date** - Ryan Kuan, March 2022
+* **Last Updated By/Date** - Ryan Kuan, May 2022

@@ -2,25 +2,32 @@
 
 Duration: 2 minutes
 
-## Upload files into a bucket in Object Storage
+## Upload Files to an Object Storage Bucket
 
-Make sure you are in the region where you want to upload your files into the object storage, and then follow the steps below to upload the files into a bucket:
+You can upload your files to an Object Storage bucket as follows:
 
-1. Open the navigation menu on the left in the Oracle Cloud console, click **Storage**, and then click **Buckets** under Object Storage & Archive Storage.
+1. Open the **Navigation** menu in the Oracle Cloud console and click **Storage**. Under **Object Storage & Archive Storage**, click **Buckets**.
 
-2. Click on the **Compartment** drop-down under List Scope and choose the Compartment.
+2. On the **Buckets** page, select the compartment that contains your bucket from the **Compartment** drop-down list in the **List Scope** section. Make sure you are in the region where your bucket was created.
 
-3. In the Compartment, click on the bucket name to which you want to upload the files.
+3. On the **Buckets** page, click the bucket's name link to which you want to upload the files. The **Bucket Details** page is displayed.
 
-4. In the Bucket Details page, scroll down and click on **Upload** in the Objects region.
+  ![The Bucket Details page is displayed.](./images/bucket-details.png " ")
 
-5. In the Upload Objects dialog box, drag and drop single or multiple files into the **Choose Files from your Computer** region or click on **select files** to choose file(s) from your computer to upload.
+4. Scroll down the page to the **Objects** section, and then click **Upload**.
 
-6. Click **Upload** to upload the file(s) into the bucket.
+5. In the **Upload Objects** panel, you can drag and drop a single or multiple files into the **Choose Files from your Computer** field or click **select files** to choose the file(s) that you want to upload from your computer. In this example, we selected a file name `custsales-2019-01.parquet` that we will upload to our Public bucket.
 
-7. Once the files are uploaded, click **Close** to close the Upload Objects dialog box.
+  ![The Upload Objects panel is displayed.](./images/select-file.png " ")
 
-8. You view all the uploaded file(s) under the Objects region in the Bucket Details page.
+6. Click **Upload** to upload the selected file to the bucket.
+
+7. When the file is uploaded, click **Close** to close the **Upload Objects** panel. The **Bucket Details** page is re-displayed. The newly uploaded file is displayed in the **Objects** section.
+
+  ![The Upload file is displayed.](./images/uploaded-file-displayed.png " ")
+
+8. To return to the **Buckets** page, click **Object Storage** in the breadcrumbs.
+
 
 ## Learn More
 

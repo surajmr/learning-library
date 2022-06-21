@@ -46,12 +46,12 @@ You should have a text editor, where you can paste the commands and URLs and mod
         ```bash
         $ ls -la ~/examples/bobs-books/
         total 16
-        drwxr-xr-x. 5 monica_ric oci  100 Jan  5 12:49 .
-        drwxr-xr-x. 7 monica_ric oci 4096 Jan  5 12:49 ..
-        drwxr-xr-x. 5 monica_ric oci 4096 Jan  5 12:49 bobbys-books
-        drwxr-xr-x. 5 monica_ric oci 4096 Jan  5 12:49 bobs-bookstore-order-manager
-        -rw-r--r--. 1 monica_ric oci  942 Jan  5 12:49 README.md
-        drwxr-xr-x. 4 monica_ric oci   72 Jan  5 12:49 roberts-books
+        drwxr-xr-x. 5 user oci  100 May  5 12:49 .
+        drwxr-xr-x. 7 user oci 4096 May  5 12:49 ..
+        drwxr-xr-x. 5 user oci 4096 May  5 12:49 bobbys-books
+        drwxr-xr-x. 5 user oci 4096 May  5 12:49 bobs-bookstore-order-manager
+        -rw-r--r--. 1 user oci  942 May  5 12:49 README.md
+        drwxr-xr-x. 4 user oci   72 May  5 12:49 roberts-books
         $
         ```
 
@@ -169,7 +169,7 @@ You should have a text editor, where you can paste the commands and URLs and mod
     You can find out your *Region Name* in top right corner in the Oracle Cloud Console, as shown in following image.
     ![Container Registry](images/containerresgitry.png " ")
 
-5. For finding the Namespace of the tenancy, select the Hamburger Menu -> Developer Services -> Container Registry, as shown. In the compartment, you will find the Namespace. Copy and save it in somewhere in your text editor. Keep it in the text editor, because we will also use it in Lab 6.
+5. For finding the Namespace of the tenancy, select the *Hamburger Menu* -> *Developer Services* -> *Container Registry*, as shown. In the compartment, you will find the Namespace. Copy and save it in somewhere in your text editor. Keep it in the text editor, because we will also use it in Lab 6.
 
     ![Open Registry](images/openregistry.png " ")
     ![Copy Tenancynamespace](images/copytenancynamespace.png " ")
@@ -178,7 +178,7 @@ You should have a text editor, where you can paste the commands and URLs and mod
 
     ![End Points](images/endpoints.png " ")
 
-7. Now you have both the Tenancy Namespace and Endpoint for your region. Copy the following command and paste it in your text editor. Then replace the `END_POINT_OF_YOUR_REGION` with the endpoint of your region name, `NAMESPACE_OF_YOUR_TENANCY` with your tenancy's namespace and `your_first_name` with your first name in lower case.
+7. Now you have both the Tenancy Namespace and Endpoint for your region. Copy the following command and paste it in your text editor. Then replace the **`END_POINT_OF_YOUR_REGION`** with the endpoint of your region name, **`NAMESPACE_OF_YOUR_TENANCY`** with your tenancy's namespace and **`your_first_name`** with your first name in lower case.
 
     ```bash
     <copy>docker build --force-rm=true -f Dockerfile -t END_POINT_OF_YOUR_REGION/NAMESPACE_OF_YOUR_TENANCY/helidon-stock-application-your_first_name:1.0 .</copy>
@@ -190,7 +190,7 @@ You should have a text editor, where you can paste the commands and URLs and mod
  
     > For example, in my case the command is `docker build --force-rm=true -f Dockerfile -t iad.ocir.io/tenancynamespace/helidon-stock-application-ankit`.
 
-This creates the Docker image, which we will push into the Oracle Cloud Container Registry repository in Lab 6. You need to copy the replaced full image name `END_POINT_OF_YOUR_REGION/NAMESPACE_OF_YOUR_TENANCY/helidon-stock-application-your_first_name:1.0`  in your text editor.In Lab 6, when you will need to create the repository, you need to give it name `helidon-stock-application-your_first_name`.
+This creates the Docker image, which we will push into the Oracle Cloud Container Registry repository in Lab 6. You need to copy the replaced full image name **`END_POINT_OF_YOUR_REGION/NAMESPACE_OF_YOUR_TENANCY/helidon-stock-application-your_first_name:1.0`**  in your text editor.In Lab 6, when you will need to create the repository, you need to give it name **`helidon-stock-application-your_first_name`**.
 
 Leave the *Cloud Shell* open; we need it for next lab.
 

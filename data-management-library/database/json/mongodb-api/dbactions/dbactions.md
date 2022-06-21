@@ -27,26 +27,26 @@ In this lab, you will:
 
 <if type="freetier">
 
-2. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **Region** in the top, right hand corner of the page.
+2. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **Region** in the top, right-hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/region.png " ")
 
 </if>
 <if type="livelabs">
 
-2. If you are using a LiveLabs account, you need to be in the region your account was provisioned in. You can see your current default **Region** in the top, right hand corner of the page. Make sure that it matches the region on the LiveLabs Launch page.
+2. If you are using a LiveLabs account, you need to be in the region your account was provisioned in. You can see your current default **Region** in the top, right-hand corner of the page. Make sure that it matches the region on the LiveLabs Launch page.
 
     ![Select region on the far upper-right corner of the page.](./images/region.png " ")
 
 </if>
 
-3. Click the navigation menu in the upper left to show top level navigation choices.
+3. Click the navigation menu in the upper left to show top-level navigation choices.
 
 4. Click on **Oracle Database** and choose **Autonomous JSON Database**.
 
     ![Click Autonomous JSON Database](./images/adb-json.png " ")
 
-5. Use the __List Scope__ drop-down menu on the left to select the same compartment where you created your Autonomous JSON Databae in Lab 2. Make sure your workload type is __JSON Database__. <if type="livelabs">Enter the first part of your user name, for example `LL185` in the Search Compartments field to quickly locate your compartment.
+5. Use the __List Scope__ drop-down menu on the left to select the same compartment where you created your Autonomous JSON Database in Lab 2. Make sure your workload type is __JSON Database__. <if type="livelabs">Enter the first part of your user name, for example `LL185` in the Search Compartments field to quickly locate your compartment.
 
     ![Check the workload type on the left.](images/livelabs-compartment.png " ")
 
@@ -92,7 +92,7 @@ In this lab, you will:
 
     After the tour, you should see the 'emp' collection you created in Mongo Shell on the left. If it's not shown, click the refresh circle.
 
-    The left hand side shows collections. The upper right allows us to run queries, and the lower right shows the documents found by that query. An empty search - {} - will show all documents, which is what you should be looking at now. You can confirm using the scroll bar that there are three documents for Blake (Intern), Smith and Miller (Programmers).
+    The left-hand side shows collections. The upper right allows us to run queries, and the lower right shows the documents found by that query. An empty search - {} - will show all documents, which is what you should be looking at now. You can confirm using the scroll bar that there are three documents for Blake (Intern), Smith and Miller (Programmers).
 
 2. Let's go ahead and do a search. Enter {"job": "Programmer"} in the search box and press the Run Query button. Case **is** significant, so be careful, or copy the query below:
 
@@ -112,7 +112,7 @@ In this lab, you will:
 
     ![](./images/miller-salary.png " ")
 
-    We can now see that Miller's salary is 80000. Let's add another document to the collection. Click on the "New JSON Document" button immediately below the the collection name on the top panel.
+    We can now see that Miller's salary is 80000. Let's add another document to the collection. Click on the "New JSON Document" button immediately below the collection name on the top panel.
 
     ![](./images/new-document-button.png " ")
 
@@ -135,7 +135,7 @@ In this lab, you will:
 
     Click the "Clear" button for the existing search, then run another empty search to see all documents.
 
-    **Caution:** the same "trashcan" icon is used in two place in the JSON workshop. To the right of "add clause" it means "Clear the current search". On the top row, it means "Delete all documents found by the current query". Don't delete your documents by accident!
+    **Caution:** the same "trashcan" icon is used in two places in the JSON workshop. To the right of "add clause", it means "Clear the current search". On the top row, it means "Delete all documents found by the current query". Don't delete your documents by accident!
 
     Finally, let's sort the results of our query, in descending order of salary (so highest first).
 
@@ -143,11 +143,11 @@ In this lab, you will:
 
     ![](./images/order-by.png " ")
 
-    That will change our query to have two parts - a $query part and a $orderby part. The $query part is the default if neither are specified.
+    That will change our query to have two parts - a $query part and a $orderby part. The $query part is the default if neither is specified.
 
     $query still contains our empty search - {}.
 
-    We need to complete some details for the $orderby. We want to sort by salary, so change the path to "salary". It's a number, so change datatype from "varchar2" to "number". And finally change the order from "asc" (ascending) to "desc" (descending), so we get largest first. 
+    We need to complete some details for the $orderby. We want to sort by salary, so change the path to "salary". It's a number, so change datatype from "varchar2" to "number". And finally, change the order from "asc" (ascending) to "desc" (descending), so we get largest first. 
 
     ![](./images/orderby-edit.png " ")
 
@@ -163,15 +163,15 @@ In this lab, you will:
 
     When done, click "Create".  We won't do anything else with this collection, but it illustrates a point in the next section.
 
-    ![](./images/new-collection.png " ")
+    ![new collection](./images/new-collection.png " ")
 
-    You can refresh the collection list on the left hand side to check the new collection is there.
+    You can refresh the collection list on the left-hand side to check the new collection is there.
 
     After that, we're ready to move on to the next task.
 
 ## Task 3: SQL in Database Actions
 
-So far we've looked at a documemt-centric view of our data, from Mongo Shell and from Oracle's JSON workshop.
+So far we've looked at a document-centric view of our data, from Mongo Shell and from Oracle's JSON workshop.
 
 Now we're going to look at a SQL view of the same data, showing how you can swap between document and SQL views.
 
@@ -179,20 +179,20 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
 
     If you've just finished the previous task, click on 'Database Actions' in the top bar. If you've closed that window, then follow the instructions for Task 3 to get to the Database Actions menu.
 
-    ![](./images/back-to-dbactions.png " ")
+    ![back to dbactions](./images/back-to-dbactions.png " ")
 
     Now we want to open SQL. Click on the SQL panel in Database Actions
 
-    ![](./images/dbactions-menu-sql.png " ")
+    ![dbactions menu](./images/dbactions-menu-sql.png " ")
 
 2.  Examine the EMP table
 
-    On the left hand panel, we will see all the tables in our database. Notice that there are two tables, EMP and NEWCOLLECTION.
+    On the left-hand panel, we will see all the tables in our database. Notice that there are two tables, EMP and NEWCOLLECTION.
     These correspond with the two collections we created - "emp" from Mongo Shell and "newcollection" from JSON.
 
     Open the EMP collection by clicking on the triangle next to it, to list the columns in the table.
 
-    ![](./images/emp-columns.png " ")
+    ![show collection table columns](./images/emp-columns.png " ")
 
     You can see that there are various "housekeeping" columns in the table, and a mysterious one called "DATA". We'll learn more about that later.
     In the top right "Worksheet" pane, enter the following query and click the "Run Statement" button:
@@ -202,14 +202,14 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
     select * from emp
     </copy>
     ```
-    ![](./images/select-star.png " ")
+    ![simple select command](./images/select-star.png " ")
 
     In the output, you can see four rows. And we know that our "emp" collection has four documents in it, so we can deduce that:
 
     * Collections are represented by tables
     * Documents are represented by rows in a table
 
-    The "DATA" column of the table contains the actual JSON of the documents, but since it's in a binary format, SQL can't show it. We can use a function JSON_SERIALIZE to get it into readable format.
+    The "DATA" column of the table contains the actual JSON of the documents, but since it's in a binary format, SQL can't show it. We can use the function JSON_SERIALIZE to get it into readable format.
 
     Enter the following query and click "Run Statement"
 
@@ -236,7 +236,7 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
     </copy>
     ```
 
-    [](./images/dot-notation.png " ")
+    [simple dot notation in SELECT clause](./images/dot-notation.png " ")
 
     Fantastic! We've accessed individual elements of the JSON and returned them as though they were relational columns. In fact, anywhere we can use a relational column in a query we can use this simple dot notation. For example, we can use a simple aggregation query to find the average salary by job:
 
@@ -249,7 +249,7 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
     </copy>
     ```
 
-    ![](./images/avg-salary.png " ")
+    ![average salary using dot notation](./images/avg-salary.png " ")
 
     Simple dot notation is great for straightforward "flat" JSON. There are many other JSON functions available to access data within JSON, such as JSON\_VALUE, JSON\_OBJECT and JSON\_TABLE, but we won't go into those here.
 
@@ -265,7 +265,7 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
 
     Since this is producing some quite long output, it's best if we use the "Run Script" button rather than "Run Statement". Scroll through the output to see the elements discovered in the JSON.
 
-    ![](./images/dataguide.png " ")
+    ![examine dataguide output](./images/dataguide.png " ")
 
 
 
@@ -295,11 +295,11 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
     </copy>
     ```
 
-    ![](./images/create-view.png " ")
+    ![create view](./images/create-view.png " ")
 
-    That created a view based on the elements within our JSON. On the left hand side, choose "Views" rather than "Tables" and open the "EMP_VIEW" view.
+    That created a view based on the elements within our JSON. On the left-hand side, choose "Views" rather than "Tables" and open the "EMP_VIEW" view.
 
-    You can see that our view contains the "housekeeping" data from our EMP table, plus the various elements from the JSON. Note that columns such as "job", "name" etc are in lower-case - case is significant for JSON, and "NAME" would be a different element to "name", so the case is maintained in the view. That means to refer to any of these colums, we must put them in double quotes, otherwise SQL will upper-case them.
+    You can see that our view contains the "housekeeping" data from our EMP table, plus the various elements from the JSON. Note that columns such as "job", "name" etc are in lower-case - case is significant for JSON, and "NAME" would be a different element to "name", so the case is maintained in the view. That means to refer to any of these columns, we must put them in double quotes, otherwise SQL will upper-case them.
 
     So let's run a query against the view. We no longer need to use the dot notation, but as noted above we do need to quote the column names. We're going to figure out how much of our company's salary bill is spent on each job. We'll do that with an aggregation query:
 
@@ -318,19 +318,19 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
 
     Let's see if we can get that last query output in a more pleasing visual pattern. Click on "Database Actions" at the top of the page, and then choose Charts from the Database Actions menu.
 
-    ![](./images/dbactions-button-2.png " ")
+    ![dbactions button](./images/dbactions-button-2.png " ")
 
-    ![](./images/dbactions-menu-charts.png " ")
+    ![charts menu item in dbactions](./images/dbactions-menu-charts.png " ")
 
     As usual, the first time you enter Charts you will see a tutorial. You can step through it or skip it for now.
 
     Click on "+ Create" in the top right, and then "New Chart"
 
-    ![](./images/chart-create.png " ")
+    ![create chart](./images/chart-create.png " ")
 
     Give your chart a name "Salary Breakdown" and a description of "Total Salaries by job". Set the "Protected by Privilege" drop-down to "Not protected". When done, click "Next".
 
-    ![](./images/chart-create-2.png " ")
+    ![create chart details](./images/chart-create-2.png " ")
 
     In the next panel, enter the SQL aggregation query we used earlier in the "Enter a valid SQL query" box.
 
@@ -342,17 +342,17 @@ Now we're going to look at a SQL view of the same data, showing how you can swap
         group by "job"
     </copy>
     ``` 
-    On the right Choose "Pie Chart" in the "Chart type" drop-down. Click "Create" when done.
+    On the right Choose "Pie Chart" in the "Chart type" drop-down. You can also select the "3D" option if you like. Click "Create" when done.
 
-    ![](./images/chart-create-3.png " ")
+    ![choose pie chart](./images/chart-create-3.png " ")
 
     On the next page, click the "three dots" menu to the right of our Salary Breakdown panel, and choose "View Chart".
 
-    ![](./images/view-chart.png " ")
+    ![view chart](./images/view-chart.png " ")
 
     And now we should see a nice pie chart of our salary costs - we can see that Programmers are by far our largest cost at 63.6% of the total salary bill.
 
-    ![](./images/chart-display.png " ")
+    ![final chart display](./images/chart-display.png " ")
 
 
 ## Acknowledgements

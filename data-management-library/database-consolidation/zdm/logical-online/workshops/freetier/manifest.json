@@ -13,40 +13,40 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Lab 1: Create SSH Keys",
+            "title": "Lab 1: Create SSH keys",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key-cloud-shell/generate-ssh-keys-cloud-shell.md"
         },
         {
-            "title": "Lab 2: Setup a Compute Instance and Source Database",
+            "title": "Lab 2: Setup a compute instance and source database",
             "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute/setup-19c-freetier.md"
         },
         {
-            "title": "Lab 3: Connect to Source Database and Creating Migration User",
+            "title": "Lab 3: Connect to source database and creating migration user",
             "filename": "../../database-config/database-config.md"
         },
         {
-            "title": "Lab 4: Provision the Target Autonomous Database",
+            "title": "Lab 4: Provision the target autonomous database",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"
         },
         {
-            "title": "Lab 5: Configure the GoldenGate Hub",
+            "title": "Lab 5: Configure the GoldenGate hub",
             "filename": "../../goldengate-hub/goldengate-hub.md"
         },
         {
-            "title": "Lab 6: Configure the ZDM Environment",
+            "title": "Lab 6: Configure the ZDM environment",
             "filename": "../../host-environment/host-environment.md"
         },
         {
-            "title": "Lab 7: Configure Token Authentication, Credentials and Object Storage",
+            "title": "Lab 7: Configure token authentication, credentials and object storage",
             "filename": "../../credentials/credentials.md"
         },
 
         {
-            "title": "Lab 8: Configure the Response File",
+            "title": "Lab 8: Configure the response file",
             "filename": "../../response-file/response-file.md"
         },
         {
-            "title": "Lab 9: Migrate your Database",
+            "title": "Lab 9: Migrate your database",
             "filename": "../../migration/migration.md"
         },
         {

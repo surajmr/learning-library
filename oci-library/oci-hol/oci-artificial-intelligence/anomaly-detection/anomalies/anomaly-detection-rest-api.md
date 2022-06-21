@@ -143,7 +143,7 @@ This code snippet showed you how to perform configuration and set up connection 
 import oci
 import time
 import json
-from datetime import datetime
+from datetime import datetime, date
 
 from oci.config import from_file
 from oci.ai_anomaly_detection.models import *
@@ -279,7 +279,7 @@ print("-*-*-*-DETECT-*-*-*-")
 num_rows = 200
 signalNames = ["temperature_1", "temperature_2", "temperature_3", "temperature_4", "temperature_5", "pressure_1", "pressure_2", "pressure_3", "pressure_4", "pressure_5"]
 df = pd.DataFrame(np.random.rand(num_rows, len(signalNames)), columns=signalNames)
-df.insert(0, 'timestamp', pd.date_range(start=date_today, periods=num_rows, freq='min'))
+df.insert(0, 'timestamp', pd.date_range(start=date.today(), periods=num_rows, freq='min'))
 df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%dT%H:%M:%SZ'))
 
 # Now create the Payload from the dataframe
@@ -304,5 +304,7 @@ Congratulations on completing this lab!
 * **Authors**
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services
+    * Ganesh Radhakrishnan - Product Manager - Oracle AI Services
 * **Last Updated By/Date**
+    * Ganesh Radhakrishnan - Product Manager, May 2022
     * Jason Ding - Principal Data Scientist, Jan 2022

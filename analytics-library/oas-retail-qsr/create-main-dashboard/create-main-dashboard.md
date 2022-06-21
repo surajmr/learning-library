@@ -26,44 +26,42 @@ In this scenario we will monitor business performance through the creation of da
     - **Headcount Analysis** – “Long Wait Times is an indicator that there might be turnover that is affecting payroll costs and customer satisfaction.”
 * Connected insights enables collaboration across functions enables you to share data insights.
 
-
-
 ### Prerequisites
 This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
-
   > **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
-The following files <if type="external">referenced in [Lab: Initialize Environment](?lab=init-start-oas) should already be downloaded and staged as instructed, as they</if> <if type="desktop"> staged under *`/opt/oracle/stage`*</if> are required to complete this lab.
-- *** use the dva here ***
+The following files <if type="external">referenced in [Lab: Initialize Environment](?lab=initialize-environment) should already be downloaded and staged as instructed, as they</if> <if type="desktop"> staged under *`/opt/oracle/stage`*</if> are required to complete this lab.
 
-## **Task 1:** Data exploration
+Navigate to the documents directory on the left side of the dialogue box and open **Retail Live Labs Content** directory to find the files needed for the lab. The first file, **Bobby's Burgers & Fries.dva** will be used in the next step and the **bobbysburgerdataset.csv** and **bobbyscustomerdataset.csv** files will be referenced later in lab 7.
+
+## Task 1: Data exploration
 1. From the browser session you started in the  Initialize environment lab, **click** on the **Page Menu** icon located in the upper right-hand corner.
-    ![Page menu icon](./images/introp.png " ")
+    ![Page menu icon](./images/intro.png " ")
 
-2. **Click** on **Import Project/Flow...** to upload the file we will be using.
+2. **Click** on **Import Workbook/Flow...** to upload the file we will be using.
 
 3. **Choose** the **Select File** option and pick the .dva file you downloaded earlier.
 
 4. **Click** Import. The dva will be imported to your OAS home page.
 
-5. **Select** the **Bobby's Burgers & Fries** icon from under the **Projects** section.  
+5. **Select** the **Bobby's Burgers & Fries** icon from under the **Workbooks** section.  
 
 6. You will be presented with an empty canvas. Let’s start visualizing! First, **click** on the **Data Tab** at the top of the screen. Here is where we can see all of the data that Bobby's Burgers & Fries will be working with.
     ![OAS Visualize page](./images/mian-dashboard-visualize-tab.png " ")
-Oracle Analytics Server includes its own light weight data preparation capabilities. When you import the spreadsheet, you will navigate to the preparation tab before adding the data to the project.  Here you can make some modifications to the data elements or make modifications to your data based upon any recommendations Oracle Analytics knowledge service suggests.  Additionally, you can define a relationship between the subject areas in order to join the data sources for further analysis.
+Oracle Analytics Server includes its own light weight data preparation capabilities. When you import the spreadsheet, you will navigate to the preparation tab before adding the data to the workbook.  Here you can make some modifications to the data elements or make modifications to your data based upon any recommendations Oracle Analytics knowledge service suggests.  Additionally, you can define a relationship between the subject areas in order to join the data sources for further analysis.
 
 7. **Select** the **Data Diagram** tab from the bottom of the screen to visualize the relationship between the data sets. You can view all the relationships as well as navigate through the different data sets to get an understanding of what we will be working with.
     ![Data Diagram](./images/data-diagram.png " ")
 8. Once satisfied with the above step, proceed back to the **Visualize** tab at the top of the screen. **Click** Visualize.
 
 
-## **Task 2:** Discover insights
+## Task 2: Discover insights
 The data visualization capabilities in Oracle Analytics Server are extensive, include things like mapping and custom calculations. In this exercise we will use both capabilities: we will create custom calculations based on two available metrics, and we will then display the results on a map.
 
-1. In this first exercise we will create our first visual. Lets view sales by location. Using the visualizations menu on the left side of the pane:
+1. In this first exercise we will create our first visual. Let's view sales by location. Using the visualizations menu on the left side of the pane:
     - **Control select** and choose **'State'** and **'Sales'** in the **"region1"** dataset.
     - **Right click**, select **'Pick Visualization'**.
 
@@ -117,7 +115,7 @@ The data visualization capabilities in Oracle Analytics Server are extensive, in
 
       >**Note:** Sometimes the tool can be touchy. I find dragging and dropping the visual into a different location first, and then dragging into smaller areas, lets you move things more freely.
 
-      Select **'Save'** in the top right of the screen to save and update your project.
+      Select **'Save'** in the top right of the screen to save and update your workbook.
 
 11. In this exercise we will create custom calculations and two more custom visuals to create our HR analysis cards in order analyze salary and the relationship to company headcount.
 
@@ -127,7 +125,12 @@ The data visualization capabilities in Oracle Analytics Server are extensive, in
 
 13. Now we will **create a new metric** called **"Previous Year - Salary & Wage"**. Notice there are a wide range of functions available for creating custom calculations using the expression builder. **We are going to use the code snippet below**, click the copy button and paste it into the calculation box on OAS. Feel free explore the expression builder and create more calculations.
 
-        <copy>(FILTER(XSA('weblogic'.'Financial (1)')."Columns"."Previous Year - Operating Expenses" USING XSA('weblogic'.'Financial (1)')."Columns"."Account Group"='Salary & Wage'))</copy>
+    ```
+    <copy>
+    (FILTER(XSA('biworkshopuser'.'Financial (1)')."Columns"."Previous Year - Operating Expenses" USING XSA('biworkshopuser'.'Financial (1)')."Columns"."Account Group"='Salary & Wage'))
+    </copy>
+
+    ```
 
     ![custom calculation](./images/custom-calculation.png " ")
     >**Note:** The arguments in our calculation appear as full path names but are shortened when added into the calculation box of OAS. If confused use the picture below to make sure your custom calculation matches.
@@ -138,7 +141,7 @@ The data visualization capabilities in Oracle Analytics Server are extensive, in
 
     You have successfully created your own custom calculation that can be used like any other metric.
 
-15. Let’s utilize our custom calculation in a couple of visualizations. Locate the **"My Calculations"** folder and the **"OAX PL Payroll'** dataset on the left side of the project.
+15. Let’s utilize our custom calculation in a couple of visualizations. Locate the **"My Calculations"** folder and the **"OAX PL Payroll'** dataset on the left side of the workbook.
     - **Control select** the calculation **'Previous Year - Salary & Wage'** from "My Calculation" and **'Quarter'** from the "OAX PL Payroll" dataset
     - **Right click**, select **"Create Best Visualization"**
 
@@ -168,7 +171,7 @@ The data visualization capabilities in Oracle Analytics Server are extensive, in
 
     ![moving the visual](./images/moving-line-visual.png " ")
 
-21. To finish the 'Headcount by Date' card. **Drag** and **drop** the **'Headcount'** measure  from the **"Underlying HR Dashboard copy"** dataset **above the visual** we just created. Select **'Save'** to save and update your project.
+21. To finish the 'Headcount by Date' card. **Drag** and **drop** the **'Headcount'** measure  from the **"Underlying HR Dashboard copy"** dataset **above the visual** we just created. Select **'Save'** to save and update your workbook.
 
     ![drag and drop headcount](./images/drag-headcount.png " ")
     ![showing all visuals](./images/headcount-card.png " ")
@@ -183,4 +186,4 @@ You have now finished the Main Dashboard creation. Next we will take a closer lo
 ## Acknowledgements
 * **Authors** - Killian Lynch, Nagwang Gyamtso, Luke Wheless, Akash Dharamshi, Solution Engineer Specialist Hub Team, NA Technology
 * **Contributors** - Killian Lynch, Solution Engineer Specialist Hub Team, NA Technology
-* **Last Updated By/Date** - Killian Lynch, Solution Engineer Specialist Hub Team, NA Technology, February 2022
+* **Last Updated By/Date** - Killian Lynch, February 2022

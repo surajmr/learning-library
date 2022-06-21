@@ -22,7 +22,7 @@
       "title": "Lab 2: Environment setup",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize environment",
@@ -33,26 +33,22 @@
     {
       "title": "Lab 4: Create main dashboard",
       "description": "Create Main Dashboard",
-      "filename": "../../create-main-dashboard/create-main-dashboard.md",
-      "type": "external"
+      "filename": "../../create-main-dashboard/create-main-dashboard.md"
     },
     {
       "title": "Lab 5: Analyze channel sales",
       "description": "Channel Sales",
-      "filename": "../../channel-sales/channel-sales.md",
-      "type": "external"
+      "filename": "../../channel-sales/channel-sales.md"
     },
     {
       "title": "Lab 6: Uncover HR trends",
       "description": "HR Analysis",
-      "filename": "../../hr-analysis/hr-analysis.md",
-      "type": "external"
+      "filename": "../../hr-analysis/hr-analysis.md"
     },
     {
       "title": "Lab 7: Predict on time delivery",
       "description": "On Time Delivery",
-      "filename": "../../on-time-delivery/on-time-delivery.md",
-      "type": "external"
+      "filename": "../../on-time-delivery/on-time-delivery.md"
     },
     {
       "title": "Need Help?",

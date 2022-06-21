@@ -1867,7 +1867,7 @@ Data Discovery helps you find sensitive data in your databases and Data Masking 
 
 3. **Now your Data Safe configuration is correctly reset!**
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -1899,4 +1899,4 @@ Video:
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Bettina Schaeumer, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - March 2022
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

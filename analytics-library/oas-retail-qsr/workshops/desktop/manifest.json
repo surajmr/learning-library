@@ -8,51 +8,34 @@
       "filename": "../../intro/intro.md"
     },
     {
-      "title": "Get started",
-      "description": "Login to Oracle Cloud",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
+      "title": "Get Started with noVNC Remote Desktop",
+      "description": "Using noVNC Remote Desktop",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
     },
     {
-      "title": "Lab 1: Prepare setup",
-      "description": "How to download your ORM stack and update security rules for an existing VCN",
-      "publisheddate": "09/28/2020",
-      "filename": "../../prepare-setup/prepare-setup.md"
-    },
-    {
-      "title": "Lab 2: Environment setup",
-      "description": "How to provision the workshop environment and connect to it",
-      "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
-    },
-    {
-      "title": "Lab 3: Initialize environment",
+      "title": "Lab 1: Initialize environment",
       "description": "Initialize Environment Lab",
-      "filename": "../../initialize-environment/initialize-environment.md",
-      "type": "external"
+      "filename": "../../initialize-environment/initialize-environment.md"
     },
     {
-      "title": "Lab 4: Create main dashboard",
+      "title": "Lab 2: Create main dashboard",
       "description": "Create Main Dashboard",
-      "filename": "../../create-main-dashboard/create-main-dashboard.md",
-      "type": "external"
+      "filename": "../../create-main-dashboard/create-main-dashboard.md"
     },
     {
-      "title": "Lab 5: Analyze channel sales",
+      "title": "Lab 3: Analyze channel sales",
       "description": "Channel Sales",
-      "filename": "../../channel-sales/channel-sales.md",
-      "type": "external"
+      "filename": "../../channel-sales/channel-sales.md"
     },
     {
-      "title": "Lab 6: Uncover HR trends",
+      "title": "Lab 4: Uncover HR trends",
       "description": "HR Analysis",
-      "filename": "../../hr-analysis/hr-analysis.md",
-      "type": "external"
+      "filename": "../../hr-analysis/hr-analysis.md"
     },
     {
-      "title": "Lab 7: Predict on time delivery",
+      "title": "Lab 5: Predict on time delivery",
       "description": "On Time Delivery",
-      "filename": "../../on-time-delivery/on-time-delivery.md",
-      "type": "external"
+      "filename": "../../on-time-delivery/on-time-delivery.md"
     },
     {
       "title": "Need Help?",

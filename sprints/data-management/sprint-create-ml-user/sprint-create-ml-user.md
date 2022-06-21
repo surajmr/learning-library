@@ -1,12 +1,12 @@
 # How can I create a new Machine Learning user in Oracle Autonomous Database?
 
-Duration: 4 minutes
+Duration: 5 minutes
 
 ## Create a new Machine Learning user in Oracle Autonomous Database
 
 1.  Click the navigation menu in the upper left, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
 
-2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases, and sort by **Workload Type**.
+2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases and sort by **Workload Type**.
 
 3. From the databases displayed, click **Display Name** of the database you wish to create a new machine learning user and select **Tools** on the Autonomous Database Details page.
 
@@ -16,7 +16,7 @@ Duration: 4 minutes
 
     ![](./images/open-ml-admin.png " ")
 
-5. Sign in as **Username - ADMIN** and give the password you provided when you created your Autonomous database instance.
+5. Sign in as **Username - ADMIN** and give the Password you provided when you created your Autonomous database instance.
 
     ![](./images/ml-login.png  " ")
 
@@ -33,7 +33,7 @@ Duration: 4 minutes
 
     ![](./images/create-ml-user.png  " ")
 
-8. Notice that the **ML\_USER** is created.
+8. Notice that your new ML user is created.
 
     ![](./images/ml-user-created.png " ")
 
@@ -41,7 +41,7 @@ Duration: 4 minutes
 
     ![](./images/home-icon.png  " ")
 
-10. Enter the username and password you provided when you created this user and click on **Sign in**. This will launch the Database Actions Launchpad page. Before you log in, you may wish to bookmark this page.
+10. Enter the username and password you provided when you created the new user and click on **Sign in**. This will launch the Oracle Machine Learning home page. Before you log in, you may wish to bookmark this page.
 
     ![](./images/mluser-sign-in.png  " ")
 

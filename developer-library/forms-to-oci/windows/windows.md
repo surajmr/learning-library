@@ -165,9 +165,12 @@ You need to install the MS VC libraries to ensure that all components/tools in t
     # Copy the tnsadmin.ora file
     scp -i &lt;ssh private key&gt; opc@&lt;Forms Private IP&gt;:/u01/oracle/middleware/user_projects/domains/base_domain/config/fmwconfig/tnsnames.ora C:\Oracle\Middleware\forms1
 
-    # If you use the Local DB of the Forms Server. Open the port in the Linux Firewall.
+    # Open the ports in the Linux Firewall. (1521: Local DB, 7001: WLS, 9001: FORMS)
     ssh -i &lt;ssh private key&gt; opc@&lt;Forms Private IP&gt;
     sudo firewall-cmd --zone=public --add-port=1521/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=7001/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+    sudo systemctl restart firewalld 
     exit
 
     Ex:
@@ -175,6 +178,9 @@ You need to install the MS VC libraries to ensure that all components/tools in t
 
     ssh -i ssh-key-2022-03-21.key opc@10.0.1.130
     sudo firewall-cmd --zone=public --add-port=1521/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=7001/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+    sudo systemctl restart firewalld 
     exit
     ```
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This workshop walks you through the steps to get started using the Oracle Autonomous Database. For this workshop we're going to use an **Autonomous Database optimized for Analytics and Warehousing (ADW)**. You will provision a new database in just a few minutes.
+This workshop walks you through the steps to get started using the Oracle Autonomous Database. For this workshop we're going to use an always free **Autonomous Database optimized for Analytics and Warehousing (ADW)**. You will provision a new database in just a few minutes.
 
 Oracle Autonomous Databases have the following characteristics:
 
@@ -30,7 +30,7 @@ Estimated Lab Time: 15 minutes.
 ### Objectives 
 - Create an Autonomous Database with the latest features of Oracle Databases
 
-## Task 1: Create a new Autonomous Data Warehouse Database
+## Task 1: Create a new Always Free Autonomous Data Warehouse Database
 
 1. Click on the navigation menu at the upper left corner of the page.
 
@@ -65,6 +65,12 @@ Estimated Lab Time: 15 minutes.
     - **Workload Type:** Autonomous Data Warehouse  
     
     - **Deployment Type:** Shared Infrastructure
+    
+    - **Always Free:** On
+
+    You will see the Always Free logo next to the name of your database:
+
+    ![Always Free Logo](./images/always_free_logo.png)
 
         ![ADB Creation Details](./images/lab100_3_2.png)
 

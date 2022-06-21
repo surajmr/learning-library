@@ -30,7 +30,7 @@ In this lab, you will:
     ````
     <copy>
     ls ~/Downloads/
-    sudo unzip Downloads/sqlcl-[latest-version].zip -d /opt/oracle/
+    sudo unzip ~/Downloads/sqlcl-latest.zip -d /opt/oracle/
     ln -s /opt/oracle/sqlcl/bin/sql /home/oracle/.local/bin/sql
     </copy>
     ````
@@ -47,7 +47,7 @@ In this lab, you will:
     
     ````
     <copy>
-    set cloudconfig /home/oracle/Wallet_[Your Initials]Dev01.zip
+    set cloudconfig /home/oracle/Downloads/Wallet_[Your Initials]Dev01.zip
     </copy>
     ````
 

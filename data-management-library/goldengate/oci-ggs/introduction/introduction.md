@@ -19,8 +19,6 @@ Oracle Cloud Infrastructure GoldenGate is a fully-managed service that uses Orac
 * Familiarity with Oracle Cloud Infrastructure is helpful, but not required
 * An Oracle Cloud Account - Please view this workshop's landing page to see which environments are supported
 
-> **Note:** *If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. See [Free Tier FAQs.](https://www.oracle.com/cloud/free/faq.html)*
-
 ## Learn more
 
 * [Overview of Oracle Cloud Infrastructure GoldenGate](https://docs.oracle.com/en/cloud/paas/goldengate-service/using/overview-goldengate.html#GUID-0AF49219-46DC-4BF2-BBFA-64E4D3F557F2)
@@ -30,4 +28,4 @@ Oracle Cloud Infrastructure GoldenGate is a fully-managed service that uses Orac
 
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
 * **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, March 2022
+* **Last Updated By/Date** - Arabella Yao, May 2022

@@ -35,9 +35,11 @@ Additionally, the algorithm also has some requirements on data type, minimum num
     - rows that are strictly ordered by timestamp, without duplicated timestamps.
 * The training data can have 1 or more attributes, up to 300 attributes in the current release as of Jan 2022.
 * At least one attribute does not have a missing value.
-* The number of observations/timestamps in training data should be at least eight times of attributes or 40, whichever is greater.
+* The number of observations/timestamps in training data should be at least eight times the number of attributes or 80, whichever is greater.
 
-The testing/detecting data is also required to only contain columns like timestamp and other numeric attributes that match with the training data; observations are strictly ordered by unique timestamps. No further requirements on testing data.
+The testing/detecting data is also required to only contain columns like timestamp and other numeric attributes that match with the training data set; observations are strictly ordered by unique timestamps. No further requirements on testing data.
+
+For more details, please refer to the [Training and Testing Data Requirements](https://docs.oracle.com/en-us/iaas/Content/anomaly/using/data-require.htm) section within OCI Anomaly Detection documentation.
 
 ### Data format requirement
 
@@ -137,4 +139,5 @@ Congratulations on completing this lab!
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services
 * **Last Updated By/Date**
+    * Ganesh Radhakrishnan - Product Manager, May 2022
     * Jason Ding - Principal Data Scientist, Jan 2022

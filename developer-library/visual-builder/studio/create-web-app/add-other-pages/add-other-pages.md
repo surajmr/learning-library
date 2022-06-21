@@ -27,7 +27,7 @@ An Edit page lets you edit a row in your table. In this task, you'll add a page 
 1.  Click **Web Applications** ![Web Applications icon](images/web-applications-icon.png), then select the **main-departments** page.  Click **Page Designer** and select the **Table** component on the page. If necessary, click **Reload page** ![Reload page icon](images/reload-icon.png) to view the new departments.
 2.  In the Properties pane, click **Quick Start** to display the Quick Start menu, then click **Add Edit Page**.
 
-    ![](images/departments-add-edit-quick-start.png " ")
+    ![](images/departments-add-edit-quick-start.png "This image shows the Quick Start menu for the Departments table, with Add Edit Page selected.")
 
 3.  On the Select Read Endpoint step of the Add Edit Page wizard, select **Department** under Business Objects (if necessary) and click **Next**. VB Studio will automatically select the Department object's read endpoint.
 4.  On the Select Update Endpoint step, select **Department** under Business Objects again (if necessary) and click **Next**. As with the read endpoint, VB Studio will automatically select the Department object's update endpoint.
@@ -44,7 +44,7 @@ A Detail page lets you view additional details of a row in your table. In this t
 2.  On the Select Endpoint step of the Add Details Page wizard, select **Department** under Business Objects (if necessary) and click **Next**. VB Studio will automatically select the endpoint to read a single record.
 3.  On the Page Details step, select **name**. Expand the **locationObject** and **items** nodes (expand **item\[i\]** if it isn't already expanded) and select **name**. With this selection, both the department's name and location will show as additional details for the user. Change the **Button label** field to `View Department Detail`. Click **Finish**.
 
-   ![](images/department-add-detail-page-fields.png " ")
+   ![](images/department-add-detail-page-fields.png "This image shows the Select Endpoint scren of the Add Detail Page quick start. The name and name - locationObject are selected.")
 
     A **View Department Detail** button is displayed in the toolbar on the `main-departments` page. The button is inactive.
 
@@ -71,12 +71,12 @@ Now, let's test your web pages.
 2.  Select a row. All the buttons are now active.
 3.  Click **Edit Department**.
 
-    ![](images/departments-edit.png " ")
+    ![](images/departments-edit.png "This image shows part of the Departments page in Preview, with a table row selected and with the Edit Department button selected. ")
 
 4.  On the Edit Department page, change the **Location** field to `Floor 4` and click **Save**. A success message appears briefly, and you are returned to the Departments page.
 5.  Select the row again and click **View Department Detail** to display the data.
 
-    ![](images/departments-detail.png " ")
+    ![](images/departments-detail.png "This image shows the Department Detail page when the Marketing department row is selected in Preview. The Back button is selected.")
 
 6.  Click **Back**.
 7.  Click **Create Department** and specify the name and location of a new department, and then click **Save**. A success message appears. The new department is displayed in the table.
@@ -130,7 +130,7 @@ Now that we've added options to let users manage departments, we'll do the same 
 
 3.  Select a row. All the buttons are now active.
 
-    ![](images/employees-edit.png " ")
+    ![](images/employees-edit.png "This image shows part of the Employees page in Preview, with a table row selected and with the Edit Employee button selected. ")
 
 4.  Click **Edit Employee**.
 5.  On the Edit Employee page, change **Department** to `IT` and click **Save**. A success message appears, and you are returned to the Employees page.
@@ -143,4 +143,4 @@ Now that we've added options to let users manage departments, we'll do the same 
 
 ## Acknowledgements
 * **Author** - Sheryl Manoharan, VB Studio User Assistance, November 2021
-* **Last Updated By/Date** - Sheryl Manoharan, February 2022
+* **Last Updated By/Date** - Sheryl Manoharan, May 2022

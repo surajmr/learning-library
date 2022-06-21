@@ -1,13 +1,12 @@
 # Transform your Data into Insights
 
-![Data Science](images/ds_banner.jpg)
+![Data Science](images/ds-banner.jpg)
 
 ## Introduction
 
 **Oracle Data Science**: Build high-quality models faster and easier. Automated machine learning capabilities rapidly examine the data and recommend the optimal data features and best algorithms. Additionally, automated machine learning tunes the model and explains the model’s results.
 
 [](youtube:_Z5PdpdEklI)
-
 
 Estimated Time: 15 minutes.
 
@@ -29,18 +28,24 @@ In this section, you will:
 
 1. Create **Dynamic Group**, go to **Menu**, **Identity & Security** and then click **Dynamic Groups**.
 
-> Note: If you can't see **Dynamic Groups** under **Identity & Security** section, please select **Domains**, **Default (Current domain)** and then click **Dinamycs Group**.
+> Note: If you can't see **Dynamic Groups** under **Identity & Security** section, please select **Domains**, **Default (Current domain)** and then click **Dinamycs Group** in the left side menu.
  
-   ![](images/ds_dynamic_group_menu.png)
+   ![Dynamic group menu](images/ds-dynamic-group-menu.png)
 
 2. Click **Create Dynamic Group**.
 
-   ![](images/ds_dynamic_group_create_button.png)
+   ![Dynamic group menu create](images/ds-dynamic-group-create-button.png)
 
 3. Set the following **Values**:
 
       - Name: `datascience`
+         ```
+         <copy>datascience</copy>
+         ```
       - Description: `Data Science Dynamic Group`
+         ```
+         <copy>Data Science Dynamic Group</copy>
+         ```
       - Rule 1 (Matching Rules):
          ```
          <copy>ALL { resource.type = 'datasciencenotebooksession' }</copy>
@@ -48,11 +53,11 @@ In this section, you will:
 
 4. Click **Create**.
 
-   ![](images/ds_dynamic_group_create.png)
+   ![Dynamic group created](images/ds-dynamic-group-create.png)
 
-5. The **Dynamic Group** for Data Science has been created.
+5. The **Dynamic Group** for Data Science has been created. Don't worry if the colour can vary from the picture, **Green** and **Blue** in this case mean the same.
 
-   ![](images/ds_dynamic_group_review.png)
+   ![Dynamic group review](images/ds-dynamic-group-review.png)
 
 ---
 
@@ -60,18 +65,24 @@ In this section, you will:
 
 1. Go to **Menu**, **Identity & Security** and then click **Policies**.
 
-   ![](images/identity_policies_menu.png)
+   ![Identity policies menu](images/identity-policies-menu.png)
 
 2. Click **Create Policy**.
 
    Make sure you are in the `root` compartment.
 
-   ![](images/ds_policies_create_button.png)
+   ![Identity policies menu create](images/ds-policies-create-button.png)
 
 3. Use the following information:
 
       - Name: `datascience`
+         ```
+         <copy>datascience</copy>
+         ```
       - Description: `Data Science to use network resources`
+         ```
+         <copy>Data Science to use network resources</copy>
+         ```
       - Policy Builder:
       - Toggle **Show manual editor**
 
@@ -85,11 +96,11 @@ In this section, you will:
 
 4. Click **Create**.
 
-   ![](images/ds_policies_create.png)
+   ![Identity policies created](images/ds-policies-create.png)
 
 5. The **Policy** for Data Science has been created.
 
-   ![](images/ds_policies_create_review.png)
+   ![Identity policies review](images/ds-policies-create-review.png)
 
    > Note: If you have created an **Oracle Cloud Account** to do the workshop, you are already the Administrator. You DO NOT NEED TO DO THIS STEP.
    >
@@ -109,51 +120,67 @@ In this section, you will:
 
 1. Go to **Menu**, **Analytics & AI** and then click **Data Science**.
 
-   ![](images/ds_menu.png)
+   ![DS menu](images/ds-menu.png)
 
 2. Click **Create Project**.
 
-   ![](images/ds_create_project_button.png)
+   ![DS create project](images/ds-create-project-button.png)
 
 3. Set the **Name** and **Description** as follows:
 
       - Name: `Nature`
+         ```
+         <copy>Nature</copy>
+         ```
       - Description: `Fish Survey notebook`
+         ```
+         <copy>Fish Survey notebook</copy>
+         ```
 
 4. Click **Create**.
 
-   ![](images/ds_create_project.png)
+   ![DS project created](images/ds-create-project.png)
 
 5. The next step is to create a **Notebook**, click **Create Notebook Session**.
 
-   ![](images/ds_create_notebook.png)
+   ![DS create notebook](images/ds-create-notebook.png)
 
 6. Set the following **Values**:
 
       - Name: `Fish Survey`
+         ```
+         <copy>Fish Survey</copy>
+         ```
       - Compute Instance Shape (but other compatible shapes would work as well): `VM.Standard.E2.2`
       - Block Storage Size: `50`
+         ```
+         <copy>50</copy>
+         ```
       - Networking resources > Custom networking
       - VCN: `nature`
       - Subnet: `Private Subnet-nature`
 
 7. Click **Create**.
 
-   ![](images/ds_create_notebook_create.png)
+   ![DS notebook created](images/ds-create-notebook-create.png)
 
-8. The **Status** icon will change from Creating to Active:
+8. The **Status** icon will change from Creating to Active. Be patient, this process should take a few minutes.
 
-   ![Creating](images/datascience-creating.png)
+   ![DS notebook creating](images/datascience-creating.png)
 
-   ![Active](images/datascience-active.png)
+   ![DS notebook active](images/datascience-active.png)
 
 9. When the Notebook is active, click **Open**.
 
-   ![](images/ds_create_notebook_open.png)
+   ![DS notebook created](images/ds-create-notebook-open.png)
 
-10. Log-in into your Notebook. Click **Continue** and you should be in your notebook as you are using your same OCI Web Console user. Otherwise, log in with your specific user.
+10. If you see your **Oracle Cloud Account** in the next screen, clik on it, otherwise follow the next steps to `Sign in with a different user account` and follow the next step.
 
-   ![](images/ds_notebook_login.png)
+   ![DS notebook dashboard](images/oracle-cloud-account-notebook-dashboard.png)
+
+11. Log-in into your Notebook. Click **Continue** and you should be in your notebook as you are using your same OCI Web Console user. Otherwise, log in with your specific user.
+
+   ![DS notebook login](images/ds-notebook-login.png)
 
 ---
 
@@ -161,7 +188,7 @@ In this section, you will:
 
 1. Welcome to your **Jupyter Notebook**. Click **Terminal**.
 
-   ![](images/ds_notebook_terminal_launcher_new.png)
+   ![DS notebook terminal](images/ds-notebook-terminal-launcher-new.png)
 
 2. Type the following command:
 
@@ -169,9 +196,9 @@ In this section, you will:
       <copy>pip install mysql-connector-python pandas seaborn</copy>
    ```
 
-   ![](images/ds_notebook_terminal_install.png)
+   ![DS notebook terminal install](images/ds-notebook-terminal-install.png)
 
-3. Wait for the installation to **complete**.
+3. Wait for the installation to **complete**. It should take less than one minute.
 
 ---
 
@@ -181,13 +208,13 @@ In this section, you will:
 
 2. Click **Upload files**.
 
-   ![](images/ds_notebook_upload.png)
+   ![DS notebook upload](images/ds-notebook-upload.png)
 
 3. **Select** `mds-di-ds-FishSurvey.ipynb` from your disk. Wait for the upload to **complete**.
 
 4. Your `mds-di-ds-FishSurvey.ipynb` will be **loaded** on the side panel.
 
-   ![](images/ds_notebook_fish_notebook.png)
+   ![DS notebook fish notebook](images/ds-notebook-fish-notebook.png)
 
 5. **Double click** on **mds-di-ds-FishSurvey.ipynb**.
 
@@ -202,15 +229,15 @@ In this section, you will:
    )
    ```
 
-   ![](images/ds_notebook_fish_notebook_run.png)
+   ![DS notebook fish run](images/ds-notebook-fish-notebook-run.png)
 
 7. **Select** the first paragraph (called Cell) with all the `import` statements in the Notebook and run the **Notebook** cell by cell by clicking the **Play** icon over and over until you reach the end.
 
-   ![](images/ds_notebook_fish_notebook_head.png)
+   ![DS notebook fish run code](images/ds-notebook-fish-notebook-head.png)
 
 8. Check the **plot** where you can see the population of fish by water depth.
 
-   ![](images/ds_notebook_fish_notebook_plot.png)
+   ![DS notebook fish run plot](images/ds-notebook-fish-notebook-plot.png)
 
 Congratulations! Well done!
 
@@ -222,4 +249,4 @@ Continue to the Next Steps for more information!
 
 - **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Priscila Iruela, April 2022
+- **Last Updated By/Date** - Priscila Iruela, June 2022

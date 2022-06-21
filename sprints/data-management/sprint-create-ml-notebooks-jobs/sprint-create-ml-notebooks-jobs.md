@@ -1,21 +1,21 @@
-# How can I create jobs to schedule a Machine Learning Notebook run in Oracle Autonomous Database?
+# How can I create jobs to schedule a Machine Learning Notebook to run in Oracle Autonomous Database?
 
 Jobs allow you to schedule the running of notebooks. On the Jobs page, you can create jobs, duplicate jobs, start and stop jobs, delete jobs, and monitor job status by viewing job logs, which are read-only notebooks. Let's see how to create a job to schedule the running of a notebook.
 
-Duration: 4 minutes
+Duration: 10 minutes
 
-## Create jobs to schedule a Machine Learning Notebook run in Oracle Autonomous Database
+## Create jobs to schedule a Machine Learning Notebook to run in Oracle Autonomous Database
 
-1. If you have your ADB ML user sign in URL bookmarked, navigate to the link and enter the username and password you provided when you created your machine learning user and click on **Sign in**. This will launch the Database Actions Launchpad page.
+1. If you have your ADB ML user sign-in URL bookmarked, navigate to the link and enter the username and password you provided when you created your machine learning user, and click on **Sign in**. This will launch the Oracle Machine Learning home page.
 
     ![](./images/mluser-sign-in.png  " ")
 
     <details>
-    <summary>If you do not have your ADB ML user sign in URL bookmarked, **click expand** to view the steps to sign in as machine learning user!</summary>
+    <summary>If you do not have your ADB ML user sign-in URL bookmarked, **click expand** to view the steps to sign in as machine learning user!</summary>
 
-    1. If you do not have your ADB ML user sign in URL bookmarked, then click the navigation menu in the upper left of the Oracle Cloud Console, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
+    1. If you do not have your ADB ML user sign in URL bookmarked, click the navigation menu in the upper left of the Oracle Cloud Console, navigate to **Oracle Database**, select **Autonomous Database** and navigate to your ADB instance.
 
-    2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases, and sort by **Workload Type**.
+    2. From the compartment drop-down menu, select the **Compartment** where your Oracle Autonomous Database resource is provisioned. If there were a long list of databases, you could filter the list by the **State** of the databases and sort by **Workload Type**.
 
     3. From the databases displayed, click **Display Name** of the database you wish to create a notebook for the machine learning user and click **Service Console**. The Launch Service Console dialog opens. Wait till the Service Console opens.
 
@@ -25,7 +25,7 @@ Duration: 4 minutes
 
 	    ![Development option in ADW Service Console](images/adw-development.png)
 
-    5. Click **Oracle Machine Learning User Interface.** This opens the Oracle Machine Learning sign in page.
+    5. Click **Oracle Machine Learning User Interface.** This opens the Oracle Machine Learning sign-in page.
 
         ![Oracle Machine Learning User Interface in ADW](images/adw-oml-notebooks.png)
 
@@ -47,15 +47,15 @@ Duration: 4 minutes
 
 	![Create Job](images/create-jobs1.png)
 
-4. In the **Notebook** field, click the search icon. This opens the Search Notebook dialog. In the Search Notebook dialog, navigate through your user workspace, select a project and choose the notebook to schedule the run job and then click **OK**.
+4. In the **Notebook** field, click the search icon. This opens the Search Notebook dialog. In the Search Notebook dialog, navigate to your user workspace, select a project, choose the notebook to schedule the run job, and click **OK**.
 
 	> **Note:** Only notebooks that are owned by the user or shared are available for selection.
 
 	![Select notebook to schedule job](images/select-notebook-for-job.png)
 
-5. In the **Start Date** field, click the date-time editor to set the date and time for your job to commence. You can select the current date or any future date and time. Based on the selected date and time, the next run date is computed.
+5. In the **Start Date** field, click the date-time editor to set the date and time for your job to commence. You can select the current date or any future date and time. The next run date is computed based on the selected date and time.
 
-6. Select **Repeat Frequency** if needed and enter the number of times for the job to run, and select **Days** to set the repeat frequency and settings. You can set the frequency in minutes, hours, days, weeks, and months.
+6. Select **Repeat Frequency** if needed, enter the number of times for the job to run, and select **Days** to set the repeat frequency and settings. You can set the frequency in minutes, hours, days, weeks, and months.
 
 7. Expand **Advanced Settings**, and specify the following settings:
 

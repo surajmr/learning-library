@@ -14,7 +14,9 @@ This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: **This needs to be created. Check Killian's downloads files for test-oas-mkplc-freetier folder.**
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment
+
+    - [oas-retail-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/9_H8ea9DFSwJW-Ix45IWsbKP4SPqURjKOuAof5BRgWJE9FJhLTD1nq1T09SCw9zA/n/natdsecurity/b/stack/o/oas-retail-mkplc-freetier.zip)
 
 2.  Save in your downloads folder.
 
@@ -26,6 +28,7 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
+| 80             | noVNC Remote Desktop (NGINX proxy)    |
 | 6080           | noVNC Remote Desktop                  |
 | 9502           | OAS Presentation service              |
 

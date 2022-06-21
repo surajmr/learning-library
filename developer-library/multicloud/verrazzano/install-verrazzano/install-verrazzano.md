@@ -51,11 +51,11 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
 1. Copy the following command and paste it in the *Cloud Shell* to run it.
 
     ```bash
-    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.1.0/operator.yaml</copy>
+    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.1/operator.yaml</copy>
     ```
     The output should be similar to the following:
     ```bash
-    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.1.0/operator.yaml
+    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.1/operator.yaml
     customresourcedefinition.apiextensions.k8s.io/verrazzanomanagedclusters.clusters.verrazzano.io created
     customresourcedefinition.apiextensions.k8s.io/verrazzanos.install.verrazzano.io created
     namespace/verrazzano-install created
@@ -107,9 +107,8 @@ An installation profile is a well-known configuration of Verrazzano settings tha
 
 Verrazzano supports the following installation profiles: development (`dev`), production (`prod`), and managed cluster (`managed-cluster`).
 
-* The production profile, which is the default, provides a 3-node Elasticsearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
-* The development profile provides a single node Elasticsearch and no persistent storage for the VMI.
-* The managed-cluster profile installs only managed cluster components of Verrazzano. To take full advantage of multicluster features, the managed cluster should be registered with an admin cluster.
+The following image describes the Verrazzano installation profiles.
+![Install Profile](images/installprofile.png)
 
 To change profiles in any of the following commands, set the *VZ_PROFILE* environment variable to the name of the profile you want to install.
 
@@ -117,10 +116,13 @@ For a complete description of Verrazzano configuration options, see the [Verrazz
 
 In this lab, we are going to install the *development profile of Verrazzano*, which has the following characteristics:
 
+* Wildcard (nip.io) DNS
+* Self-signed certificates
+* Shared observability stack used by the system components and all applications
+* Ephemeral storage for the observability stack (if the pods are restarted, you lose all of your logs and metrics)
 * It has a lightweight installation.
 * It is for evaluation purposes.
-* No persistence.
-* Single-node Elasticsearch cluster topology.
+* Single-node Opensearch cluster topology.
 
 The following image describes the Verrazzano components that are installed with each profile.
 
@@ -220,4 +222,4 @@ Leave the *Cloud Shell* open; we need it for Lab 3.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, April 2022
+* **Last Updated By/Date** - Ankit Pandey, May 2022

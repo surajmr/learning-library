@@ -35,66 +35,78 @@ In this section, you will:
 
 2. Go to **Menu**, **Networking** and then click **Virtual Cloud Networks**.
 
-   ![VCN menu](images/vcn_menu.png)
+   ![VCN menu](images/vcn-menu.png)
 
    > Note: If you have not picked a compartment, pick the **root** compartment for this Lab.
    >
-   > ![Pick Compartment](images/pick_compartment.png)
+   > ![Pick Compartment](images/pick-compartment.png)
 
 3. Click **Start VCN Wizard**.
 
-   ![Start VCN Wizard](images/start_vcn_wizard.png)
+   ![Start VCN Wizard](images/start-vcn-wizard.png)
 
 4. Select **VCN with Internet Connectivity** and click **Start VCN Wizard**.
 
-   ![VCN with Internet](images/vcn_with_internet_connectivity.png)
+   ![VCN with Internet](images/vcn-with-internet-connectivity.png)
 
 5. Change the **VCN name** and leave everything else as **default**.
 
       - VCN Name: `nature`
+      ```
+      <copy>nature</copy>
+      ```
 
 6. Click **Next**.
 
-   ![VCN Name](images/vcn_name.png)
+   ![VCN Name](images/vcn-name.png)
 
 7. Review all the details and click **Create**.
 
-   ![VCN Review](images/vcn_review.png)
+   ![VCN Review](images/vcn-review.png)
 
    The creation process takes few seconds. Confirm everything is created (green tick on all resources) before you continue.
 
 8. Click **View Virtual Cloud Network**.
 
-   ![VCN Creation OK](images/vcn_create_ok.png)
+   ![VCN Creation OK](images/vcn-create-ok.png)
 
 9. Go to your new **Private Subnet-nature**.
 
-   ![VCN Private Subnet](images/vcn_private_subnet.png)
+   ![VCN Private Subnet](images/vcn-private-subnet.png)
 
 10. Click **Security List for Private Subnet-nature**.
 
-   ![VCN Security List](images/vcn_security_list.png)
+   ![VCN Security List](images/vcn-security-list.png)
 
    We need to open the ports for MySQL and MySQL X protocols: `3306` and `33060`.
 
 11. Click **Add Ingress Rules** and fill the form with the following information:
 
-   ![VCN Add Ingress Rule](images/vcn_add_ingress_rules.png)
+   ![VCN Add Ingress Rule](images/vcn-add-ingress-rules.png)
 
    We are adding an **ingress rule** on those ports from the internal VCN CIDR `10.0.0.0/16`.
 
       - Source CIDR: `10.0.0.0/16`
+      ```
+      <copy>10.0.0.0/16</copy>
+      ```
       - Destination Port Range: `3306,33060`
+      ```
+      <copy>3306,33060</copy>
+      ```
       - Description: `MySQL and MySQL X Protocol`
+      ```
+      <copy>MySQL and MySQL X Protocol</copy>
+      ```
       - Leave the rest of the fields with default values.
 
    And click **Add Ingress Rule** to confirm the values.
 
-   ![VCN Ingress Rule MySQL](images/vcn_ingress_rule_mysql.png)
+   ![VCN Ingress Rule MySQL](images/vcn-ingress-rule-mysql.png)
 
 12. You can **confirm** the rules are added.
 
-   ![VCN Security List Rules for MySQL](images/vcn_security_list_for_mysql.png)
+   ![VCN Security List Rules for MySQL](images/vcn-security-list-for-mysql.png)
 
 ## Task 2: Create Bastion Host
 
@@ -102,13 +114,16 @@ In this section, you will:
 
 2. Go to **Menu**, **Compute** and then click **Instances**.
 
-   ![Compute Instance Menu](images/compute_instance_menu.png)
+   ![Compute Instance Menu](images/compute-instance-menu.png)
 
 3. Click **Create Instance**.
 
-   ![Create Intance Button](images/compute_create_instance_button.png)
+   ![Create Intance Button](images/compute-create-instance-button.png)
 
-4. Change the **name** to: `bastion`
+4. Change the **name** to: bastion
+      ```
+      <copy>bastion</copy>
+      ```
 
    Make sure the rest of the **properties** are like the following:
 
@@ -119,7 +134,7 @@ In this section, you will:
       - Subnet: `Public Subnet-nature`
       - Assign a public IPv4 address: `Yes`
 
-   ![Instance Values](images/compute_create_values_new.png)
+   ![Instance Values](images/compute-create-values-new.png)
 
 5. On the section **Add SSH Keys**, make sure **Generate SSH Keypair** is checked.
 
@@ -127,41 +142,41 @@ In this section, you will:
 
 7. After the files are stored on your computer, click **Create**.
 
-   ![Instance Values](images/compute_create_ssh.png)
+   ![Instance Values](images/compute-create-ssh.png)
 
    The **provisioning** takes few minutes.
 
-   ![Compute Provisioning](images/compute_provisioning.png)
+   ![Compute Provisioning](images/compute-provisioning.png)
 
 8. You can **copy** the assigned **Public IP** that we will use to SSH into the instance, also notice that the username is `opc`.
 
    Make sure the Icon turns **green**, and it says "RUNNING".
 
-   ![Compute Provisioning](images/compute_public_ip.png)
+   ![Compute Provisioning](images/compute-public-ip.png)
 
    To avoid install tools on your local computer, we are going to use **Cloud Shell**. Cloud Shell is a small and **free Linux virtual machine** with a lot of DevOps tools preinstalled that Oracle Cloud offers.
 
 9. Click on the **Cloud Shell** icon on the top-right menu bar.
 
-   ![Cloud Shell](images/compute_cloud_shell.png)
+   ![Cloud Shell](images/compute-cloud-shell.png)
 
    It will provision this small virtual machine, and you will have access to its terminal from the **Oracle Cloud Web Console**.
 
-   ![Cloud Shell terminal](images/cloud_shell.png)
+   ![Cloud Shell terminal](images/cloud-shell.png)
 
 10. Click on the Cloud Shell **menu** icon and then in **Upload**.
 
-   ![Cloud Shell terminal](images/cloud_shell_upload.png)
+   ![Cloud Shell terminal](images/cloud-shell-upload.png)
 
 11. Click on **select from your computer**. And select the **private key** (`.key` file) you downloaded for the compute instance.
 
    > Note: You don't need to upload the public key (`.pub` file), but feel free to do it.
 
-   ![Cloud Shell terminal](images/cloud_shell_select_file.png)
+   ![Cloud Shell terminal](images/cloud-shell-select-file.png)
 
 12. After you Upload the file you can **Hide** the message.
 
-   ![Cloud Shell terminal](images/cloud_shell_select_file_hide.png)
+   ![Cloud Shell terminal](images/cloud-shell-select-file-hide.png)
 
 13. On **Cloud Shell terminal**, create `.ssh` folder for your SSH keys.
 
@@ -197,10 +212,10 @@ In this section, you will:
       Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
       ```
 
-17. Security first, let's fix the **permissions** to `600` with the following command:
+17. Security first, let's fix the **permissions** to `400` with the following command:
 
       ```
-      <copy>chmod 600 .ssh/bastion</copy>
+      <copy>chmod 400 .ssh/bastion</copy>
       ```
 
 18. **Connect** with SSH again (remember to replace `PUBLIC_IP` with your bastion host IP):
@@ -242,51 +257,54 @@ In this section, you will:
 
 1. Go to **Menu**, **Storage** and then click **Buckets**.
 
-   ![Object Storage Menu](images/os_menu.png)
+   ![Object Storage Menu](images/os-menu.png)
 
 2. Click **Create Bucket**.
 
-   ![Create Bucket](images/os_create_bucket.png)
+   ![Create Bucket](images/os-create-bucket.png)
 
 3. **Change** the bucket name, leave everything else by default.
 
       - Bucket Name: `bucket-study`
+      ```
+      <copy>bucket-study</copy>
+      ```
 
 4. Click **Create**.
 
-   ![Bucket Name](images/os_bucket_name.png)
+   ![Bucket Name](images/os-bucket-name.png)
 
 5. Click on your **new** `bucket-study` bucket to see details.
 
-   ![Create Bucket](images/os_bucket_study.png)
+   ![Create Bucket](images/os-bucket-study.png)
 
 6. On the section **Objects**, click **Upload**.
 
-   ![Create Bucket](images/os_object_upload.png)
+   ![Create Bucket](images/os-object-upload.png)
 
 7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/5Sf36_9IRucKBEPwsm-5Zq2QWOl57HK5DlZhIOhqfNBJBlXp53jD621PLjiWz-C_/n/fruktknlrefu/b/workshop-marine-life/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">Reef Life Survey Fish</a>.
 
 8. Drop the file on **Choose Files from your Computer**. Leave everything else by default.
 
-   ![Object Select File](images/os_object_select_file.png)
+   ![Object Select File](images/os-object-select-file.png)
 
 9. Click **Upload**.
 
-   ![Object Upload Reef File](images/os_object_reef_upload.png)
+   ![Object Upload Reef File](images/os-object-reef-upload.png)
 
 10. Click **Close**.
 
    You will see the new file in the Objects list. Click on the three dots contextual menu.
 
-   ![Object List with new File](images/os_file_uploaded.png)
+   ![Object List with new File](images/os-file-uploaded.png)
 
 11. On the contextual menu, select **View Object Details**.
 
-   ![Object Details Menu](images/os_object_details_menu.png)
+   ![Object Details Menu](images/os-object-details-menu.png)
 
 12. Take note of the URL you have. Only copy the part of the URL up to `oraclecloud.com`. For example, if you are in Frankfurt region should look like `https://objectstorage.eu-frankfurt-1.oraclecloud.com`. We will use the **OCI Region** part (in our case eu-frankfurt-1) in the Lab number 3, Create Data Integration Instance.
 
-   ![Object Details URL](images/os_object_details_url.png)
+   ![Object Details URL](images/os-object-details-url.png)
 
 Congratulations! You are ready to go to the next Lab!
 
@@ -294,4 +312,4 @@ Congratulations! You are ready to go to the next Lab!
 
 - **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Priscila Iruela, April 2022
+- **Last Updated By/Date** - Priscila Iruela, June 2022

@@ -23,7 +23,7 @@ In this lab, you will learn how to:
 
 This lab assumes you have:
 * An Oracle Machine Learning account
-* Access to Oracle Machine LearningUSER account.
+* Access to Oracle Machine Learning USER account.
 
 ## Task 1: Sign into Oracle Machine Learning User Interface
 
@@ -39,26 +39,26 @@ A notebook is a web-based interface for data analysis, data discovery, data visu
 
   ![List of provisioned ADBs](images/provisioned-adb.png)        	  
 
-3. On your Oracle Autonomous Database instance page, click **Service Console**. The Launch Service Console dialog opens. Wait till the Service Console opens.
+3. On your Oracle Autonomous Database instance page, click **Database Actions**. The Launch DB Actions dialog opens. Wait till the Database Actions opens.
 
-	![ADW Service Console](images/service-console.png)
+	![ADW Service Console](images/database-actions.png)
 
-4. On the Service Console page, click **Development** on the left pane.
+4. On the Database Actions page, go to the Development section and click **Oracle Machine Learning**. This opens the Oracle Machine Learning sign in page.
 
-	![Development option in ADW Service Console](images/adw-development.png)
+	![Development option in ADW Service Console](images/adb-dev-oml.png)
 
-5. Click **Oracle Machine Learning User Interface.** This opens the Oracle Machine Learning sign in page.
-
-  ![Oracle Machine Learning User Interface in ADW](images/adw-oml-notebooks.png)
-
-6. Enter your user credentials and click **Sign in**. This opens the Oracle Machine Learning home page.
+5. Enter your user credentials and click **Sign in**.
 
 	> **Note:** The credential is what you have defined while creating the Oracle Machine Learning user.
 
+
 	![Oracle Machine Learning UI Sign in page](images/oml-signin-page.png)
+
+	This opens the Oracle Machine Learning home page.
+	![Notebooks option in OML homepage](images/homepage.png)
 </if>
 
-<if type="workshops">
+<if type="livelabs">
 1. On your workshop page, click **Launch Workshop** under **My Reservations**.
 
 	![Launch Workshop](images/launch-workshop.png)
@@ -74,23 +74,19 @@ A notebook is a web-based interface for data analysis, data discovery, data visu
 	![Oracle Machine Learning UI Sign in page](images/oml-signin-page.png)
 
 </if>
-This completes the task of accessing Oracle Machine Learning.
+This completes the task of accessing Oracle Machine Learning user interface.
 
 ## Task 2: Create a Notebook and define paragraphs using the md, SQL, PL/SQL, and Python interpreters
 
 To create a notebook:
 
-1. On the Oracle Machine Learning home page, click **Notebooks**. The Notebooks page opens.
-
-	![Notebooks option in Oracle Machine Learning home page](images/homepage-notebooks.png)
-
-	Alternatively, you can click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the home page to open the left navigation menu. Click **Notebooks**.
+1. On the Oracle Machine Learning home page, click **Notebooks**. The Notebooks page opens. Alternatively, you can click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the home page to open the left navigation menu. Click **Notebooks**.
 
 	![Notebooks option in hamburger](images/hamburger-notebooks.png)
 
 2. On the Notebooks page, click **Create**. The Create Notebook dialog opens.
 
-	<if type="workshops">![Create Notebook dialog](images/create-notebook.png) </if>
+	<if type="livelabs">![Create Notebook dialog](images/create-notebook.png) </if>
 
 	<if type="freetier"> ![Create Notebook dialog](images/create-notebook-freetier.png) </if>
 
@@ -257,9 +253,7 @@ This task demonstrates how to create notebooks based on Example templates. You w
 
 This step demonstrates how to create the OML4Py Classification notebook based on the OML4Py Classification DT (Decision Tree) Example template:
 
-1. Go to the Examples page by clicking the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. On the left navigation menu, click **Examples**.
-
-	![Oracle Machine Learning home page](images/hamburger-gen.png)
+1. Go to the Examples page by clicking the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. On the left navigation menu, click **Templates** and then click **Examples**.
 
 	![Oracle Machine Learning home page](images/hamburger-examples.png)
 
@@ -284,13 +278,11 @@ This step demonstrates how to create the OML4Py Classification notebook based on
 
 5. To view the notebook that you just created, click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. Click **Notebooks** to go to the Notebooks page.
 
-	![hamburger](images/hamburger-gen.png)
-
 	![Notebooks in left navigation menu](images/notebooks-left-nav-pane.png)
 
 6. The OML4PY Classification DT (1) notebook is now listed on the Notebooks page, as shown in the screenshot. Click it to open the notebook in the Notebooks editor. Note that you will run this notebook in the subsequent steps.
 
-	<if type="workshops"> ![Notebook listed](images/notebook-listed.png) </if>
+	<if type="livelabs"> ![Notebook listed](images/notebook-listed.png) </if>
 	<if type="freetier"> ![Notebook listed](images/notebooks-3.png) </if>
 
 This completes the task of creating a notebook from an Example template.
@@ -301,9 +293,8 @@ These steps demonstrate how to create the Time Series notebook based on the Exam
 
 7. Click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. Click **Examples** under Templates to open the Examples page. If you choose to go to the home page, then click **Home** on the left navigation pane, and then click **Examples**.
 
-	![hamburger](images/hamburger-gen.png)
-
-	![Go to Examples](images/goto-examples.png)
+	<if type="livelabs"> ![Go to Examples](images/goto-examples.png) </if>
+	<if type="freetier"> ![Go to Examples](images/goto-examples-freetier.png) </if>
 
 8. Navigate to the **OML4SQL Time Series ESM** example template notebook. You may type ESM in the search box on the upper right corner of the page to get a list of the ESM-related notebooks. Click the grey box around the notebook. This highlights the notebook and enables the **Create Notebook** button. Click **Create Notebook**.
 
@@ -321,14 +312,12 @@ These steps demonstrate how to create the Time Series notebook based on the Exam
 
 11. To view the notebook, click the hamburger icon ![hamburger icon](images/hamburger.png) on the top left corner of the page to open the left navigation menu. Click **Notebooks** to go to the Notebooks page.
 
-	![hamburger](images/hamburger-gen.png)
-
-	![Notebooks in left navigation menu](images/notebooks-left-nav-pane.png)
+	![Notebooks in left navigation menu](images/notebooks-left-nav-pane-esm.png)
 
 
 12. The notebook **Notebook "OML4SQL Time Series ESM (1)** is now listed on the Notebooks page, as shown in the screenshot. Click on the notebook to open it in the Notebooks editor and work on it.
 
-	<if type="workshops"> ![Notebook listed](images/notebook-list-1.png)</if>
+	<if type="livelabs"> ![Notebook listed](images/notebook-list-1.png)</if>
 
 	<if type="freetier">![Notebook listed](images/notebooks-4.png) </if>
 
@@ -360,7 +349,7 @@ In this step, you learn how to set the interpreter bindings:
 
 2. On the Notebooks page, click on the **OML4PY Classification_DT (1)** notebook to open it in the Notebook editor.
 
-	<if type="workshops"> ![Open Classification notebook](images/open_classification_dt.png) </if>
+	<if type="livelabs"> ![Open Classification notebook](images/open_classification_dt.png) </if>
 
 	<if type="freetier"> ![Open Classification notebook](images/open-notebooks-4.png) </if>
 
@@ -406,7 +395,8 @@ To create a job:
 
 	> **Note:** Only notebooks that are owned by the user or shared are available for selection.
 
-	![Select notebook to schedule job](images/select-notebook-for-job.png)
+	<if type="livelabs"> ![Select notebook to schedule job](images/select-notebook-for-job-livelabs.png) </if>
+	<if type="freetier"> ![Select notebook to schedule job](images/select-notebook-for-job-freetier.png) </if>
 
 5. In the **Start Date** field, click the date-time editor to set the date and time for your job to commence. You can select the current date or any future date and time. Based on the selected date and time, the next run date is computed.
 
@@ -443,4 +433,4 @@ This completes the task of creating a job.
 
 * **Author** -  Moitreyee Hazarika, Principal User Assistance Developer, Database User Assistance Development
 * **Contributors** -   Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date** - Moitreyee Hazarika, March 2022
+* **Last Updated By/Date** - Moitreyee Hazarika, June 2022

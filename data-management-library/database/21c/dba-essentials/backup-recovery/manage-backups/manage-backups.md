@@ -1,11 +1,11 @@
-# Manage Backups
+# Manage backups
 
 ## Introduction
 This lab shows you how to manage backups after you create them.  
 
 Estimated time: 20 minutes
 
-### About Managing Backups
+### About managing backups
 An essential part of a backup and recovery strategy is managing backups after creating them. Backup management includes deleting obsolete backups and performing periodic checks to ensure that backups are available and usable. In a multi-tenant environment, you can manage backups for the whole multi-tenant container database (CDB) or one or more pluggable databases (PDBs).
 
 You manage backups by deleting obsolete backups and performing periodic checks to ensure that backups are available and usable.
@@ -17,15 +17,16 @@ You manage backups by deleting obsolete backups and performing periodic checks t
 - Monitor fast recovery area space usage
 
 ### Prerequisites
-- Oracle Database 21c installed and a container database (CDB) with at least one pluggable database (PDB) created.
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 - You have completed:
-    - Lab: Prepare Setup (_Free-Tier_ and _Paid Tenants_ only)
-    - Lab: Configure Recovery Settings
-    - Lab: Configure Backup Settings
-    - Lab: Perform and Schedule Backups
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
+    - Lab: Configure recovery settings
+    - Lab: Configure backup settings
+    - Lab: Perform and schedule backups
 
 
-## Task 1: Display Backup Information
+## Task 1: Display backup information
 Backup reports contain summary and detailed information about past backup jobs run by Recovery Manager (RMAN). The `v$rman_backup_job_details` view includes information on backup jobs run by RMAN. This view contains information such as the time taken for the backup, start and finish time, type of backup performed, and the backup job status.
 
 In this task, you display backup information using the following steps.
@@ -48,7 +49,7 @@ In this task, you display backup information using the following steps.
     ```
     Output:
     ```
-    connected to target database: ORCL (DBID=1016703368)
+    connected to target database: CDB1 (DBID=1016703368)
     ```
 
 3. Query the `v$rman_backup_job_details` view to display backup job history. You can see the status, start time, and end time of all the backups performed in the output.
@@ -63,10 +64,10 @@ In this task, you display backup information using the following steps.
              13 DB FULL       COMPLETED               16-DEC-21 16-DEC-21       .015
     ```
 
-    >Note: `SESSION_KEY` is the unique key for the RMAN session in which the backup job occurred.  
+    >**Note:** `SESSION_KEY` is the unique key for the RMAN session in which the backup job occurred.  
 
 
-## Task 2: Cross-check Backups
+## Task 2: Cross-check backups
 Cross-checking a backup synchronizes the physical reality of backups with their logical records in the RMAN repository. For example, if a backup on disk was deleted with an operating system command, then a cross-check detects this condition. After the cross-check, the RMAN repository correctly reflects the state of the backups.
 
 Backups to disk are listed as available if they are still on disk in the location listed in the RMAN repository and if they have no corruption in the file header. Backups on tape are listed as available if they are still on tape. The file headers on tape are not checked for corruption. Backups that are missing or corrupt are listed as expired.
@@ -112,37 +113,37 @@ In this task, you cross-check backups using the following steps.
     allocated channel: ORA_DISK_1
     channel ORA_DISK_1: SID=51 device type=DISK
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp RECID=1 STAMP=1091432021
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp RECID=1 STAMP=1091432021
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotzsb1_.bkp RECID=2 STAMP=1091432057
+    backup piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotzsb1_.bkp RECID=2 STAMP=1091432057
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvov08hj_.bkp RECID=3 STAMP=1091432072
+    backup piece handle=/opt/oracle/recovery_area/CDB1/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvov08hj_.bkp RECID=3 STAMP=1091432072
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091431963_jvov0qz6_.bkp RECID=4 STAMP=1091432087
+    backup piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091431963_jvov0qz6_.bkp RECID=4 STAMP=1091432087
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073538_jvov2bjk_.bkp RECID=5 STAMP=1091432138
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073538_jvov2bjk_.bkp RECID=5 STAMP=1091432138
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov2d0t_.bkp RECID=6 STAMP=1091432140
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov2d0t_.bkp RECID=6 STAMP=1091432140
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3h8y_.bkp RECID=7 STAMP=1091432175
+    backup piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3h8y_.bkp RECID=7 STAMP=1091432175
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3yhx_.bkp RECID=8 STAMP=1091432190
+    backup piece handle=/opt/oracle/recovery_area/CDB1/D33E36E4677625A6E053F55868649362/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073539_jvov3yhx_.bkp RECID=8 STAMP=1091432190
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073645_jvov4g0y_.bkp RECID=9 STAMP=1091432206
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T073645_jvov4g0y_.bkp RECID=9 STAMP=1091432206
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091432207_jvov4hdv_.bkp RECID=10 STAMP=1091432207
+    backup piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091432207_jvov4hdv_.bkp RECID=10 STAMP=1091432207
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091432601_jvovjt72_.bkp RECID=11 STAMP=1091432602
+    backup piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091432601_jvovjt72_.bkp RECID=11 STAMP=1091432602
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T075420_jvow5d6r_.bkp RECID=12 STAMP=1091433260
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T075420_jvow5d6r_.bkp RECID=12 STAMP=1091433260
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow5fos_.bkp RECID=13 STAMP=1091433261
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow5fos_.bkp RECID=13 STAMP=1091433261
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp RECID=14 STAMP=1091433297
+    backup piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp RECID=14 STAMP=1091433297
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_annnn_TAG20211216T075512_jvow70h6_.bkp RECID=15 STAMP=1091433312
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_annnn_TAG20211216T075512_jvow70h6_.bkp RECID=15 STAMP=1091433312
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/autobackup/2021_12_16/o1_mf_s_1091433313_jvow71vz_.bkp RECID=16 STAMP=1091433313
+    backup piece handle=/opt/oracle/recovery_area/CDB1/autobackup/2021_12_16/o1_mf_s_1091433313_jvow71vz_.bkp RECID=16 STAMP=1091433313
     Crosschecked 16 objects
     ```
 
@@ -154,12 +155,12 @@ In this task, you cross-check backups using the following steps.
     ```
     using channel ORA_DISK_1
     crosschecked backup piece: found to be 'AVAILABLE'
-    backup piece handle=/u01/app/oracle/recovery_area/ORCL/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp RECID=1 STAMP=1091432021
+    backup piece handle=/opt/oracle/recovery_area/CDB1/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T073341_jvotyom3_.bkp RECID=1 STAMP=1091432021
     Crosschecked 1 objects
     ```
 
 
-## Task 3: Delete Expired Backups
+## Task 3: Delete expired backups
 The delete expired backup command will remove the EXPIRED backups from the RMAN repository. Those backups that are inaccessible during a cross-check are called expired backups. This command updates only the RMAN repository. It does not make any attempt to delete the backup files from disk or tape.
 
 In this task, you delete expired backups using the following steps.
@@ -175,7 +176,7 @@ In this task, you delete expired backups using the following steps.
     ```
 
 
-## Task 4: Monitor Fast Recovery Area Space Usage
+## Task 4: Monitor fast recovery area space usage
 You should monitor the fast recovery area to ensure that it is large enough to contain backups and other recovery-related files. The space usage in your Oracle Database may vary from what is shown in this lab.
 
 Oracle Database provides two views to monitor fast recovery area space usage, `v$recovery_file_dest`, and `v$recovery_area_usage`.
@@ -192,7 +193,7 @@ In this task, you monitor the space usage of fast recovery area using the follow
     --------------------------------------------------------------------------------
     SPACE_LIMIT SPACE_USED SPACE_RECLAIMABLE NUMBER_OF_FILES     CON_ID
     ----------- ---------- ----------------- --------------- ----------
-    /u01/app/oracle/recovery_area
+    /opt/oracle/recovery_area
     10737418240 8299215872          32884224              22          0
     ```
 
@@ -227,4 +228,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 - **Author**: Suresh Mohan, Database User Assistance Development Team
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-- **Last Updated By & Date**: Suresh Mohan, February 2022
+- **Last Updated By & Date**: Suresh Mohan, May 2022

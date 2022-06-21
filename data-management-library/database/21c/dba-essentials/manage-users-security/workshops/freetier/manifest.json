@@ -10,12 +10,12 @@
     {
       "title": "Get started",
       "description": "Get a Free Trial",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
     },
     {
       "title": "Lab 1: Prepare setup",
       "description": "How to download your ORM stack and update security rules for an existing VCN.",
-      "publisheddate": "12/21/2021",
+      "publisheddate": "04/29/2022",
       "filename": "../../prepare-setup/prepare-setup.md",
       "type": "default"
     },
@@ -28,7 +28,7 @@
     {
       "title": "Lab 3: Initialize environment",
       "description": "How to initialize and start all the workshop components.",
-      "publisheddate": "10/13/2021",
+      "publisheddate": "04/29/2022",
       "filename": "./../../initialize-environment/initialize-environment.md"
     },
     {

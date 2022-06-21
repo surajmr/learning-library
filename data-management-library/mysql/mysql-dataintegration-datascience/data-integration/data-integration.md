@@ -1,6 +1,6 @@
 # Create Data Integration Instance
 
-![Data Integration](images/ocidi_banner.png)
+![Data Integration](images/ocidi-banner.png)
 
 ## Introduction
 
@@ -29,93 +29,101 @@ In this section, you will:
 
 2. Go to **Identity & Security** and then click **Policies**.
 
-   ![Identity Policy Menu](images/identity_policies_menu.png)
+   ![Identity Policy Menu](images/identity-policies-menu.png)
 
 3. Click **Create Policy**.
 
    Make sure you are in the `root` compartment.
 
-   ![Create Policy](images/identity_create_policy.png)
+   ![Create Policy](images/identity-create-policy.png)
 
 4. Create a new policy:
 
       - Name: `dataintegration`
+      ```
+      <copy>dataintegration</copy>
+      ```
       - Description: `Allow Data Integration Service to use VCN`
+      ```
+      <copy>Allow Data Integration Service to use VCN</copy>
+      ```
       - Toggle: `Show manual editor`
       - Policy Builder:
-      
       ```
       <copy>allow service dataintegration to use virtual-network-family in tenancy</copy>
       ```
 
-   ![Policy fields for DI](images/identity_policy_fields.png)
+   ![Policy fields for DI](images/identity-policy-fields.png)
 
    > Note: If you have created an Oracle Cloud Account to do the workshop, you are already the Administrator. **You DO NOT NEED TO DO THIS STEP**.
    >
    > In case you are a Non-admin user, you will need to set up some more policies to allow the group you belong to. Ask your administrator.
    >
-   > ```
-   > <copy>allow group <group-name> to manage dis-workspaces in compartment <compartment-name></copy>
-   > ```
-   >
-   > ```
-   > <copy>allow group <group-name> to manage dis-work-requests in compartment <compartment-name></copy>
-   > ```
-   >
-   > ```
-   > <copy>allow group <group-name> to use virtual-network-family in compartment <compartment-name></copy>
-   > ```
-   >
-   > ```
-   > <copy>allow group <group-name> to manage tag-namespaces in compartment <compartment-name></copy>
-   > ```
+   >```
+   <copy>allow group <group-name> to manage dis-workspaces in compartment <compartment-name></copy>
+   ```
+   
+   >```
+    <copy>allow group <group-name> to manage dis-work-requests in compartment <compartment-name></copy>
+    ```
+   
+   >```
+    <copy>allow group <group-name> to use virtual-network-family in compartment <compartment-name></copy>
+    ```
+   
+   >```
+    <copy>allow group <group-name> to manage tag-namespaces in compartment <compartment-name></copy>
+    ```
 
 5. Go to **Menu**, **Analytics & AI** and then click **Data Integration**.
 
-   ![](images/di_menu.png)
+   ![DI menu](images/di-menu.png)
 
 6. Click in the **Workspaces** section in the left part of the screen. At the moment we are on the Overview page.
 
-   ![](images/di_menu_workspaces.png)
+   ![DI menu workspaces](images/di-menu-workspaces.png)
 
 7. Click **Create Workspace**.
 
-   ![](images/di_create_workshop_button_new.png)
+   ![DI menu worksphop button](images/di-create-workshop-button-new.png)
 
 8. **Modify** the following fields, leave the rest as default:
 
       - Name: `Workspace Nature`
+      ```
+      <copy>Workspace Nature</copy>
+      ```
       - VCN: `nature`
       - Subnet: `Private subnet-nature`
    Be sure you have select the correct compartment, `root` in the workshop case. As soon as you select the compartment, you will be capable of selecting VCN and Subnet.
 
 9. Click **Create**.
 
-   ![](images/di_create_workshop.png)
+   ![DI create workshop](images/di-create-workshop.png)
 
 10. While the Workspace is created, click the **three dots contextual menu**.
 
-   ![](images/di_creating.png)
+   ![DI creating](images/di-creating.png)
 
 11. Then click **Copy OCID**.
 
-   ![](images/di_ocid.png)
+   ![DI OCID](images/di-ocid.png)
 
 12. Go to **Identity & Security** and then click **Policies**. We are going to add new **Policies** for our new Workspace.
 
-   ![](images/identity_policies_menu.png)
+   ![identity policies menu](images/identity-policies-menu.png)
 
 13. **Click** on the `dataintegration` policy name.
 
-   ![](images/di_policy_link.png)
+   ![DI policy link](images/di-policy-link.png)
 
 14. Click **Edit Policy Statements**.
 
-   ![](images/di_policy_edit_button.png)
+   ![DI policy edit button](images/di-policy-edit-button.png)
 
 15. Click **+ Another Statement**.
    
-   ![](images/di_policy_add_policy.png)
+   ![DI policy add policy](images/di-policy-add-policy.png)
 
 16. Add **two more statements** and make sure you replace `DATA_INTEGRATION_WORKSPACE_OCID` with the Workspace OCID:
 
@@ -133,15 +141,15 @@ In this section, you will:
 
 17. Click **Save Changes**.
 
-   ![](images/di_policy_save_changes.png)
+   ![DI policy save changes](images/di-policy-save-changes.png)
 
 18. Come back to **Data Integration** under **Analytics & AI**, click **Menu**, **Analytics & AI** and then click **Data Integration**.
 
-   ![](images/di_menu.png)
+   ![DI menu](images/di-menu.png)
 
 19. Go to **Workspaces** page, at the moment you are on **Overview**.Second tab on the left side of the menu. Check the **Data Integration Workspace** is `Active` and click the link.
 
-   ![](images/di_active_go_to_workspace.png)
+   ![DI active go to workspace](images/di-active-go-to-workspace.png)
 
 ---
 
@@ -176,7 +184,7 @@ We are going to need the **Object Storage URL** and **Tenancy ID**.
    Go to **Profile** on the top-right corner.
    Click on **Tenancy**.
 
-   ![](images/profile_tenancy_menu.png)
+   ![Profile tenancy menu](images/profile-tenancy-menu.png)
 
    **Tenancy** details contain a lot of interesting information, among others:
 
@@ -186,7 +194,7 @@ We are going to need the **Object Storage URL** and **Tenancy ID**.
 
    At this point, we are interested in the **Tenancy OCID**. Copy the OCID by clicking on **Copy**. Write it down for the next step.
 
-   ![](images/tenancy.png)
+   ![Tenancy dashboard](images/tenancy.png)
 
    > Note: You can see that the **Object Storage Namespace** is here, too, in case you need it in the future.
 
@@ -194,81 +202,104 @@ We are going to need the **Object Storage URL** and **Tenancy ID**.
 
    Go to **Menu**, **Analytics & AI** and then click **Data Integration**:
 
-   ![](images/di_menu.png)
+   ![DI menu](images/di-menu.png)
 
 4. Click on **Workspace Nature**.
 
-   ![](images/di_workspace_enter.png)
+   ![DI workspace](images/di-workspace-enter.png)
 
    You can see that by default, there are a `Default Application` and a default project, `My First Project`.
 
-   ![](images/di_home_page.png)
+   ![DI homepage](images/di-home-page.png)
 
    The first task is to create the data assets that represent the source and target for the data integration. In our case, the data source is an Object Storage bucket, and the target is our MySQL database.
 
 5. Click **Create Data Asset**.
 
-   ![](images/di_home_create_asset_bucket.png)
+   ![DI homepage create asset bucket](images/di-home-create-asset-bucket.png)
 
 6. **Fill** the fields as follows:
 
       - Name: `bucket-study`
+      ```
+      <copy>bucket-study</copy>
+      ```
       - Description: `Object Storage Bucket with fish survey`
+      ```
+      <copy>Object Storage Bucket with fish survey</copy>
+      ```
       - Type: `Oracle Object Storage`
       - Tenancy OCID: `ocid1.tenancy.oc1..<unique_ID>`
 
       Click outside the **Tenancy OCID** field, and after few seconds, and **Namespace** will be retrieved automatically.
 
-      ![](images/dataasset_fields1_new.png)
+      ![Data asset fields](images/dataasset-fields1-new.png)
     
       - OCI region: `eu-frankfurt-1`. You can find this information as part of the Object Storage URL that we copied on Lab 1, Task 3, Step 12. You can copy the OCI region, from the summary table of Object Srotage regions URLs on Step 1 of this Task, if you know which region you are using.
 
+      - Default connection information: Leave the connection paratemers as they are.
+
 7. You can test the **connection**.
 
-      ![](images/dataasset_test_connection.png)
+      ![Data asset test connection](images/dataasset-test-connection.png)
 
 8. After you get a **successful** test, click **Create**.
 
-   ![](images/dataasset_test_connection_success.png)
+   ![Data asset test connection success](images/dataasset-test-connection-success.png)
 
 9. Go back to the **Home** Screen.
 
-   ![](images/dataasset_os_back_home.png)
+   ![Data asset homepage](images/dataasset-os-back-home.png)
 
 10. Click **Create Data Assets** again.
 
-   ![](images/dataasset_create_button.png)
+   ![Data asset create button](images/dataasset-create-button.png)
 
    This time we are going to create the **MySQL database asset** with the following values:
 
       - Name: `mysql-database`
+      ```
+      <copy>mysql-database</copy>
+      ```
       - Description: `MySQL Database for Analytics`
+      ```
+      <copy>MySQL Database for Analytics</copy>
+      ```
       - Type: `MySQL`
-      - Host (you have to complete this field using your MySQL Private IP address): `10.0.1.xxx`
+      - Host (you have to complete this field using your MySQL Private IP address): It should be similat to `10.0.1.xxx`
       - Port: `3306`
+      ```
+      <copy>3306</copy>
+      ```
       - Database: `nature`
-      - User: `root`
+      ```
+      <copy>nature</copy>
+      ```
+      - Username: `root`
+      ```
+      <copy>root</copy>
+      ```
       - Password: `<your_password>`. Enter any password you wish to use following the specific requirements imposed by Oracle.
       
-   ![](images/dataasset_mysql_fields1.png)
+   ![Data asset MySQL fields](images/dataasset-mysql-fields1.png)
 
-   ![](images/dataasset_mysql_fields2.png)
+   ![Data asset MySQL fields2](images/dataasset-mysql-fields2.png)
 
    You can test the **connection**.
 
 11. After you get a **successful** test, click **Create**.
  
-   ![](images/dataasset_mysql_test_create.png)
+   ![Data asset MySQL test create](images/dataasset-mysql-test-create.png)
 
    When the data asset is created, go back to **Home**.
 
-   ![](images/dataasset_mysql_success_go_back_home.png)
+   ![Data asset MySQL success](images/dataasset-mysql-success-go-back-home.png)
 
 ## Task 3: It Works
 
 1. Go back to the **Home** Screen. You have just created the **two Data Assets** needed for the next Lab. Your **Recents** should look like this:
 
-   ![](images/di_dataassets_success.png)
+   ![Data asset MySQL success homepage](images/di-dataassets-success.png)
 
 Congratulations, you are ready for the next Lab!
 
@@ -278,4 +309,4 @@ Congratulations, you are ready for the next Lab!
 
 - **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Priscila Iruela, April 2022
+- **Last Updated By/Date** - Priscila Iruela, June 2022

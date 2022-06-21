@@ -8,7 +8,7 @@ This workshop introduces the various features and functionality of Oracle Key Va
 *Version tested in this lab:* Oracle OKV 21.3
 
 ### Video Preview
-Watch a preview of "*Introducing Oracle Key Vault 21 (January 2021)*" [](youtube:SfXQEwziyw4)
+Watch a preview of "*LiveLabs - Oracle Key Vault (May 2022)*" [](youtube:4VR1bbDpUIA)
 
 ### Objectives
 - Connect an Oracle DB (encrypted by TDE) to OKV
@@ -654,7 +654,7 @@ Oracle provides deployment recommendations for deployments that have two or more
 
 5. **Now, you can perform again this lab from TASK 1** (your database is restored to the point in time prior to enabling TDE)!
 
-You may now [proceed to the next lab](#next)
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -722,7 +722,10 @@ Technical Documentation:
 - [Oracle Key Vault 21](https://docs.oracle.com/en/database/oracle/key-vault/21.3/index.html)
 - [Oracle Key Vault 21 - Multimaster](https://docs.oracle.com/en/database/oracle/key-vault/21.3/okvag/multimaster_concepts.html)
 
+Video:
+- *Introducing Oracle Key Vault 21 (January 2021)* [](youtube:SfXQEwziyw4)
+
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Peter Wahl, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

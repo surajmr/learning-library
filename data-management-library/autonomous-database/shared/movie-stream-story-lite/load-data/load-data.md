@@ -204,7 +204,7 @@ In this step we will perform some simple data loading tasks, to load in CSV file
     ![Check the job is completed](images/loadcompleted.png)
 
 
-## Task 6: Load and link more data using SQL scripting
+## Task 5: Load and link more data using SQL scripting
 
 We have now learned how easy it is to load data using the Data Load tool. However, we can also load data using SQL scripts which exercise the same database APIs in the DBMS\_CLOUD package.
 

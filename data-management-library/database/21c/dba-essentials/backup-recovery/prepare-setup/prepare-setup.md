@@ -1,20 +1,21 @@
-# Prepare Setup
+# Prepare setup
 
 ## Introduction
-This lab will show you how to download the Oracle Resource Manager (ORM) stack zip file needed to setup the resource needed to run this workshop. This workshop requires a compute instance running the Oracle Enterprise Manager 13c Marketplace image with monitored database targets and a Virtual Cloud Network (VCN).
+This lab will show you how to download the Oracle Resource Manager (ORM) stack zip file needed to setup the resource needed to run this workshop. This workshop requires a compute instance running the dedicated Marketplace image and a Virtual Cloud Network (VCN).
 
-Estimated Time: 15 minutes
+*Estimated Time:* 15 minutes
 
 ### Objectives
 -   Download ORM stack
 -   Configure an existing Virtual Cloud Network (VCN)
 
 ### Prerequisites
-This lab assumes you have -
-- An Oracle Free Tier or Paid Cloud account
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [emcc-de-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/g-lr0Sxu62wacBSXQDDS-YmOgDrXLvjEPLbiQ7_8FKHLf7DZ8VJ1vc7ITJGvduWi/n/natdsecurity/b/stack/o/emcc-de-mkplc-freetier.zip)
+
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment:
+    - [db21c-dbae-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/ZdyeiKou7tdfayF1zF1NmPtpUGFTvKjSY5SC46H8NBNlPAxtOWmZJUDsWoeFHQJF/n/natdsecurity/b/stack/o/db21c-dbae-mkplc-freetier.zip)
 
 2.  Save in your downloads folder.
 
@@ -26,8 +27,8 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
-| 7803           | Enterprise Manager 13c Server         |
 | 6080           | noVNC Remote Desktop                  |
+| 80             | noVNC Remote Desktop                  |
 
 1.  Go to **Networking** > **Virtual Cloud Networks**
 2.  Choose your network

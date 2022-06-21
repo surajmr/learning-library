@@ -6,8 +6,6 @@ Duration: 2 minutes
 
 ## Find the Compartment OCID
 
-You can create a dynamic group policy that includes the specific compartment OCID as a resource in the group as follows:
-
 1. Sign in to the Oracle Cloud Infrastructure Console.
 
 2. Open the **Navigation** menu and click **Identity & Security**. Under **Identity**, click **Compartments**.

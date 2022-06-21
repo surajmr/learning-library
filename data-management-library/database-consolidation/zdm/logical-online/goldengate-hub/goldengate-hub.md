@@ -1,4 +1,4 @@
-# Configure GoldenGate Hub
+# Configure GoldenGate hub
 
 ## Introduction
 
@@ -79,7 +79,7 @@ This workshop section requires having access to an Oracle Cloud account, having 
 
     ![Screenshot of marketplace results for the search function in Oracle Cloud Infrastructure](./images/marketplace-search.png " ")
 
-2. On the Market Place search bar enter __GoldenGate Migration__ and select the __Oracle GoldenGate for Oracle - Database Migrations__ Image.
+2. On the Market Place search bar enter __GoldenGate Migration__ and select the __Oracle GoldenGate - Database Migrations__ Image.
 
     ![Screenshot of marketplace results for GoldenGate Migration image](./images/marketplace-gg-images.png " ")
 
@@ -117,12 +117,9 @@ This workshop section requires having access to an Oracle Cloud account, having 
 
     ![Screenshot of Oracle GoldenGate Image Create Stack Menu, Instance Settings Section](./images/ogg-instance-settings.png " ") 
 
-8. Configure the following variables for section __Create OGG Deployments__:
+8. Configure the following variables for section __Create OGG Deployment__:
 
-    - Deployment 1 - Name, enter __Source__
-    - Deployment 1 - Database,  select __Oracle 19c (19.x)__
-    - Deployment 2 - Name, enter __Target__ 
-    - Deployment 2 - Database, select __Oracle 19c (19.x)__
+    - Deployment  Name, enter __Marketplace__
     - Deployment 2 - Automomous Database (__Check__)
     - Deployment 2 - Autonomous Database Compartment, select appropriate compartment as the rest of your deployment
     - Deployment 2 - Autonomous Database Instance, select the target database created earlier 
@@ -199,9 +196,7 @@ This workshop section requires having access to an Oracle Cloud account, having 
 
 10. You will be logged out of the Oracle GoldenGate Service Manager, sign in again with oggadmin and the recently updated password from the step above (#9)
 
-11. In the Services table, click on the __port__ of the Source Administration Server (typically __9011__), this will open a new Sign In page for the __Oracle GoldenGate Administrator Server__
-
-    ![Screenshot of Oracle GoldenGate Services Manager](./images/ogg-source-admin-server.png " ")
+11. In the Services table, click on the __port__ of the Marketplace Administration Server (typically __9011__), this will open a new Sign In page for the __Oracle GoldenGate Administrator Server__
 
 12. Enter the username and password (labeled credential) from the out copied from the ogg-credentials.json file from step 3 above. Do not enter the newly updated password.
 
@@ -228,36 +223,6 @@ This workshop section requires having access to an Oracle Cloud account, having 
 
     ![Screenshot of Oracle GoldenGate Administrator Server User Edit options](./images/ogg-edit-user-entry.png " ")
 
-17. You will be logged out of the Oracle GoldenGate Service Manager, sign in again with oggadmin and the recently updated password from the step above (#9)
-
-18. In the Services table, click on the __port__ of the Table Administration Server (typically __9021__), this will open a new Sign In page for the __Oracle GoldenGate Administrator Server__
-
-    ![Screenshot of Oracle GoldenGate Administrator Server](./images/ogg-target-admin-server.png " ")
-
-19. Enter the username and password (labeled credential) from the out copied from the ogg-credentials.json file from step 3 above. Do not enter the newly updated password.
-
-20. Click on the top left navigation menu
-
-    ![Screenshot of Oracle GoldenGate Administrator Server](./images/ogg-validation-menu-target.png " ")
-
-21. Click on __Administrator__
-
-    ![Screenshot of Oracle GoldenGate Administrator Server Hamburguer Menu](./images/ogg-menu-admin-source.png " ")
-
-22. Click on the Edit Pen on the right to edit the oggadmin user
-
-    ![Screenshot of Oracle GoldenGate Administrator Server User Edit](./images/ogg-edit-user-menu.png " ")
-
-23. Enter the following information:
-
-    - Type: Basic
-    - Info: admin
-    - Password: __WELcome##1234__
-    - Verify Password: __WELcome##1234__
-
-    Upon review, click __Submit__
-
-    ![Screenshot of Oracle GoldenGate Administrator Server User Edit options](./images/ogg-edit-user-entry.png " ")
 
 
 You may now close any Oracle GoldenGate Service Manager leftover tab.

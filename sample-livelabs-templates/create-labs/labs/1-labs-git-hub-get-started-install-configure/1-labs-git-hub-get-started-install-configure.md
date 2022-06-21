@@ -1,10 +1,11 @@
-#  Get Started with Git and Set up the GitHub Environment
+# Get Started with Git and Set up the GitHub Environment
 
 ## Introduction
 
 In this lab, you will learn how to create a GitHub Account and associate it with your Oracle email account, request that your GitHub account is added to the Oracle GitHub Organization (OGHO) at [github.com/oracle](github.com/oracle), set up the GitHub development environment, and install GitHub Desktop.
 
 ### Objectives
+
 * Submit a LiveLabs workshop request using the **Oracle Workshop Management System (WMS)**.
 * Create a GitHub account and add it to the Oracle GitHub Organization.
 * Set up your GitHub environment.
@@ -19,6 +20,8 @@ In this lab, you will learn how to create a GitHub Account and associate it with
 ## Task 1: Submit a Workshop Request to the Oracle Workshop Management System
 
 Before getting started, you should submit your LiveLabs workshop request to the WMS. Submitting a workshop informs the Oracle ecosystem that you are working on a workshop and submits your idea to the Workshop Council. We urge you not to delay this step. There are hundreds of workshops already, this step is important to helps us preserve the quality and integrity of the workshop catalog.
+
+Workshop authors can watch the [video 2:22 – 22:40](https://otube.oracle.com/media/How%20to%20submit%20a%20LiveLabs%20workshop%20in%20WMS%20-%20LiveLabs%20Office%20Hours%20-%2002-04-2022/1_6v8qdkzp) on how to submit a new workshop request.
 
 1.  Login to Corporate VPN.
 
@@ -42,7 +45,11 @@ Before getting started, you should submit your LiveLabs workshop request to the 
 
 7.  We recommend you don't start working on your workshop until your workshop has been approved by a council member.
 
-Once your workshop is submitted, it will be sent to the workshop council.  The workshop council will approve your workshop or ask for more details within 2 business days. If you have not heard back from your council group after 2 business days, please message them via WMS. Once approved, you will be entered into the workflow and given additional steps to progress through to production.
+Once your workshop is submitted, it will be sent to the workshop council.  The workshop council will approve your workshop or ask for more details within 3 business days. If you have not heard back from your council group after 3 business days, please message them via WMS. Once approved, you will be entered into the workflow and given additional steps to progress through to production.
+
+To find your council members, go to WMS, under **People & Role Reports**, select **Workshop Council Members**, and you can find your council members.
+
+Council can watch this [video 5:10 - 7:05](https://otube.oracle.com/media/Know%20about%20Roles%20and%20Responsibilities%20in%20LiveLabs%20Workshop%20Management%20System%202.0%20-%20LiveLabs%20Office%20Hours%20-%2001-28-2022/1_hrkwddhr) to understand your responsibilities and this [video 9:45 - 10:45](https://otube.oracle.com/media/Introducing%20LiveLabs%20Dashboard%20-%20LiveLabs%20Office%20Hours%20-%2002-08-2022/1_ebeuqq95) to learn how to change workshop statuses (approve the workshop).
 
 > **Note:** If you are a developer, QA, or PM, you can create and publish a Custom image of the on-premises product to OCI Market place. See the [Creating Compute Images for Marketplace](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=6-labs-setup-graphical-remote-desktop) LiveLabs workshop.
 

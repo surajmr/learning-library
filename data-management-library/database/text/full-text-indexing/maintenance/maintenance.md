@@ -30,11 +30,11 @@ We'll assume you're already in Database Actions having just completed the previo
 
 ## Task 2: Synchronization
 
-1.  Let's insert a new row into MYTABLE. Copy the following a click on the "Run Statement" button:
+1.  Let's insert a new row into USER_DATA. Copy the following a click on the "Run Statement" button:
 
     ```
     <copy>
-    insert into mytable values (40, 'brown cat')
+    insert into user_data values (4, 'Mike Smith', 98.76, 'Third one from Mike Smith.')
     </copy>
     ```
 
@@ -42,8 +42,8 @@ We'll assume you're already in Database Actions having just completed the previo
 
     ```
     <copy>
-    select * from mytable
-        where contains ( text, 'cat' ) > 0
+    select * from user_data
+        where contains ( note, 'mike' ) > 0
     </copy>
     ```
     ![search without sync - no results](./images/search-nosync.png " ")
@@ -58,42 +58,11 @@ We'll assume you're already in Database Actions having just completed the previo
     </copy>
     ```
 
-    Now try the previous query for 'cat' again and it will work.
+    Now try the previous query for 'mike' again and it will work.
 
     ![after sync query works](./images/after-sync.png " ")
 
-## Task 3: Optimization
-
-1.  Examine the "dollar I" table.
-
-    Now we've done an update to the index, let's take another look at the list of indexed words in the $I table. Run the following:
-
-    ```
-    <copy>
-    select token_text from dr$myindex$i
-    </copy>
-    ```
-
-    You should see that there are now two entries for the word 'brown'. We won't worry about exactly why, but let's just say it's an example of index fragmentation. 
-    
-    
-2.  Optimize the index
-
-    We can optimize the index using another PL/SQL command in the ctx_ddl package: ctx\_ddl.optimize\_index. That takes two mandatory parameters, the name of the index and the type of optimization to perform. Common values are 'FULL' or 'REBUILD'. We'll go with 'FULL':
-
-    ![](./images/before-optimize.png " ")
-
-    ```
-    <copy>
-    execute ctx_ddl.optimize_index('myindex', 'FULL')
-    </copy>
-    ```
-
-    Now try the previous select from the $I table again. There is now only one entry for 'brown' - the index information for that word has been condensed into a single row.
-
-    ![](./images/after-optimize.png " ")
-
-## Task 4: Automatic SYNC on commit
+## Task 3: Automatic SYNC on commit
 
 Running __SYNC\_INDEX__ manually is efficient, and gives you full control. However, you can have the index synchronize automatically, either by specifying that it should be synchronized on commit, or by specifying a regular time period (such as every minute) to perform the synchronization.
 
@@ -109,7 +78,7 @@ Running __SYNC\_INDEX__ manually is efficient, and gives you full control. Howev
 
     ```
     <copy>
-    create index myindex on mytable(text) indextype is ctxsys.context
+    create index myindex on user_data(note) indextype is ctxsys.context
         parameters ('sync (on commit)')
     </copy>
     ```
@@ -118,7 +87,7 @@ Running __SYNC\_INDEX__ manually is efficient, and gives you full control. Howev
 
     ```
     <copy>
-    insert into mytable values (50, 'brown rabbit' )
+    insert into user_data values (5, 'Peter Williams', 110.68, 'Canceled order from Peter Williams.' )
     </copy>
     ```
 
@@ -126,14 +95,14 @@ Running __SYNC\_INDEX__ manually is efficient, and gives you full control. Howev
 
     ```
     <copy>
-    select * from mytable 
-        where contains ( text, 'rabbit' ) > 0
+    select * from user_data 
+        where contains ( note, 'williams' ) > 0
     </copy>
     ```
 
-    ![search for rabbit succeeds](./images/search-rabbit.png " ")
+    ![search for rabbit succeeds](./images/search-williams.png " ")
 
-## Task 6: Automatic SYNC at time intervals
+## Task 4: Automatic SYNC at time intervals
 
 SYNC(ON COMMIT) is convenient, but not ideal in high transaction-rate situations. It can lead to transactions getting delayed as they wait for the previous SYNC to complete. Instead, you can choose to have SYNC performed at a specific time period.
 
@@ -153,8 +122,8 @@ Time interval SYNCs use database scheduler, so in 19c and before you must have _
 
     ```
     <copy>
-    create index myindex on mytable(text) indextype is ctxsys.context
-        parameters ('sync (every "freq=minutely; interval=1")');
+    create index myindex on user_data(note) indextype is ctxsys.context
+        parameters ('sync (every "freq=minutely; interval=1")')
     </copy>
     ```
 
@@ -162,7 +131,7 @@ Time interval SYNCs use database scheduler, so in 19c and before you must have _
 
     ```
     <copy>
-    insert into mytable values (50, 'white rabbit')
+    insert into user_data values (6, 'Paul Williams', 77.36, 'Returned order from Paul Williams.' )
     </copy>
     ```
 
@@ -171,11 +140,42 @@ Time interval SYNCs use database scheduler, so in 19c and before you must have _
 
     ```
     <copy>
-    select * from mytable 
-        where contains (text, 'white') > 0;
+    select * from user_data 
+        where contains (note, 'paul') > 0;
     </copy>
     ```
-    ![search for white](./images/search-white.png " ")
+    ![search for white](./images/search-paul.png " ")
+
+## Task 5: Optimization
+
+1.  Examine the "dollar I" table.
+
+    Now we've done an update to the index, let's take another look at the list of indexed words in the $I table. Run the following:
+
+    ```
+    <copy>
+    select token_text from dr$myindex$i
+    </copy>
+    ```
+
+    You should see that there are now two entries for the word 'smith'. We won't worry about exactly why, but let's just say it's an example of index fragmentation. 
+    
+    
+2.  Optimize the index
+
+    We can optimize the index using another PL/SQL command in the ctx_ddl package: ctx\_ddl.optimize\_index. That takes two mandatory parameters, the name of the index and the type of optimization to perform. Common values are 'FULL' or 'REBUILD'. We'll go with 'FULL':
+
+    ![](./images/before-optimize.png " ")
+
+    ```
+    <copy>
+    execute ctx_ddl.optimize_index('myindex', 'FULL')
+    </copy>
+    ```
+
+    Now try the previous select from the $I table again. There is now only one entry for 'smith' - the index information for that word has been condensed into a single row.
+
+    ![](./images/after-optimize.png " ")
 
 You should now have a good grounding in creating Oracle Text indexes, running basic queries against those indexes, and maintaining those indexes.
 

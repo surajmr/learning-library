@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will configure your development environment and collect information that will be used later throughout this workshop. The setup script requires certain environment variables to be set, which is the reason for the configuration script (setup.sh). After the environment variables are set, the setup script uses Terraform, Bash, and SQL to automate the creation of all the resources needed for this lab, such as VCNs, an OKE Cluster, API Gateway,an Autonomous database, etc. The script also creates a table and inserts one row, which we will use to make sure the setup was done correctly.
+In this lab, you will configure your development environment and collect information that will be used later throughout this workshop. The setup script requires certain environment variables to be set, which is the reason for the configuration script (setup.sh). After the environment variables are set, the setup script uses Terraform, Bash, and SQL to automate the creation of all the resources needed for this lab, such as VCNs, an OKE Cluster, API Gateway, an Autonomous database, etc. The script also creates a table and inserts one row, which we will use to make sure the setup was done correctly.
 
 Estimated time: 25 minutes
 
@@ -17,7 +17,7 @@ Estimated time: 25 minutes
     * 1 OCI Registry
     * 1 Virtual Cloud Network
 
-Watch this video for a quick walkthrough of this lab
+Watch this video for a quick walk-through of this lab
 
 Mac:
 [](youtube:Zo7r8Ahdhsc)
