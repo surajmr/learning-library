@@ -114,7 +114,7 @@ Therefore, it's important that the dynamic group, policy statements, compartment
 
 - Create a route rule in your exadata subnet, routing traffic to the service gateway you created. For more information on creating network resources in your tenancy, contact your network admin or refer to the lab **Prepare Private Network for OCI Implementation** in the **Introduction to ADB Dedicated for Fleet Administrators** workshop.
 
-    ![This image shows the result of performing the above step.](./images/routeRule.png)
+    ![This image shows the result of performing the above step.](./images/route_rule1.png)
 
 ## Task 3: Create ACDs and ADBs with Customer managed keys in Vault
 
@@ -132,7 +132,7 @@ Every Autonomous Database provisioned in this ACD will be encrypted using a sepa
 
 - However, both the ACD Fleet Admin and the ADB admin/developer may rotate ACD or ADB keys from the database console or via REST APIs.
 
-![This image shows the result of performing the above step.](./images/rotate-ACD.png)
+![This image shows the result of performing the above step.](./images/rotate_acd1.png)
 
 The ADB Key rotation option is under **More Action** drop down button on the database console.
 

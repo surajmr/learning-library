@@ -28,7 +28,7 @@ Before you get started with the development of labs and workshop, check out the 
 * Understand the lab folders' structure.
 * Install and use Atom Editor to and the LiveLabs Markdown templates to develop content.
 * Review a few Markdown features.
-* Perform GitHub operations to commit your developed content to the master (production) learning-library on GitHub.
+* Perform GitHub operations to commit your developed content to the main (production) learning-library on GitHub.
 * Host workshops and labs in LiveLabs and optionally in OHC (User Assistance only).
 
 ### **Lab Breakdown**

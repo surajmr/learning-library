@@ -76,11 +76,11 @@ For questions related to LiveLabs please review this FAQ. If you don't see an an
 
 ## **Development FAQ**
 
-1.  Who is responsible for Oracle learning-library GitHub repository  pull request approvals?
-    - LiveLabs Admin team is responsible for the Oracle learning-library GitHub repository pull request approvals.
+1.  Who is responsible for approving pull requests in the GitHub repositories of Oracle LiveLabs GitHub project?
+    - LiveLabs Admin team is responsible for the Oracle LiveLabs GitHub project's pull request approvals.
 2.  What is the ETA to approve and merge the open pull request by LiveLabs admins?
     - ETA to respond on the pull request is 1-2 business days.
-3.	Any questions related to Oracle learning-library GitHub repository?
+3.	Any questions related to Oracle LiveLabs GitHub project and repositories?
     -	Join the Slack channel: #workshop-authors-help to ask the questions in the channel or mail to [livelabs-help-db_us@oracle.com](livelabs-help-db_us@oracle.com).
 4.	What should I do if I am making major updates to the workshop in production?
     -	If the workshop is in production, and the updates are major (i.e. not fixes, spelling updates, revised screenshots, etc) place the workshop back In Development.
@@ -111,6 +111,8 @@ For questions related to LiveLabs please review this FAQ. If you don't see an an
         - Click “I understand the consequences, delete this repository” button.
     - Delete the same repo you just deleted on Github on your local machine as well.
     - After the successful deletion of repo on Github and local machine, follow the instructions from step 7 in lab 1 - Get Started with Git and Set up the GitHub Environment to rebuilt the repo.
+12. After my pull request is merged, how long does it take for the changes to be reflected in production?
+    Workshops in production use object storage links. The synchronization between the GitHub repositories and object storage happens every night (PST), so your changes will be reflected after the synchronization happens. If you want to update the workshop for upcoming events, please plan ahead.
 
 ## **Workshops FAQ**
 
